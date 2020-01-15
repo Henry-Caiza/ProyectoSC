@@ -126,7 +126,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Equipos</li>
+                            <li class="active">Tranferencia de Jugadores</li>
                         </ol>
 
                         
@@ -136,17 +136,26 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Equipos</h3>
+                            <h3 class="box-title">Transferencia de Jugadores</h3>
                             <form>
-                                <p>Código: <p> <input type="text" name="nombrecompleto" size="5"> </p>
-                                <p>Nombre del Equipo: <p> <input type="text" name="apellidocompleto" size="30"></p>
-                                <p>Nombre del Presidente: <p> <input type="text" name="cedula" size="30"> </p>
-                                <p>Localidad: <p> <input type="text" name="equipo" size="30"></p>
-                                <p>Teléfono: <p> <input type="text" name="numeroasignado" size="15"> </p>
-                                <p>Email: <p> <input type="text" name="pais" size="30"></p>
-                                <p>Número Máximo de Jugadores:<p> <input type="text" name="provincia" size="3"> </p>
+                                <p>Ingrese la cédula del jugador: <p> <input type="text" name="nombrejugador" size="30">
+                                <button type="button">
+                                    <img src="../images/demo/iconobuscar.png" width="28" height="24" style="vertical-align: middle">
+                                    Buscar
+                                  </button>
+                                </p>
                                 
-                                <input type="button" value="Guardar">
+                                <p>Equipo de Destino</p>
+                                <select name="men2u">
+                                    <option value="0">Elegir equipo</option>
+                                    <option value="1">Equipo 2</option>
+                                    <option value="2">Equipo 3</option>
+                                    <option value="3">Equipo 4</option>
+                                    <option value="4">Equipo 5</option>
+                                    <option value="5">Equipo 6</option>
+                                  </select>
+                                </p>
+                                <input type="button" value="Transferir">
                                 <input type="button" value="Cancelar">
                             </form>
                                 
