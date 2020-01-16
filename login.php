@@ -20,14 +20,13 @@ $nr = mysqli_num_rows($query);
 if($nr == 1)
 {
   //header("Location: pagina.html")
-  header("Location: ");
-  echo "Bienvenido:" .$nombre;
+  header("Location: html/dashboard.html ");
   
 }
 else if ($nr == 0) 
 {
-	header("Location:");
-	//echo "No ingreso"; 
+	//header("Location: error");
+	echo "No ingreso"; 
 }
 	
 
