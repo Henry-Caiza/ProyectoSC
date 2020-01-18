@@ -74,18 +74,28 @@
                     <li style="padding: 70px 0 0;">
                         <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
-                    </li>
-                    <li>
-                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Registrar Personal</a>
-                    </li>
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Registrar Equipos</a>
+                                aria-hidden="true"></i>Campeonato</a>
+                    </li>
+
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Resultados</a>
+                    </li>
+
+                    <li>
+                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
+                                aria-hidden="true"></i>Personal</a>
+                    </li>
+                    
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Equipos</a>
                     </li>
                     <li>
                         <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
-                                aria-hidden="true"></i>Registrar Jugadores</a>
+                                aria-hidden="true"></i>Jugadores</a>
                     </li>
                     <li>
                         <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
