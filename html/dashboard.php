@@ -114,7 +114,7 @@
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
                     <li>
-                        <a href="transferencias.html" class="waves-effect"><i class="fa  fa-retweet fa-fw"
+                        <a href="transferencias.phpgi" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>
