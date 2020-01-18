@@ -20,7 +20,7 @@ $nr = mysqli_num_rows($query);
 if($nr == 1)
 {
   //header("Location: pagina.html")
-  header("Location: html/dashboard.html ");
+  header("Location: html/dashboard.php ");
   
 }
 else if ($nr == 0) 
