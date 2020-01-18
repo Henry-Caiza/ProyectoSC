@@ -144,7 +144,6 @@
                             $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                             ?>
                              <div class="contenedor">
-		<h2>CRUD EN PHP CON MYSQL</h2>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
 				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
