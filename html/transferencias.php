@@ -95,7 +95,7 @@
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
                     <li>
-                        <a href="transferencias.html" class="waves-effect"><i class="fa  fa-retweet fa-fw"
+                        <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>

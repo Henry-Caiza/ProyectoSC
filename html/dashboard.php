@@ -90,15 +90,15 @@
                 </div>
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
-                        <a href="dashboard.html" class="waves-effect"><i class="fa fa-clock-o fa-fw"
+                        <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
                     </li>
                     <li>
-                        <a href="Registro_Personal.html" class="waves-effect"><i class="fa fa-user fa-fw"
+                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Registrar Personal</a>
                     </li>
                     <li>
-                        <a href="registrarequipo.html" class="waves-effect"><i class="fa fa-shield fa-fw"
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Registrar Equipos</a>
                     </li>
                     <li>
@@ -106,23 +106,23 @@
                                 aria-hidden="true"></i>Registrar Jugadores</a>
                     </li>
                     <li>
-                        <a href="Registrar_calendario.html" class="waves-effect"><i class="fa fa-columns fa-fw"
+                        <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
                                 aria-hidden="true"></i>Calendario</a>
                     </li>
                     <li>
-                        <a href="tablas.html" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
                     <li>
-                        <a href="transferencias.phpgi" class="waves-effect"><i class="fa  fa-retweet fa-fw"
-                                aria-hidden="true"></i>Transferencias</a>
+                        <a href="" href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
+                     aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>
-                        <a href="Reportes.html" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
+                        <a href="Reportes.php" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
                                 aria-hidden="true"></i>Reportes</a>
                     </li>
                     <li>
-                        <a href="Carnets.html" class="waves-effect"><i class="fa fa-credit-card fa-fw"
+                        <a href="Carnets.php" class="waves-effect"><i class="fa fa-credit-card fa-fw"
                                 aria-hidden="true"></i>Carnets</a>
                     </li>
                    

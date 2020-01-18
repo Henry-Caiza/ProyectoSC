@@ -44,17 +44,13 @@
                     <!-- Logo -->
                     <a class="logo" href="dashboard.html">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../plugins/images/admin-logo.png" alt="home"
+
+                            <!--This is dark logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="dark-logo" />
-                            <!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home"
+                            <!--This is light logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="light-logo" />
                         </b>
-                        <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home"
-                                class="dark-logo" />
-                            <!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home"
-                                class="light-logo" />
-                        </span> </a>
+                        </a>  
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -75,39 +71,39 @@
                 </div>
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
-                        <a href="dashboard.html" class="waves-effect"><i class="fa fa-clock-o fa-fw"
+                        <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
                     </li>
                     <li>
-                        <a href="Registro_Personal.html" class="waves-effect"><i class="fa fa-user fa-fw"
+                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Registrar Personal</a>
                     </li>
                     <li>
-                        <a href="registrarequipo.html" class="waves-effect"><i class="fa fa-shield fa-fw"
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Registrar Equipos</a>
                     </li>
                     <li>
-                        <a href="registrar_jugadores.html" class="waves-effect"><i class="fa fa-users fa-fw"
+                        <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
                                 aria-hidden="true"></i>Registrar Jugadores</a>
                     </li>
                     <li>
-                        <a href="Registrar_calendario.html" class="waves-effect"><i class="fa fa-columns fa-fw"
+                        <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
                                 aria-hidden="true"></i>Calendario</a>
                     </li>
                     <li>
-                        <a href="tablas.html" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
                     <li>
-                        <a href="transferencias.html" class="waves-effect"><i class="fa  fa-retweet fa-fw"
+                        <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>
-                        <a href="Reportes.html" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
+                        <a href="Reportes.php" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
                                 aria-hidden="true"></i>Reportes</a>
                     </li>
                     <li>
-                        <a href="Carnets.html" class="waves-effect"><i class="fa fa-credit-card fa-fw"
+                        <a href="Carnets.php" class="waves-effect"><i class="fa fa-credit-card fa-fw"
                                 aria-hidden="true"></i>Carnets</a>
                     </li>
                    
