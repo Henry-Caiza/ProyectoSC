@@ -2,27 +2,30 @@
 	include_once 'conexion.php';
 	
 	if(isset($_POST['guardar'])){
-		$nombre=$_POST['nombre'];
-		$apellidos=$_POST['apellidos'];
-		$telefono=$_POST['telefono'];
-		$ciudad=$_POST['ciudad'];
-		$correo=$_POST['correo'];
+		$id=$_POST['id'];
+		$fechaJuego=$_POST['fechaJuego'];
+		$horario=$_POST['horario'];
+		$cancha=$_POST['cancha'];
+        $nombreArb=$_POST['nombreArbitro'];
+        $vocalia=$_POST['eqVocalia'];
+		$equipo1=$_POST['equipo1'];
+		$equipo2=$_POST['equipo2'];
 
-		if(!empty($nombre) && !empty($apellidos) && !empty($telefono) && !empty($ciudad) && !empty($correo) ){
-			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
-				echo "<script> alert('Correo no valido');</script>";
-			}else{
-				$consulta_insert=$con->prepare('INSERT INTO clientes(nombre,apellidos,telefono,ciudad,correo) VALUES(:nombre,:apellidos,:telefono,:ciudad,:correo)');
+		if(!empty($id) && !empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($nombreArb)  && !empty($vocalia) && !empty($equipo1) && !empty($equipo2)){
+			$consulta_insert=$conn->prepare('INSERT INTO calendario(id,fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:id,:fechaJuego,:horario,:cancha,:nombreArbitro,:eqVocalia,:equipo1,:equipo2)');
 				$consulta_insert->execute(array(
-					':nombre' =>$nombre,
-					':apellidos' =>$apellidos,
-					':telefono' =>$telefono,
-					':ciudad' =>$ciudad,
-					':correo' =>$correo
+					':ide' =>$id,
+					':fechaJuego' =>$fechaJuego,
+					':horario' =>$horario,
+                    ':cancha' =>$cancha,
+                    ':nombreArbitro' =>$nombreArb,
+					':eqVocalia' =>$vocalia,
+					':equipo1' =>$equipo1,
+					':equipo2' =>$equipo2
 				));
-				header('Location: index.php');
-			}
-		}else{
+			header('Location: index.php');
+        }
+        else{
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
 
@@ -39,14 +42,14 @@
 </head>
 <body>
 	<div class="contenedor">
-		<h2>Regristrar calendario</h2>
+		<h2>Registrar calendario</h2>
 		<form action="" method="post">
 			<div class="form-group">
 				<input type="text" name="codigoPart" placeholder="Código de partido" class="input__text">
-				<input type="text" name="fecha" placeholder="Fecha de juego" class="input__text">
+				<input type="date" name="fecha"  placeholder="Cancha" class="input__text">
 			</div>
 			<div class="form-group">
-				<input type="text" name="horario" placeholder="Horario" class="input__text">
+				<input type="time" name="horario" placeholder="Horario" class="input__text">
 				<input type="text" name="cancha" placeholder="Cancha" class="input__text">
 			</div>
 			<div class="form-group">

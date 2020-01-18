@@ -171,7 +171,7 @@
             <td><font size = "2">  Horario</font> </td>
             <td><font size = "2">  Cancha</font> </td>	
             <td><font size = "2">  Nombre Árbitro</font> </td>	
-            <td><font size = "2">  Vocalia</font> </td>		
+            <td><font size = "2">  Vocalía</font> </td>		
 			<td><font size = "2">  Equipo 1</font> </td>	
             <td><font size = "2">  Equipo 2</font> </td>	
 			<td colspan="2" >Accion  </td>
