@@ -19,6 +19,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -154,27 +155,58 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!--------------REGISTRO DE DATOS DEL PERSONAL ------>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
+                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title">Registro de Personal</h3>
-                            <form>
-                                <p>Nombres: <p> <input type="text" name="nombrecompleto" size="25">  </p>
-                                <p>Apellidos: <p> <input type="text" name="apellidocompleto" size="25"> </p>
-                                <p>Cédula:<p>  <input  type="text" name="cedula" size="20"> </p>
-                                <p>Email: <p> <input type="text" name="email" size="20"> </p>
-                                <p>Teléfono: <p> <input type="text" name="telefono" size="20"> </p>
-                                <p>Dirección: <p> <input type="text" name="direccion" size="40" > </p>
-                                <p>
-                                    <button type="button">
-                                        <img src="../images/demo/iconoguardar.png" width="23" height="23" style="vertical-align: middle">
-                                        Guardar
-                                    </button>
-                                    <input type="button" value="Cancelar">
-                                </p>
-                                
-                            </form> 
+                            <?php
+                            include 'conexion.php';
+                            
+                            $resultado=mysqli_query($conn,"SELECT * FROM  personal ");
+                            ?>
+                             <div class="contenedor">
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+				<input type="text" name="buscar" placeholder="Buscar Nombres o Apellidos" 
+				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
+				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+				<a href="CRUD/insert_personal.php" class="btn btn__nuevo">Nuevo</a>
+			</form>
+		</div>
+		<table> 
+			<tr class="head">
+			<td><font size = "2">  Id</font> </td>
+            <td><font size = "2">  Nombres</font> </td>
+            <td><font size = "2">  Apellidos</font> </td>	
+            <td><font size = "2">  Cédula</font> </td>	
+            <td><font size = "2">  Email</font> </td>		
+            <td><font size = "2">  Teléfono</font> </td>	
+            <td><font size = "2">  Dirección</font> </td>	
+            <td><font size = "2">  Cargo</font> </td>	
+			<td colspan="2" >Acción  </td>
+			
+			</tr>
 
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+                 <td><?php echo $filas['Id'] ?></td>
+                  <td><?php echo $filas['nombre'] ?></td>
+                  <td><?php echo $filas['apellido'] ?></td>
+                  <td><?php echo $filas['cedula'] ?></td>
+                  <td><?php echo $filas['email'] ?></td>
+				  <td><?php echo $filas['telefono'] ?></td>
+                  <td><?php echo $filas['direccion'] ?></td>
+                  <td><?php echo $filas['cargo'] ?></td>
+					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+				</tr>
+				<?php } ?>
+
+		</table>
                         </div>
                     </div>
 
