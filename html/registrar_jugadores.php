@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-    <title>Registrar Equipos</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
+    <title>Registrar Jugadores</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -127,7 +127,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Equipos</li>
+                            <li class="active">Registrar Jugadores</li>
                         </ol>
 
                         
@@ -137,20 +137,19 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Equipos</h3>
+                            <h3 class="box-title">Registro de Jugadores</h3>
                             <?php
                             include 'conexion.php';
                             
                             $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                             ?>
                              <div class="contenedor">
-		<h2>CRUD EN PHP CON MYSQL</h2>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
 				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="insert.php" class="btn btn__nuevo">Nuevo</a>
+				<a href="CRUD/insert.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
 		<table> 
