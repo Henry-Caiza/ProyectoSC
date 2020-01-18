@@ -19,6 +19,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -157,15 +158,54 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Calendario</h3>
-                            Partido: <input type="text" name="nombrecompleto"> </p>
-                            <p>
-                            Fecha 1: <input type="text" name="apellidocompleto"></p>
-                            <p>
-                                <button type="button">
-                                    <img src="../images/demo/iconoguardar.png" width="23" height="23" style="vertical-align: middle">
-                                    Guardar
-                                </button>
+                            <h3 class="box-title">Calendario</h3>
+                            <?php
+                            include 'conexion.php';
+                            
+                            $resultado=mysqli_query($conn,"SELECT * FROM  calendario ");
+                            ?>
+                             <div class="contenedor">
+		<h2>CALENDARIO</h2>
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
+				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+				<a href="./CRUD/insert_calendario.php" class="btn btn__nuevo">Nuevo</a>
+			</form>
+		</div>
+		<table> 
+			<tr class="head">
+            <td><font size = "2">  Código de Partido</font> </td>
+			<td><font size = "2">  Fecha</font> </td>
+            <td><font size = "2">  Horario</font> </td>
+            <td><font size = "2">  Cancha</font> </td>	
+            <td><font size = "2">  Nombre Árbitro</font> </td>	
+            <td><font size = "2">  Vocalia</font> </td>		
+			<td><font size = "2">  Equipo 1</font> </td>	
+            <td><font size = "2">  Equipo 2</font> </td>	
+			<td colspan="2" >Accion  </td>
+			
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+				 <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['fechaJuego'] ?></td>
+                  <td><?php echo $filas['horario'] ?></td>
+                  <td><?php echo $filas['cancha'] ?></td>
+                  <td><?php echo $filas['nombreArbitro'] ?></td>
+				  <td><?php echo $filas['eqVocalia'] ?></td>
+				  <td><?php echo $filas['equipo1'] ?></td>
+                  <td><?php echo $filas['equipo2'] ?></td>
+					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+				</tr>
+				<?php } ?>
+
+		</table>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>
