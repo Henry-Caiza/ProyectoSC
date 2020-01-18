@@ -34,28 +34,27 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Registrar Calendario</title>
+	<title>Nuevo Cliente</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 </head>
 <body>
 	<div class="contenedor">
-		<h2>Regristrar calendario</h2>
+		<h2>INGRESAR EQUIPO</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="codigoPart" placeholder="Código de partido" class="input__text">
-				<input type="text" name="fecha" placeholder="Fecha de juego" class="input__text">
+				<input type="text" name="nombre" placeholder="Codigo" class="input__text">
+				<input type="text" name="apellidos" placeholder="Telefonoe" class="input__text">
 			</div>
 			<div class="form-group">
-				<input type="text" name="horario" placeholder="Horario" class="input__text">
-				<input type="text" name="cancha" placeholder="Cancha" class="input__text">
+				<input type="text" name="telefono" placeholder="Nombre Club" class="input__text">
+                <input type="text" name="ciudad" placeholder="Email" class="input__text">
 			</div>
 			<div class="form-group">
-                <input type="text" name="nombre_arb" placeholder="Nombre de Árbitro" class="input__text">
-                <input type="text" name="vocalia" placeholder="Vocalía" class="input__text">
+                <input type="text" name="correo" placeholder="Nombre Presidente" class="input__text">
+                <input type="text" name="ciudad" placeholder="Numero Maximo Jugadores" class="input__text">
             </div>
             <div class="form-group">
-                <input type="text" name="equipo1" placeholder="Equipo 1" class="input__text">
-                <input type="text" name="equipo2" placeholder="Equipo 2" class="input__text">
+                <input type="text" name="correo" placeholder="Loacalidad" class="input__text">
 			</div>
 			<div class="btn__group">
 				<a href="index.php" class="btn btn__danger">Cancelar</a>
