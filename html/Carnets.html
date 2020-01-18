@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Registrar Equipos</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>Equipos</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -19,8 +19,6 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
-
-    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
  
 </head>
 
@@ -44,14 +42,15 @@
             <div class="navbar-header">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="dashboard.php">
+                    <a class="logo" href="dashboard.html">
                         <!-- Logo icon image, you can use font-icon also --><b>
+
                             <!--This is dark logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="dark-logo" />
                             <!--This is light logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="light-logo" />
                         </b>
-                        </a>
+                        </a>  
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -72,39 +71,39 @@
                 </div>
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
-                        <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
+                        <a href="dashboard.html" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
                     </li>
                     <li>
-                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
+                        <a href="Registro_Personal.html" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Registrar Personal</a>
                     </li>
                     <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                        <a href="registrarequipo.html" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Registrar Equipos</a>
                     </li>
                     <li>
-                        <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
+                        <a href="registrar_jugadores.html" class="waves-effect"><i class="fa fa-users fa-fw"
                                 aria-hidden="true"></i>Registrar Jugadores</a>
                     </li>
                     <li>
-                        <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
+                        <a href="Registrar_calendario.html" class="waves-effect"><i class="fa fa-columns fa-fw"
                                 aria-hidden="true"></i>Calendario</a>
                     </li>
                     <li>
-                        <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="tablas.html" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
                     <li>
-                        <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
+                        <a href="transferencias.html" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>
-                        <a href="Reportes.php" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
+                        <a href="Reportes.html" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
                                 aria-hidden="true"></i>Reportes</a>
                     </li>
                     <li>
-                        <a href="Carnets.php" class="waves-effect"><i class="fa fa-credit-card fa-fw"
+                        <a href="Carnets.html" class="waves-effect"><i class="fa fa-credit-card fa-fw"
                                 aria-hidden="true"></i>Carnets</a>
                     </li>
                    
@@ -123,7 +122,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Equipos</li>
+                            <li class="active">Tranferencia de Jugadores</li>
                         </ol>
 
                         
@@ -133,55 +132,30 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            
+                            <h3 class="box-title">Transferencia de Jugadores</h3>
+                            <form>
+                                <p>Ingrese la cédula del jugador: <p> <input type="text" name="nombrejugador" size="30">
+                                <button type="button">
+                                    <img src="../images/demo/iconobuscar.png" width="28" height="24" style="vertical-align: middle">
+                                    Buscar
+                                  </button>
+                                </p>
+                                
+                                <p>Equipo de Destino</p>
+                                <select name="men2u">
+                                    <option value="0">Elegir equipo</option>
+                                    <option value="1">Equipo 2</option>
+                                    <option value="2">Equipo 3</option>
+                                    <option value="3">Equipo 4</option>
+                                    <option value="4">Equipo 5</option>
+                                    <option value="5">Equipo 6</option>
+                                  </select>
+                                </p>
+                                <input type="button" value="Transferir">
+                                <input type="button" value="Cancelar">
+                            </form>
                                 
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Equipos</h3>
-                            <?php
-                            include 'conexion.php';
-                            
-                            $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
-                            ?>
-                             <div class="contenedor">
-		<div class="barra__buscador">
-			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
-				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
-				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="CRUD/insert_equipos.php" class="btn btn__nuevo">Nuevo</a>
-			</form>
-		</div>
-		<table> 
-			<tr class="head">
-			<td><font size = "2">  Codigo</font> </td>
-            <td><font size = "2">  Nombre Club</font> </td>
-            <td><font size = "2">  Nombre Presidente</font> </td>	
-            <td><font size = "2">  Localidad</font> </td>		
-            <td><font size = "2">  Telefono</font> </td>	
-            <td><font size = "2">  Email</font> </td>	
-            <td><font size = "2">  Numero Maximo de jugadores</font> </td>	
-			<td colspan="2" >Accion  </td>
-			
-			</tr>
-
-			
-			<?php while($filas=mysqli_fetch_assoc($resultado)) {
-                                        ?>
-				<tr >
-				 <td><?php echo $filas['cedula'] ?></td>
-                  <td><?php echo $filas['nombres'] ?></td>
-                  <td><?php echo $filas['apellidos'] ?></td>
-                  <td><?php echo $filas['equipo'] ?></td>
-                  <td><?php echo $filas['numeroasig'] ?></td>
-				  <td><?php echo $filas['ciudad'] ?></td>
-				  <td><?php echo $filas['telefono'] ?></td>
-
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
-				</tr>
-				<?php } ?>
-
-		</table>
                         </div>
                     </div>
 
