@@ -88,7 +88,7 @@
                                 aria-hidden="true"></i>Registrar Equipos</a>
                     </li>
                     <li>
-                        <a href="registrar_jugadores.html" class="waves-effect"><i class="fa fa-users fa-fw"
+                        <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
                                 aria-hidden="true"></i>Registrar Jugadores</a>
                     </li>
                     <li>

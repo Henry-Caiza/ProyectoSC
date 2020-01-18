@@ -102,7 +102,7 @@
                                 aria-hidden="true"></i>Registrar Equipos</a>
                     </li>
                     <li>
-                        <a href="registrar_jugadores.html" class="waves-effect"><i class="fa fa-users fa-fw"
+                        <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
                                 aria-hidden="true"></i>Registrar Jugadores</a>
                     </li>
                     <li>
@@ -139,12 +139,12 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Registrar Equipos</h4>
+                        <h4 class="page-title">SISTEMA DE CAMPEONATO DE FÚTBOL</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     
                         <ol class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Inicio</a></li>
                         
                         </ol>
                     </div>
