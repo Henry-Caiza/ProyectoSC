@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-    <title>Registrar Jugadoores</title>
+    <title>Registrar Equipos</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -19,12 +19,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+ 
 </head>
 
 <body class="fix-header">
@@ -54,7 +49,7 @@
                             <!--This is light logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="light-logo" />
                         </b>
-                         </a>
+                        </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -65,14 +60,8 @@
                     
                 </ul>
             </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
         </nav>
-        <!-- End Top Navigation -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+        
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
@@ -120,10 +109,6 @@
                 </ul>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
         <!-- Page Content -->
         <!-- ============================================================== -->
         <div id="page-wrapper">
@@ -136,41 +121,69 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Jugadores</li>
+                            <li class="active">Registrar Equipos</li>
                         </ol>
 
                         
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Jugadores</h3>
-                            <form>
-                                <p>Nombres: <p> <input type="text" name="nombrecompleto" size="30"> </p>
-                                <p>Apellidos: <p> <input type="text" name="apellidocompleto" size="30"></p>
-                                <p>Cédula: <p> <input type="text" name="cedula" size="20"> </p>
-                                <p>Equipo: <p> <input type="text" name="equipo" size="30"></p>
-                                <p>Número Asignado: <p> <input type="text" name="numeroasignado" size="10"> </p>
-                                <p>País: <p> <input type="text" name="pais" size="30"></p>
-                                <p>Provincia:<p> <input type="text" name="provincia" size="30"> </p>
-                                <p>Ciudad: <p> <input type="text" name="ciudad" size="30"></p>
-                                <p>Dirección: <p> <input type="text" name="direccion" size="40"></p>
-                                <p>Estado del Jugador:</p>
-                                <select name="menu2">
-                                    <option value="0">Elegir estado</option>
-                                    <option value="1">Disponible</option>
-                                    <option value="2">No Disponible</option>
-                                </select>
-                                </p>
-                                <button type="button">
-                                    <img src="../images/demo/iconoguardar.png" width="23" height="23" style="vertical-align: middle">
-                                    Guardar
-                                </button>
-                                <input type="button" value="Cancelar">
-                            </form>
+                            <h3 class="box-title">Registro de Equipos</h3>
+                            <?php
+                            include 'conexion.php';
+                            
+                            $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
+                            ?>
+                                
+                               <div>
+                                <table class="egt">
+                                    <thead>
+                                        <tr>
+                                            <th>CEDULA</th>
+                                            <th>NOMBRES</th>
+                                            <th>APELLIDOS</th>	
+                                            <th>EQUIPOS</th>	
+                                            <th>NUMERO ASIGNADO</th>	
+                                            <th>PAIS</th>
+                                            <th>PROVINCIA</th>	
+                                            <th>CIUDAD</th>	
+                                            <th>DIRECCION</th>	
+                                            <th>TELEFONO</th>	
+                                            <th>POSICION</th>	
+                                            <th>FECHA DE NACIMIENTO</th>	
+                                            <th>INSTRUCCION</th>	
+                                            <th>ESTADO DE TRANSFERENCIA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $filas['cedula'] ?></td>
+                                            <td><?php echo $filas['nombres'] ?></td>
+                                            <td><?php echo $filas['apellidos'] ?></td>
+                                            <td><?php echo $filas['equipo'] ?></td>
+                                            <td><?php echo $filas['numeroasig'] ?></td>
+                                            <td><?php echo $filas['pais'] ?></td>
+                                            <td><?php echo $filas['provincia'] ?></td>
+                                            <td><?php echo $filas['direccion'] ?></td>
+                                            <td><?php echo $filas['telefono'] ?></td>
+                                            <td><?php echo $filas['posicion'] ?></td>
+                                            <td><?php echo $filas['fechanac'] ?></td>
+                                            <td><?php echo $filas['instruccion'] ?></td>
+                                            <td><?php echo $filas['estadotransf'] ?></td>
+                                            <td>
+                                            <a href="">Editar</a>
+                                            <a href="">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                                </div>
                                 
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
@@ -180,7 +193,7 @@
                 </div>
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
+            <footer class="footer text-center"> 2020 &copy; CopyRigth SOFTWARE </footer>
         </div>
         <!-- ============================================================== -->
         <!-- End Page Content -->
