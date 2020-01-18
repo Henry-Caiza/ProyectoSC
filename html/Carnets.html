@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-    <title>Equipos</title>
+    <title>Carnets</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -122,7 +122,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Tranferencia de Jugadores</li>
+                            <li class="active">Carnets</li>
                         </ol>
 
                         
@@ -132,34 +132,22 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Transferencia de Jugadores</h3>
+                            <h3 class="box-title">Carnets</h3>
                             <form>
-                                <p>Ingrese la cédula del jugador: <p> <input type="text" name="nombrejugador" size="30">
-                                <button type="button">
-                                    <img src="../images/demo/iconobuscar.png" width="28" height="24" style="vertical-align: middle">
-                                    Buscar
-                                  </button>
-                                </p>
-                                
-                                <p>Equipo de Destino</p>
-                                <select name="men2u">
-                                    <option value="0">Elegir equipo</option>
-                                    <option value="1">Equipo 2</option>
-                                    <option value="2">Equipo 3</option>
-                                    <option value="3">Equipo 4</option>
-                                    <option value="4">Equipo 5</option>
-                                    <option value="5">Equipo 6</option>
-                                  </select>
-                                </p>
+                                <p>Código: <p> <input type="text" name="cedula" size="20"> </p>
+                                <p>Nombres: <p> <input type="text" name="nombrecompleto" size="30"> </p>
+                                <p>Apellidos: <p> <input type="text" name="apellidocompleto" size="30"></p>
+                                <p>Fecha de Nacimiento: <p> <input type="text" name="fechanacimiento" size="20"> </p>
+                                <p>Cédula: <p> <input type="text" name="cedula" size="20"> </p>
+                                <p>Equipo: <p> <input type="text" name="equipo" size="30"></p>
+                                <p>Número Asignado: <p> <input type="text" name="numeroasignado" size="10"> </p>
+                                <p>Validez del documento: <p> <input type="text" name="validezdocumento" size="30"></p>
                                 <input type="button" value="Transferir">
                                 <input type="button" value="Cancelar">
                             </form>
-                                
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>
-
-                    
                 </div>
             </div>
             <!-- /.container-fluid -->
