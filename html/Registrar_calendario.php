@@ -161,16 +161,16 @@
 				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="insert.php" class="btn btn__nuevo">Nuevo</a>
+				<a href="./CRUD/insert_calendario.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
 		<table> 
 			<tr class="head">
-            <td><font size = "2">  Codigo de Partido</font> </td>
+            <td><font size = "2">  Código de Partido</font> </td>
 			<td><font size = "2">  Fecha</font> </td>
             <td><font size = "2">  Horario</font> </td>
             <td><font size = "2">  Cancha</font> </td>	
-            <td><font size = "2">  Nombre Arbitro</font> </td>	
+            <td><font size = "2">  Nombre Árbitro</font> </td>	
             <td><font size = "2">  Vocalia</font> </td>		
 			<td><font size = "2">  Equipo 1</font> </td>	
             <td><font size = "2">  Equipo 2</font> </td>	
