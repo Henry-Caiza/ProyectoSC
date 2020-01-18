@@ -17,8 +17,14 @@
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- color CSS -->
+    <!-- Tabla CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
+
+
+    
+    
  
 </head>
 
@@ -137,54 +143,56 @@
                             
                             $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                             ?>
-                                
-                               <div>
-                                <table class="egt">
-                                    <thead>
-                                        <tr>
-                                            <th>CEDULA</th>
-                                            <th>NOMBRES</th>
-                                            <th>APELLIDOS</th>	
-                                            <th>EQUIPOS</th>	
-                                            <th>NUMERO ASIGNADO</th>	
-                                            <th>PAIS</th>
-                                            <th>PROVINCIA</th>	
-                                            <th>CIUDAD</th>	
-                                            <th>DIRECCION</th>	
-                                            <th>TELEFONO</th>	
-                                            <th>POSICION</th>	
-                                            <th>FECHA DE NACIMIENTO</th>	
-                                            <th>INSTRUCCION</th>	
-                                            <th>ESTADO DE TRANSFERENCIA</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php while($filas=mysqli_fetch_assoc($resultado)) {
+                             <div class="contenedor">
+		<h2>CRUD EN PHP CON MYSQL</h2>
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
+				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+				<a href="insert.php" class="btn btn__nuevo">Nuevo</a>
+			</form>
+		</div>
+		<table> 
+			<tr class="head">
+			<td><font size = "2">  Cedula</font> </td>
+            <td><font size = "2">  Nombres</font> </td>
+            <td><font size = "2">  Apellidos</font> </td>	
+            <td><font size = "2">  Equipo</font> </td>	
+            <td><font size = "2">  Numero Asignado</font> </td>		
+			<td><font size = "2">  Ciudad</font> </td>	
+            <td><font size = "2">  Telefono</font> </td>	
+            <td><font size = "2">  Direccion</font> </td>	
+            <td><font size = "2">  Posicion</font> </td>	
+            <td><font size = "2">  Fecha Nacimiento</font> </td>	
+			<td><font size = "2">  Transferencia Estado</font> </td>
+			<td colspan="2" >Accion  </td>
+			
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                                         ?>
-                                        <tr>
-                                            <td><?php echo $filas['cedula'] ?></td>
-                                            <td><?php echo $filas['nombres'] ?></td>
-                                            <td><?php echo $filas['apellidos'] ?></td>
-                                            <td><?php echo $filas['equipo'] ?></td>
-                                            <td><?php echo $filas['numeroasig'] ?></td>
-                                            <td><?php echo $filas['pais'] ?></td>
-                                            <td><?php echo $filas['provincia'] ?></td>
-                                            <td><?php echo $filas['direccion'] ?></td>
-                                            <td><?php echo $filas['telefono'] ?></td>
-                                            <td><?php echo $filas['posicion'] ?></td>
-                                            <td><?php echo $filas['fechanac'] ?></td>
-                                            <td><?php echo $filas['instruccion'] ?></td>
-                                            <td><?php echo $filas['estadotransf'] ?></td>
-                                            <td>
-                                            <a href="">Editar</a>
-                                            <a href="">Eliminar</a>
-                                            </td>
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                                </div>
-                                
+				<tr >
+				 <td><?php echo $filas['cedula'] ?></td>
+                  <td><?php echo $filas['nombres'] ?></td>
+                  <td><?php echo $filas['apellidos'] ?></td>
+                  <td><?php echo $filas['equipo'] ?></td>
+                  <td><?php echo $filas['numeroasig'] ?></td>
+				  <td><?php echo $filas['ciudad'] ?></td>
+				  <td><?php echo $filas['telefono'] ?></td>
+                  <td><?php echo $filas['direccion'] ?></td>
+                  <td><?php echo $filas['posicion'] ?></td>
+                  <td><?php echo $filas['fechanac'] ?></td>
+                  <td><?php echo $filas['estadotransf'] ?></td>
+					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+				</tr>
+				<?php } ?>
+
+		</table>
+	</div>
+</body>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>

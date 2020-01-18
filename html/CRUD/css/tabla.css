@@ -1,12 +1,12 @@
 *{
-    padding: 5px;
+    padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
 
 body{
     font-family: 'Arial',sans-serif;
-    font-size: 5px;
+    font-size: 15px;
     background: #f2f2f2;
 }
 
@@ -115,7 +115,7 @@ table{
 }
 
 table .head{
-    background: rgb(143, 4, 4);
+    background: rgb(71, 70, 70);
 }
 table .head td{
     color: #fff;
@@ -126,7 +126,7 @@ table .head td{
 }
 
 table tr td{
-    border:1px solid rgb(19, 18, 18);
+    border:1px solid rgb(0, 0, 0);
     padding: 4px;
     font-size: 14px;
     color: #555;
@@ -135,7 +135,7 @@ table tr td{
 .btn__update{
     display: inline-block;
     font-size: 14px;
-    background: #0bff85;
+    background: #1f1072;
     color: #fff;
     border-radius: 5px;
     padding: 5px 5px;
@@ -144,7 +144,7 @@ table tr td{
 .btn__delete{
     display: inline-block;
     font-size: 14px;
-    background: #1102df;
+    background: #b10707;
     color: #fff;
     border-radius: 5px;
     padding: 5px 5px;
