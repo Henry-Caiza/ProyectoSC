@@ -193,7 +193,7 @@
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                                         ?>
 				<tr >
-                 <td><?php echo $filas['Id'] ?></td>
+                  <td><?php echo $filas['Id'] ?></td>
                   <td><?php echo $filas['nombre'] ?></td>
                   <td><?php echo $filas['apellido'] ?></td>
                   <td><?php echo $filas['cedula'] ?></td>

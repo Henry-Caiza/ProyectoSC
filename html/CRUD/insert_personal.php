@@ -1,7 +1,7 @@
 <?php 
 	include_once 'conexion.php';
-	
-	if(isset($_POST['guardar'])){
+    if(isset($_POST['guardar']))
+    {
         $Id=$_POST['Id'];
 		$nombre=$_POST['nombre'];
         $apellido=$_POST['apellido'];
@@ -16,15 +16,18 @@
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
 				$consulta_insert=$conn->prepare('INSERT INTO personal VALUES(Id,nombre,apellido,cedula,email,telefono,direccion,cargo) VALUES(:Id,:nombre,:apellido,:cedula,:email,:telefono,:direccion,:cargo)');
-                $consulta_insert->bindValue('Id',$Id);
-                $consulta_insert->bindValue('nombre' ,$nombre);
-                $consulta_insert->bindValue('apellido' ,$apellido);
-                $consulta_insert->bindValue('cedula' ,$cedula);
-                $consulta_insert->bindValue('email' ,$email);
-                $consulta_insert->bindValue('telefono' ,$telefono);
-                $consulta_insert->bindValue('direccion' ,$direccion);
-                $consulta_insert->bindValue('cargo' ,$cargo);
-                $consulta_insert->is_executable();
+                $consulta_insert->bind_param(array(
+                    ':Id'=>$Id,
+                    ':nombre'=>$nombre,
+                    ':apellido'=>$apellido,
+                    ':cedula'=>$cedula,
+                    ':email'=>$email,
+                    ':telefono'=>$telefono,
+                    ':direccion'=>$direccion,
+                    ':cargo'=>$cargo
+                ));
+                $consulta_insert->execute();
+            
 				header('Location: insert_personal.php');
 			}
 		}else{
@@ -35,6 +38,9 @@
 
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
