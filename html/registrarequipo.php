@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
     <title>Registrar Equipos</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,8 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
  
 </head>
 
@@ -72,18 +74,28 @@
                     <li style="padding: 70px 0 0;">
                         <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
-                    </li>
-                    <li>
-                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Registrar Personal</a>
-                    </li>
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Registrar Equipos</a>
+                                aria-hidden="true"></i>Campeonato</a>
+                    </li>
+
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Resultados</a>
+                    </li>
+
+                    <li>
+                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
+                                aria-hidden="true"></i>Personal</a>
+                    </li>
+                    
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Equipos</a>
                     </li>
                     <li>
                         <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
-                                aria-hidden="true"></i>Registrar Jugadores</a>
+                                aria-hidden="true"></i>Jugadores</a>
                     </li>
                     <li>
                         <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
@@ -131,24 +143,55 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Equipos</h3>
-                            <form>
-                                <p>Código: <p> <input type="text" name="nombrecompleto" size="5"> </p>
-                                <p>Nombre del Equipo: <p> <input type="text" name="apellidocompleto" size="30"></p>
-                                <p>Nombre del Presidente: <p> <input type="text" name="cedula" size="30"> </p>
-                                <p>Localidad: <p> <input type="text" name="equipo" size="30"></p>
-                                <p>Teléfono: <p> <input type="text" name="numeroasignado" size="15"> </p>
-                                <p>Email: <p> <input type="text" name="pais" size="30"></p>
-                                <p>Número Máximo de Jugadores:<p> <input type="text" name="provincia" size="3"> </p>
-                                
-                                <button type="button">
-                                    <img src="../images/demo/iconoguardar.png" width="23" height="23" style="vertical-align: middle">
-                                    Guardar
-                                </button>
-                                <input type="button" value="Cancelar">
-                            </form>
+                            
                                 
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
+                            <h3 class="box-title">Registro de Equipos</h3>
+                            <?php
+                            include 'conexion.php';
+                            
+                            $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
+                            ?>
+                             <div class="contenedor">
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+				<input type="text" name="buscar" placeholder="Buscar nombre del club" 
+				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
+				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+				<a href="CRUD/insert_equipos.php" class="btn btn__nuevo">Nuevo</a>
+			</form>
+		</div>
+		<table> 
+			<tr class="head">
+			<td><font size = "2">  Id</font> </td>
+            <td><font size = "2">  Nombre Club</font> </td>
+            <td><font size = "2">  Nombre del Presidente</font> </td>	
+            <td><font size = "2">  Localidad</font> </td>		
+            <td><font size = "2">  Teléfono</font> </td>	
+            <td><font size = "2">  Email</font> </td>	
+            <td><font size = "2">  Número Máximo de jugadores</font> </td>	
+			<td colspan="2" >Acción  </td>
+			
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+				 <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['nombreClub'] ?></td>
+                  <td><?php echo $filas['nombrePresi'] ?></td>
+                  <td><?php echo $filas['localidad'] ?></td>
+                  <td><?php echo $filas['telefono'] ?></td>
+				  <td><?php echo $filas['email'] ?></td>
+				  <td><?php echo $filas['numMaxjug'] ?></td>
+
+					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+				</tr>
+				<?php } ?>
+
+		</table>
                         </div>
                     </div>
 

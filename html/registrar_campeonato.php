@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Registrar Personal</title>
+    <title>Calendario</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -22,7 +19,6 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
-    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -58,7 +54,7 @@
                             <!--This is light logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="light-logo" />
                         </b>
-                        </a>
+                         </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -144,81 +140,41 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">SISTEMA DE CAMPEONATOS DE FÚTBOL</h4>
+                        <h4 class="page-title">SISTEMA DE CAMPEONATO DE FÚTBOL</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                    
+                        
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Personal</li>
+                            <li class="active">Calendario</li>
                         </ol>
 
                         
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                <!--------------REGISTRO DE DATOS DEL PERSONAL ------>
-                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Personal</h3>
-                            <?php
-                            include 'conexion.php';
-                            
-                            $resultado=mysqli_query($conn,"SELECT * FROM  personal ");
-                            ?>
-                             <div class="contenedor">
-		<div class="barra__buscador">
-			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="Buscar Nombres o Apellidos" 
-				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
-				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="CRUD/insert_personal.php" class="btn btn__nuevo">Nuevo</a>
-			</form>
-		</div>
-		<table> 
-			<tr class="head">
-			<td><font size = "2">  Id</font> </td>
-            <td><font size = "2">  Nombres</font> </td>
-            <td><font size = "2">  Apellidos</font> </td>	
-            <td><font size = "2">  Cédula</font> </td>	
-            <td><font size = "2">  Email</font> </td>		
-            <td><font size = "2">  Teléfono</font> </td>	
-            <td><font size = "2">  Dirección</font> </td>	
-            <td><font size = "2">  Cargo</font> </td>	
-			<td colspan="2" >Acción  </td>
-			
-			</tr>
-
-			
-			<?php while($filas=mysqli_fetch_assoc($resultado)) {
-                                        ?>
-				<tr >
-                  <td><?php echo $filas['id'] ?></td>
-                  <td><?php echo $filas['nombre'] ?></td>
-                  <td><?php echo $filas['apellido'] ?></td>
-                  <td><?php echo $filas['cedula'] ?></td>
-                  <td><?php echo $filas['email'] ?></td>
-				  <td><?php echo $filas['telefono'] ?></td>
-                  <td><?php echo $filas['direccion'] ?></td>
-                  <td><?php echo $filas['cargo'] ?></td>
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
-				</tr>
-				<?php } ?>
-
-		</table>
+                            <h3 class="box-title">Registro de Calendario</h3>
+                            Partido: <input type="text" name="nombrecompleto"> </p>
+                            <p>
+                            Fecha 1: <input type="text" name="apellidocompleto"></p>
+                            <p>
+                                <button type="button">
+                                    <img src="../images/demo/iconoguardar.png" width="23" height="23" style="vertical-align: middle">
+                                    Guardar
+                                </button>
+                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>
 
                     
                 </div>
-                <!--------------REGISTRO DE DATOS DEL PERSONAL ------>
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> 2020 &copy; CopyRigth SOFTWARE </footer>
+            <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
         </div>
         <!-- ============================================================== -->
         <!-- End Page Content -->
