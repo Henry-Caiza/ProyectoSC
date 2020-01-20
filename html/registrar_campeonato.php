@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Registrar Jugadores</title>
+    <title>Registrar Campeonato</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -189,7 +189,7 @@
 				  <td><?php echo $filas['lugar'] ?></td>
 				  <td><?php echo $filas['telefono'] ?></td>
                   <td><?php echo $filas['direccion'] ?></td>
-                  <td><?php echo $filas['numEq'] ?></td>
+                  <td><?php echo $filas['numeroEq'] ?></td>
 					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
 					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
