@@ -150,12 +150,12 @@
                             <?php
                             include 'conexion.php';
                             
-                            $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
+                            $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
                             ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				<input type="text" name="buscar" placeholder="Buscar nombre del club" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
 				<a href="CRUD/insert_equipos.php" class="btn btn__nuevo">Nuevo</a>
@@ -163,14 +163,14 @@
 		</div>
 		<table> 
 			<tr class="head">
-			<td><font size = "2">  Codigo</font> </td>
+			<td><font size = "2">  Id</font> </td>
             <td><font size = "2">  Nombre Club</font> </td>
-            <td><font size = "2">  Nombre Presidente</font> </td>	
+            <td><font size = "2">  Nombre del Presidente</font> </td>	
             <td><font size = "2">  Localidad</font> </td>		
-            <td><font size = "2">  Telefono</font> </td>	
+            <td><font size = "2">  Teléfono</font> </td>	
             <td><font size = "2">  Email</font> </td>	
-            <td><font size = "2">  Numero Maximo de jugadores</font> </td>	
-			<td colspan="2" >Accion  </td>
+            <td><font size = "2">  Número Máximo de jugadores</font> </td>	
+			<td colspan="2" >Acción  </td>
 			
 			</tr>
 
@@ -178,13 +178,13 @@
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                                         ?>
 				<tr >
-				 <td><?php echo $filas['cedula'] ?></td>
-                  <td><?php echo $filas['nombres'] ?></td>
-                  <td><?php echo $filas['apellidos'] ?></td>
-                  <td><?php echo $filas['equipo'] ?></td>
-                  <td><?php echo $filas['numeroasig'] ?></td>
-				  <td><?php echo $filas['ciudad'] ?></td>
-				  <td><?php echo $filas['telefono'] ?></td>
+				 <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['nombreClub'] ?></td>
+                  <td><?php echo $filas['nombrePresi'] ?></td>
+                  <td><?php echo $filas['localidad'] ?></td>
+                  <td><?php echo $filas['telefono'] ?></td>
+				  <td><?php echo $filas['email'] ?></td>
+				  <td><?php echo $filas['numMaxjug'] ?></td>
 
 					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
 					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
