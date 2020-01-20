@@ -3,7 +3,7 @@
 	
 	if(isset($_POST['guardar'])){
 		$id=$_POST['id'];
-		$fechaJuego=$_POST['fechaJuego'];
+		$fechajuego=$_POST['fechaJuego'];
 		$horario=$_POST['horario'];
 		$cancha=$_POST['cancha'];
         $nombreArb=$_POST['nombreArbitro'];
@@ -11,19 +11,18 @@
 		$equipo1=$_POST['equipo1'];
 		$equipo2=$_POST['equipo2'];
 
-		if(!empty($id) && !empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($nombreArb)  && !empty($vocalia) && !empty($equipo1) && !empty($equipo2)){
+		if(!empty($id) && !empty($fechajuego) && !empty($horario) && !empty($cancha) && !empty($nombreArb)  && !empty($vocalia) && !empty($equipo1) && !empty($equipo2)){
 			$consulta_insert=$conn->prepare('INSERT INTO calendario(id,fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:id,:fechaJuego,:horario,:cancha,:nombreArbitro,:eqVocalia,:equipo1,:equipo2)');
-				$consulta_insert->execute(array(
-					':ide' =>$id,
-					':fechaJuego' =>$fechaJuego,
-					':horario' =>$horario,
-                    ':cancha' =>$cancha,
-                    ':nombreArbitro' =>$nombreArb,
-					':eqVocalia' =>$vocalia,
-					':equipo1' =>$equipo1,
-					':equipo2' =>$equipo2
-				));
-			header('Location: index.php');
+				$consulta_insert->bindValue(':id',$id);
+				$consulta_insert->bindValue(':fechaJuego',$fechajuego);
+				$consulta_insert->bindValue(':horario',$horario);
+                $consulta_insert->bindValue(':cancha',$cancha);
+                $consulta_insert->bindValue(':nombreArbitro',$nombreArb);
+				$consulta_insert->bindValue(':eqVocalia',$vocalia);
+				$consulta_insert->bindValue(':equipo1',$equipo1);
+				$consulta_insert->bindValue(':equipo2',$equipo2);
+                $consulta_insert->is_executable();
+			header('Location: insert_calendario.php');
         }
         else{
 			echo "<script> alert('Los campos estan vacios');</script>";
@@ -46,7 +45,7 @@
 		<form action="" method="post">
 			<div class="form-group">
 				<input type="text" name="codigoPart" placeholder="Código de partido" class="input__text">
-				<input type="date" name="fecha"  placeholder="Cancha" class="input__text">
+				<input type="date" name="fecha"  placeholder="Fecha de partido" class="input__text">
 			</div>
 			<div class="form-group">
 				<input type="time" name="horario" placeholder="Horario" class="input__text">
