@@ -190,7 +190,7 @@
                   <td><?php echo $filas['direccion'] ?></td>
                   <td><?php echo $filas['numeroEq'] ?></td>
 					<td><a href="CRUD/update_campeonato.php?id=<?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><a href="CRUD/delete_campeonato.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
