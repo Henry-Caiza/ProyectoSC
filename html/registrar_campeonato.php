@@ -156,10 +156,10 @@
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				<input type="text" name="buscar" placeholder="Buscar nombre" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="CRUD/insert.php" class="btn btn__nuevo">Nuevo</a>
+				<a href="CRUD/insert_campeonato.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
 		<table> 
@@ -170,10 +170,10 @@
             <td><font size = "2">  Fecha Fin</font> </td>	
             <td><font size = "2">  Responsable</font> </td>		
 			<td><font size = "2">  Lugar</font> </td>	
-            <td><font size = "2">  Telefono</font> </td>	
-            <td><font size = "2">  Direccion</font> </td>	
-            <td><font size = "2">  Numero de Equipos</font> </td>	
-			<td colspan="2" >Accion  </td>
+            <td><font size = "2">  Teléfono</font> </td>	
+            <td><font size = "2">  Dirección</font> </td>	
+            <td><font size = "2">  Número de Equipos</font> </td>	
+			<td colspan="2" >Acción  </td>
 			
 			</tr>
 

@@ -90,15 +90,12 @@
             </div>
 
             <div class="form-group">
-                <input type="text" name="fechanac" placeholder="Fecha de Nacimiento" class="input__text">
+                <input type="text" name="estadotransf" placeholder=" Transferencia Estado" class="input__text">
                 <input type="text" name="instruccion" placeholder="Instrucción" class="input__text">
             </div>
-
-            <div class="form-group">
-                <input type="text" name="estadotransf" placeholder="Estado" class="input__text">
+            
+                <p>Fecha Nacimiento: <input type="date" name="fechanac"></p>
                 
-            </div>
-           
 			<div class="btn__group">
 				<a href="../registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">

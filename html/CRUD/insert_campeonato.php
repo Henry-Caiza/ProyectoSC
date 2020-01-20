@@ -2,25 +2,45 @@
 	include_once 'conexion.php';
 	
 	if(isset($_POST['guardar'])){
-		$nombre=$_POST['nombre'];
-		$apellidos=$_POST['apellidos'];
-		$telefono=$_POST['telefono'];
-		$ciudad=$_POST['ciudad'];
-		$correo=$_POST['correo'];
+		$cedula=$_POST['cedula'];
+        $nombres=$_POST['nombres'];
+        $apellidos=$_POST['apellidos'];
+        $equipo=$_POST['equipo'];
+        $numeroasig=$_POST['numeroasig'];
+        $pais=$_POST['pais'];
+        $provincia=$_POST['provincia'];
+        $ciudad=$_POST['ciudad'];
+        $direccion=$_POST['direccion'];
+        $telefono=$_POST['telefono'];
+        $email=$_POST['email'];
+        $posicion=$_POST['posicion'];
+		$fechanac=$_POST['fechanac'];
+        $instruccion=$_POST['instruccion'];
+        $estadotransf=$_POST['estadotransf'];
 
-		if(!empty($nombre) && !empty($apellidos) && !empty($telefono) && !empty($ciudad) && !empty($correo) ){
-			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
+		if(!empty($cedula) && !empty($nombres) && !empty($apellidos) && !empty($equipo) && !empty($numeroasig) && !empty($pais) && !empty($provincia) && !empty($ciudad) && !empty($direccion) && !empty($telefono) && !empty($email) && !empty($posicion) && !empty($fechanac) && !empty($instruccion) && !empty($estadotransf) ){
+			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
-				$consulta_insert=$con->prepare('INSERT INTO clientes(nombre,apellidos,telefono,ciudad,correo) VALUES(:nombre,:apellidos,:telefono,:ciudad,:correo)');
+				$consulta_insert=$con->prepare('INSERT INTO jugadores(cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,email,posicion,fechanac,instruccion,estadotransf) VALUES(:cedula,:nombres,:apellidos,:equipo,:numeroasig,:pais,:provincia,:ciudad,:direccion,:telefono,:email,:posicion,:fechanac,:instruccion,:estadotransf)');
 				$consulta_insert->execute(array(
-					':nombre' =>$nombre,
+                    ':cedula' =>$cedula,
+                    ':nombres' =>$nombres,
 					':apellidos' =>$apellidos,
+                    ':equipo' =>$equipo,
+                    ':numeroasig' =>$numeroasig,
+                    ':pais' =>$pais,
+                    ':provincia' =>$provincia,
+                    ':ciudad' =>$ciudad,
+                    ':direccion' =>$direccion,
 					':telefono' =>$telefono,
-					':ciudad' =>$ciudad,
-					':correo' =>$correo
+					':email' =>$email,
+                    ':posicion'=>$posicion,
+                    ':fechanac' =>$fechanac,
+                    ':instruccion' =>$instruccion,
+                    ':estadotransf' =>$estadotransf
 				));
-				header('Location: index.php');
+				header('Location: ../registrar_jugadores.php');
 			}
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
@@ -34,26 +54,53 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Nuevo Cliente</title>
-	<link rel="stylesheet" href="css/estilo.css">
+	<title>Nuevo Jugador</title>
+	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 </head>
 <body>
 	<div class="contenedor">
-		<h2>CRUD EN PHP CON MYSQL</h2>
+		<h2>INGRESAR JUGADORES</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombre" placeholder="Nombre" class="input__text">
+				<input type="text" name="cedula" placeholder="Cédula" class="input__text">
+				<input type="text" name="nombres" placeholder="Nombres" class="input__text">
+			</div>
+			<div class="form-group">
 				<input type="text" name="apellidos" placeholder="Apellidos" class="input__text">
+                <input type="text" name="equipo" placeholder="Equipo" class="input__text">
 			</div>
 			<div class="form-group">
-				<input type="text" name="telefono" placeholder="Teléfono" class="input__text">
-				<input type="text" name="ciudad" placeholder="Ciudad" class="input__text">
-			</div>
-			<div class="form-group">
-				<input type="text" name="correo" placeholder="Correo electrónico" class="input__text">
-			</div>
+                <input type="text" name="numeroasig" placeholder="Número Asignado" class="input__text">
+                <input type="text" name="pais" placeholder="País" class="input__text">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="provincia" placeholder="Provincia" class="input__text">
+                <input type="text" name="ciudad" placeholder="Ciudad" class="input__text">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="direccion" placeholder="Dirección" class="input__text">
+                <input type="text" name="telefono" placeholder="Teléfono" class="input__text">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="email" placeholder="Email" class="input__text">
+                <input type="text" name="posicion" placeholder="Posición" class="input__text">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="fechanac" placeholder="Fecha de Nacimiento" class="input__text">
+                <input type="text" name="instruccion" placeholder="Instrucción" class="input__text">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="estadotransf" placeholder="Estado" class="input__text">
+                
+            </div>
+           
 			<div class="btn__group">
-				<a href="index.php" class="btn btn__danger">Cancelar</a>
+				<a href="../registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
 			</div>
 		</form>
