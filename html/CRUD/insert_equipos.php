@@ -34,7 +34,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Nuevo Cliente</title>
+	<title>Nuevo Equipo</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 </head>
 <body>
@@ -57,7 +57,7 @@
                 <input type="text" name="correo" placeholder="Loacalidad" class="input__text">
 			</div>
 			<div class="btn__group">
-				<a href="index.php" class="btn btn__danger">Cancelar</a>
+				<a href="../registrarequipo.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
 			</div>
 		</form>

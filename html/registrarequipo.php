@@ -140,7 +140,7 @@
                             <?php
                             include 'conexion.php';
                             
-                            $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
+                            $resultado=mysqli_query($conn,"SELECT * FROM  carnet ");
                             ?>
                              <div class="contenedor">
 		<div class="barra__buscador">

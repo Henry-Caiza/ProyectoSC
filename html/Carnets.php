@@ -19,6 +19,8 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
  
 </head>
 
@@ -131,25 +133,56 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Carnets</h3>
-                            <form>
-                                <p>Código: <p> <input type="text" name="cedula" size="20"> </p>
-                                <p>Nombres: <p> <input type="text" name="nombrecompleto" size="30"> </p>
-                                <p>Apellidos: <p> <input type="text" name="apellidocompleto" size="30"></p>
-                                <p>Fecha de Nacimiento: <p> <input type="text" name="fechanacimiento" size="20"> </p>
-                                <p>Cédula: <p> <input type="text" name="cedula" size="20"> </p>
-                                <p>Equipo: <p> <input type="text" name="equipo" size="30"></p>
-                                <p>Número Asignado: <p> <input type="text" name="numeroasignado" size="10"> </p>
-                                <p>Validez del documento: <p> <input type="text" name="validezdocumento" size="30"></p>
-                                <input type="button" value="Transferir">
-                                <input type="button" value="Cancelar">
-                            </form>
+                           <!-- ############################################## DATOS DEL REGISTRO ################################### -->
+                           <h3 class="box-title">Registro de Carnets</h3>
+                            <?php
+                            include 'conexion.php';
+                            
+                            $resultado=mysqli_query($conn,"SELECT * FROM carnet ");
+                            ?>
+                             <div class="contenedor">
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
+				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+				<a href="CRUD/insert_carnets.php" class="btn btn__nuevo">Nuevo</a>
+			</form>
+		</div>
+		<table> 
+			<tr class="head">
+			<td><font size = "2">  Código</font> </td>
+            <td><font size = "2">  Nombres</font> </td>
+            <td><font size = "2">  Apellidos</font> </td>	
+            <td><font size = "2">  Fecha de Nacimiento</font> </td>	
+            <td><font size = "2">  Cédula</font> </td>		
+			<td><font size = "2">  Equipo</font> </td>	
+            <td><font size = "2">  Número Asignado</font> </td>	
+           	
+			<td colspan="2" >Accion  </td>
+			
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >   
+				 <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['nombre'] ?></td>
+                  <td><?php echo $filas['apellido'] ?></td>
+                  <td><?php echo $filas['fechaNac'] ?></td>
+                  <td><?php echo $filas['cedula'] ?></td>
+				  <td><?php echo $filas['equipo'] ?></td>
+				  <td><?php echo $filas['numAsig'] ?></td>
+					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+				</tr>
+				<?php } ?>
+
+		</table>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
-                    </div>
-                </div>
-            </div>
+                 
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2020 &copy; CopyRigth SOFTWARE </footer>
         </div>
