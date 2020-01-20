@@ -88,7 +88,7 @@
                         <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
                     <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                        <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
 
