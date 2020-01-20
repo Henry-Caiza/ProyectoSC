@@ -84,11 +84,6 @@
                     </li>
 
                     <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Resultados</a>
-                    </li>
-
-                    <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Personal</a>
                     </li>
@@ -108,6 +103,10 @@
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tablas</a>
+                    </li>
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Resultados</a>
                     </li>
                     <li>
                         <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
@@ -190,7 +189,7 @@
 				  <td><?php echo $filas['telefono'] ?></td>
                   <td><?php echo $filas['direccion'] ?></td>
                   <td><?php echo $filas['numeroEq'] ?></td>
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="CRUD/update_campeonato.php?id=<?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
 					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
