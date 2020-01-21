@@ -125,8 +125,8 @@
                     </li>
                     
                     <li>
-                        <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
-                                aria-hidden="true"></i>Transferencias</a>
+                        <a href="" href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
+                     aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>
                         <a href="Reportes.php" class="waves-effect"><i class="fa fa-file-text-o fa-fw"

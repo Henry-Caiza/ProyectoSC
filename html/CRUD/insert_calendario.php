@@ -2,29 +2,31 @@
 	include_once 'conexion.php';
 	
 	if(isset($_POST['guardar'])){
-		$id=$_POST['id'];
-		$fechajuego=$_POST['fechaJuego'];
-		$horario=$_POST['horario'];
-		$cancha=$_POST['cancha'];
-        $nombreArb=$_POST['nombreArbitro'];
-        $vocalia=$_POST['eqVocalia'];
-		$equipo1=$_POST['equipo1'];
-		$equipo2=$_POST['equipo2'];
+		$fechaJuego=$_POST['fechaJuego'];
+        $horario=$_POST['horario'];
+        $cancha=$_POST['cancha'];
+        $nombreArbitro=$_POST['nombreArbitro'];
+        $eqVocalia=$_POST['eqVocalia'];
+        $equipo1=$_POST['equipo1'];
+        $equipo2=$_POST['equipo2'];
 
-		if(!empty($id) && !empty($fechajuego) && !empty($horario) && !empty($cancha) && !empty($nombreArb)  && !empty($vocalia) && !empty($equipo1) && !empty($equipo2)){
-			$consulta_insert=$conn->prepare('INSERT INTO calendario(id,fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:id,:fechaJuego,:horario,:cancha,:nombreArbitro,:eqVocalia,:equipo1,:equipo2)');
-				$consulta_insert->bindValue(':id',$id);
-				$consulta_insert->bindValue(':fechaJuego',$fechajuego);
-				$consulta_insert->bindValue(':horario',$horario);
-                $consulta_insert->bindValue(':cancha',$cancha);
-                $consulta_insert->bindValue(':nombreArbitro',$nombreArb);
-				$consulta_insert->bindValue(':eqVocalia',$vocalia);
-				$consulta_insert->bindValue(':equipo1',$equipo1);
-				$consulta_insert->bindValue(':equipo2',$equipo2);
-                $consulta_insert->is_executable();
-			header('Location: insert_calendario.php');
-        }
-        else{
+		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($nombreArbitro) && !empty($eqVocalia) && !empty($equipo1) && !empty($equipo2) ){
+			//if(!filter_var($telefono,FILTER_VALIDATE_EMAIL)){
+				//echo "<script> alert('Correo no valido');</script>";
+			//}else{
+				$consulta_insert=$con->prepare('INSERT INTO calendario(fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:fechaJuego,:horario,:cancha,:nombreArbitro,:eqVocalia,:equipo1,:equipo2)');
+				$consulta_insert->execute(array(
+                    ':fechaJuego' =>$fechaJuego,
+                    ':horario' =>$horario,
+					':cancha' =>$cancha,
+                    ':nombreArbitro' =>$nombreArbitro,
+					':eqVocalia' =>$eqVocalia,
+					':equipo1' =>$equipo1,
+                    ':equipo2' =>$equipo2
+				));
+				header('Location: ../Registrar_calendario.php');
+			//}
+		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
 
@@ -36,31 +38,29 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Registrar Calendario</title>
+	<title>Nuevo Calendario</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 </head>
 <body>
 	<div class="contenedor">
-		<h2>Registrar calendario</h2>
+		<h2>INGRESAR CALENDARIOS</h2>
 		<form action="" method="post">
-			<div class="form-group">
-				<input type="text" name="codigoPart" placeholder="Código de partido" class="input__text">
-				<input type="date" name="fecha"  placeholder="Fecha de partido" class="input__text">
-			</div>
 			<div class="form-group">
 				<input type="time" name="horario" placeholder="Horario" class="input__text">
 				<input type="text" name="cancha" placeholder="Cancha" class="input__text">
 			</div>
 			<div class="form-group">
-                <input type="text" name="nombre_arb" placeholder="Nombre de Árbitro" class="input__text">
-                <input type="text" name="vocalia" placeholder="Vocalía" class="input__text">
-            </div>
-            <div class="form-group">
+				<input type="text" name="nombreArbitro" placeholder="Nombre de Árbitro" class="input__text">
+                <input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text">
+			</div>
+			<div class="form-group">
                 <input type="text" name="equipo1" placeholder="Equipo 1" class="input__text">
                 <input type="text" name="equipo2" placeholder="Equipo 2" class="input__text">
-			</div>
+            </div>
+            <p>Fecha de juego: <input type="date" name="fechaJuego"></p>
+           
 			<div class="btn__group">
-				<a href="index.php" class="btn btn__danger">Cancelar</a>
+				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
 			</div>
 		</form>

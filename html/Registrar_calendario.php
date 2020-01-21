@@ -200,8 +200,8 @@
 				  <td><?php echo $filas['eqVocalia'] ?></td>
 				  <td><?php echo $filas['equipo1'] ?></td>
                   <td><?php echo $filas['equipo2'] ?></td>
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><a href="CRUD/update_calendario.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="CRUD/delete_calendario.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
