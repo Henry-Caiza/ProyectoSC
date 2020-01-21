@@ -15,34 +15,39 @@
 
 
 	if(isset($_POST['guardar'])){
-		$nombre=$_POST['nombre'];
-		$apellido=$_POST['apellido'];
-		$fechaNac=$_POST['fechaNac'];
-        $cedula=$_POST['cedula'];
-        $equipo=$_POST['equipo'];
-        $numAsig=$_POST['numAsig'];
         $id=(int) $_GET['id'];
-		if(!empty($id) &&!empty($nombre) && !empty($apellido) && !empty($fechaNac) && !empty($cedula)&& !empty($equipo)&&!empty($numAsig) ){
-				$consulta_update=$con->prepare(' UPDATE carnet SET 
-                    id=:id, 
+        $cedula=$_POST['cedula'];
+        $cedula=$_POST['cedula'];
+        $nombre=$_POST['nombre'];
+        $equipo=$_POST['equipo'];
+        $apellido=$_POST['apellido'];
+        $numAsig=$_POST['numAsig'];
+        $fechaNac=$_POST['fechaNac'];
+        
+		if(!empty($nombre) && !empty($apellido) && !empty($fechaNac) && !empty($cedula)&& !empty($equipo)&&!empty($numAsig) ){
+            if(!filter_var($cedula,FILTER_VALIDATE_INT)){
+				echo "<script> alert('Cedula no aceptada');</script>";
+			}else{
+            $consulta_update=$con->prepare(' UPDATE carnet SET 
+                    cedula=:cedula,
 					nombre=:nombre,
+                    equipo=:equipo,
 					apellido=:apellido,
-                    fechaNac=:fechaNac,
-					cedula=:cedula,
-					equipo=:equipo,
                     numAsig=:numAsig,
+                    fechaNac=:fechaNac,
 					WHERE id=:id;'
-				);
+				);  
 				$consulta_update->execute(array(
                     ':id' =>$id,
-                    ':nombre' =>$nombre,
-                    ':apellido' =>$apellido,
-                    ':fechaNac' =>$fechaNac,
                     ':cedula' =>$cedula,
+                    ':nombre' =>$nombre,
                     ':equipo' =>$equipo,
-					':numAsig' =>$numAsig
+                    ':apellido' =>$apellido,
+                    ':numAsig' =>$numAsig,
+                    ':fechaNac' =>$fechaNac
 				));
-				header('Location: ../Carnets.php');
+                header('Location: ../Carnets.php');
+            }
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}

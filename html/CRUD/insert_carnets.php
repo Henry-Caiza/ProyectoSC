@@ -10,8 +10,7 @@
         $equipo=$_POST['equipo'];
         $numAsig=$_POST['numAsig'];
     
-
-		if(!empty($id) ||!empty($nombre) || !empty($apellido) || !empty($fechaNac) || !empty($cedula)|| !empty($equipo)|| !empty($numAsig) ){
+		if(!empty($id)&&!empty($nombre) && !empty($apellido) && !empty($fechaNac) && !empty($cedula)&& !empty($equipo)&&!empty($numAsig) ){
 			if(!filter_var($cedula,FILTER_VALIDATE_INT)){
 				echo "<script> alert('Cedula no aceptada');</script>";
 			}else{

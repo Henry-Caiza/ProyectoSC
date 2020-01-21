@@ -171,9 +171,7 @@
            	
 			<td colspan="2" >Accion  </td>
 			
-			</tr>
-
-			
+			</tr>	
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                                         ?>
 				<tr >   
@@ -184,15 +182,16 @@
                   <td><?php echo $filas['cedula'] ?></td>
 				  <td><?php echo $filas['equipo'] ?></td>
 				  <td><?php echo $filas['numAsig'] ?></td>
-					<td><a href="CRUD/update_carnet.php?id=<?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
+                  <td><a href="CRUD/update_carnet.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
 					<td><a href="CRUD/delete_carnet.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
 		</table>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                        </div>
-                 
+                            </div>
+                    </div>
+            </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2020 &copy; CopyRigth SOFTWARE </footer>
         </div>
