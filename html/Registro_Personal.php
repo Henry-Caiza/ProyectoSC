@@ -160,7 +160,7 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Personal</h3>
+                            <h3 class="box-title">Registro de Personal Arbitrario</h3>
                             <?php
                             include 'conexion.php';
                             
@@ -201,8 +201,8 @@
 				  <td><?php echo $filas['telefono'] ?></td>
                   <td><?php echo $filas['direccion'] ?></td>
                   <td><?php echo $filas['cargo'] ?></td>
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><a href="CRUD/update_personal.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="CRUD/delete_personal.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 

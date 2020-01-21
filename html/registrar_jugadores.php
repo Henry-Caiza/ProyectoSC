@@ -21,7 +21,7 @@
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 
     <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
-
+    <link href="./CRUD/css/tabla.css" type="text/css" rel="stylesheet"/>
 
     
     
@@ -147,7 +147,7 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Jugadores</h3>
+                            <h3 class="box-title"> Información de Jugadores</h3>
                             <?php
                             include 'conexion.php';
                             
@@ -162,7 +162,9 @@
 				<a href="CRUD/insert_jugadores.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
-		<table> 
+
+        <div id="div1"> 
+        <table> 
 			<tr class="head">
             <td><font size = "2">  Id</font> </td>
 			<td><font size = "2">  Cédula</font> </td>
@@ -204,12 +206,15 @@
                   <td><?php echo $filas['fechanac'] ?></td>
                   <td><?php echo $filas['instruccion'] ?></td>
                   <td><?php echo $filas['estadotransf'] ?></td>
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><a href="CRUD/update_jugadores.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="CRUD/delete_jugadores.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
 		</table>
+        
+        </div>
+		
 	</div>
 </body>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
