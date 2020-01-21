@@ -160,7 +160,7 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Personal Arbitrario</h3>
+                            <h3 class="box-title"> Personal Arbitrario</h3>
                             <?php
                             include 'conexion.php';
                             
