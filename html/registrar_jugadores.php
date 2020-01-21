@@ -21,9 +21,6 @@
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 
     <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
-    <link href="./CRUD/css/tabla.css" type="text/css" rel="stylesheet"/>
-
-    
     
  
 </head>

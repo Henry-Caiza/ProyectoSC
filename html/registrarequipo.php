@@ -150,6 +150,7 @@
                             <?php
                             include 'conexion.php';
                             
+
                             $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
                             ?>
                              <div class="contenedor">
@@ -186,8 +187,8 @@
 				  <td><?php echo $filas['email'] ?></td>
 				  <td><?php echo $filas['numMaxjug'] ?></td>
 
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+                  <td><a href="CRUD/update_equipos.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="CRUD/delete_equipos.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
