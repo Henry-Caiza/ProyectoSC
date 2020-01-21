@@ -15,36 +15,35 @@
 
 
 	if(isset($_POST['guardar'])){
-        $id=(int) $_GET['id'];
-        $cedula=$_POST['cedula'];
-        $cedula=$_POST['cedula'];
         $nombre=$_POST['nombre'];
+		$apellido=$_POST['apellido'];
+		$fechaNac=$_POST['fechaNac'];
+        $cedula=$_POST['cedula'];
         $equipo=$_POST['equipo'];
-        $apellido=$_POST['apellido'];
         $numAsig=$_POST['numAsig'];
-        $fechaNac=$_POST['fechaNac'];
+		$id=(int) $_GET['id'];
         
 		if(!empty($nombre) && !empty($apellido) && !empty($fechaNac) && !empty($cedula)&& !empty($equipo)&&!empty($numAsig) ){
             if(!filter_var($cedula,FILTER_VALIDATE_INT)){
 				echo "<script> alert('Cedula no aceptada');</script>";
 			}else{
             $consulta_update=$con->prepare(' UPDATE carnet SET 
-                    cedula=:cedula,
 					nombre=:nombre,
-                    equipo=:equipo,
 					apellido=:apellido,
-                    numAsig=:numAsig,
                     fechaNac=:fechaNac,
+					cedula=:cedula,
+					equipo=:equipo,
+					numAsig=:numAsig
 					WHERE id=:id;'
 				);  
 				$consulta_update->execute(array(
-                    ':id' =>$id,
-                    ':cedula' =>$cedula,
                     ':nombre' =>$nombre,
+					':apellido' =>$apellido,
+					':fechaNac' =>$fechaNac,
+                    ':cedula' =>$cedula,
                     ':equipo' =>$equipo,
-                    ':apellido' =>$apellido,
-                    ':numAsig' =>$numAsig,
-                    ':fechaNac' =>$fechaNac
+					':numAsig' =>$numAsig,
+					':id' =>$id
 				));
                 header('Location: ../Carnets.php');
             }
@@ -66,21 +65,18 @@
 		<h2>MODIFICAR CARNETS</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="id" value="<?php if($resultado) echo $resultado['id']; ?>" class="input__text">
 				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text">
-			</div>
-			<div class="form-group">
 				<input type="text" name="nombre" value="<?php if($resultado) echo $resultado['nombre']; ?>" class="input__text">
-				<input type="text" name="equipo" value="<?php if($resultado) echo $resultado['equipo']; ?>" class="input__text">
 			</div>
 			<div class="form-group">
+				<input type="text" name="equipo" value="<?php if($resultado) echo $resultado['equipo']; ?>" class="input__text">
 				<input type="text" name="apellido" value="<?php if($resultado) echo $resultado['apellido']; ?>" class="input__text">
-                <input type="text" name="numAsig" value="<?php if($resultado) echo $resultado['numAsig']; ?>" class="input__text">
-            </div>
-            <div class="form-group">
-				<input type="text" name="fechaNac" value="<?php if($resultado) echo $resultado['fechaNac']; ?>" class="input__text">
-                
 			</div>
+			<div class="form-group">
+				<input type="text" name="numAsig" value="<?php if($resultado) echo $resultado['numAsig']; ?>" class="input__text">
+                <pre>Fecha de Nacimiento  </pre>
+				<p> <input type="date" name="fechaNac" value="<?php if($resultado) echo $resultado['fechaNac']; ?>" > </p>
+            </div>
 			<div class="btn__group">
 				<a href="../Carnets.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">

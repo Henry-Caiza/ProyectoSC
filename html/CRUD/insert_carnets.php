@@ -58,10 +58,7 @@
                 <input type="text" name="apellido" placeholder="Apellidos" class="input__text">
                 <input type="text" name="numAsig" placeholder="Número Asignado" class="input__text">
             </div>
-            <div class="form-group">
-                <input type="text" name="fechaNac" placeholder="Fecha de Nacimiento" class="input__text">
-                
-			</div>
+            <p>Fecha de nacimiento: <input type="date" name="fechaNac"></p>
 			<div class="btn__group">
                 <a href="../Carnets.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
