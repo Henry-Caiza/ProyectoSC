@@ -84,7 +84,7 @@
 				<p> <input type="date" name="fechaJuego" value="<?php if($resultado) echo $resultado['fechaJuego']; ?>" > </p>
 			</div>
 			<div class="btn__group">
-				<a href="../registrar_campeonato.php" class="btn btn__danger">Cancelar</a>
+				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
 			</div>
 		</form>

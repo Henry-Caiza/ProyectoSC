@@ -16,24 +16,24 @@
 
 	if(isset($_POST['guardar'])){
 		$nombreClub=$_POST['nombreClub'];
-		$nombrePresi=$_POST['nombrePresi'];
-		$localidad=$_POST['localidad'];
-		$telefono=$_POST['telefono'];
-		$email=$_POST['email'];
-		$numMaxjug=$_POST['numMaxjug'];
+        $nombrePresi=$_POST['nombrePresi'];
+        $localidad=$_POST['localidad'];
+        $telefono=$_POST['telefono'];
+        $email=$_POST['email'];
+        $numMaxjug=$_POST['numMaxjug'];
 		$id=(int) $_GET['id'];
 
-		if(!empty($nombreClub) && !empty($nombrePresi) && !empty($localidad) && !empty($telefono) && !empty($email) && !empty($numMaxjug)  ){
+		if(!empty($nombreClub) && !empty($nombrePresi) && !empty($localidad) && !empty($telefono) && !empty($email) && !empty($numMaxjug) ){
 			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
 				$consulta_update=$con->prepare(' UPDATE equipo SET  
 					nombreClub=:nombreClub,
-					nombrePrei=:nombrePrei,
+					nombrePresi=:nombrePresi,
                     localidad=:localidad,
 					telefono=:telefono,
                     email=:email,
-                    numMaxjug=:numMaxjug
+					numMaxjug=:numMaxjug
 					WHERE id=:id;'
 				);
 				$consulta_update->execute(array(
@@ -42,8 +42,8 @@
 					':localidad' =>$localidad,
 					':telefono' =>$telefono,
 					':email' =>$email,
-                    ':numMaxjug'=>$numMaxjug,
-                    ':id'=>$id
+					':numMaxjug'=>$numMaxjug,
+					':id' =>$id
 				));
 				header('Location: ../registrarequipo.php');
 			}
@@ -57,7 +57,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Editar Equipo</title>
+	<title>Editar equipo</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 </head>
 <body>
