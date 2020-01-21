@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Calendario</title>
+    <title>Registrar Campeonato</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -17,14 +17,15 @@
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- color CSS -->
+    <!-- Tabla CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
+
+
+    
+    
+ 
 </head>
 
 <body class="fix-header">
@@ -54,7 +55,7 @@
                             <!--This is light logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="light-logo" />
                         </b>
-                         </a>
+                        </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -65,14 +66,8 @@
                     
                 </ul>
             </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
         </nav>
-        <!-- End Top Navigation -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+        
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
@@ -84,13 +79,8 @@
                         <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
                     <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                        <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
-                    </li>
-
-                    <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Resultados</a>
                     </li>
 
                     <li>
@@ -115,6 +105,10 @@
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
                     <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Resultados</a>
+                    </li>
+                    <li>
                         <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
                     </li>
@@ -130,10 +124,6 @@
                 </ul>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
         <!-- Page Content -->
         <!-- ============================================================== -->
         <div id="page-wrapper">
@@ -146,26 +136,67 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Calendario</li>
+                            <li class="active">Registrar Campeonato</li>
                         </ol>
 
                         
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Calendario</h3>
-                            Partido: <input type="text" name="nombrecompleto"> </p>
-                            <p>
-                            Fecha 1: <input type="text" name="apellidocompleto"></p>
-                            <p>
-                                <button type="button">
-                                    <img src="../images/demo/iconoguardar.png" width="23" height="23" style="vertical-align: middle">
-                                    Guardar
-                                </button>
+                            <h3 class="box-title">Registrar Campeonato</h3>
+                            <?php
+                            include 'conexion.php';
+                            
+                            $resultado=mysqli_query($conn,"SELECT * FROM  campeonato ");
+                            ?>
+                             <div class="contenedor">
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+				<input type="text" name="buscar" placeholder="Buscar nombre" 
+				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
+				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+				<a href="CRUD/insert_campeonato.php" class="btn btn__nuevo">Nuevo</a>
+			</form>
+		</div>
+		<table> 
+			<tr class="head">
+			<td><font size = "2">  Id</font> </td>
+            <td><font size = "2">  Nombre Campeonato</font> </td>
+            <td><font size = "2">  Fecha Inicio</font> </td>	
+            <td><font size = "2">  Fecha Fin</font> </td>	
+            <td><font size = "2">  Responsable</font> </td>		
+			<td><font size = "2">  Lugar</font> </td>	
+            <td><font size = "2">  Teléfono</font> </td>	
+            <td><font size = "2">  Dirección</font> </td>	
+            <td><font size = "2">  Número de Equipos</font> </td>	
+			<td colspan="2" >Acción  </td>
+			
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+				 <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['nombre'] ?></td>
+                  <td><?php echo $filas['fechaInicio'] ?></td>
+                  <td><?php echo $filas['fechaFin'] ?></td>
+                  <td><?php echo $filas['responsable'] ?></td>
+				  <td><?php echo $filas['lugar'] ?></td>
+				  <td><?php echo $filas['telefono'] ?></td>
+                  <td><?php echo $filas['direccion'] ?></td>
+                  <td><?php echo $filas['numeroEq'] ?></td>
+					<td><a href="CRUD/update_campeonato.php?id=<?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="CRUD/delete_campeonato.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
+				</tr>
+				<?php } ?>
+
+		</table>
+	</div>
+</body>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>
@@ -174,7 +205,7 @@
                 </div>
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
+            <footer class="footer text-center"> 2020 &copy; CopyRigth SOFTWARE </footer>
         </div>
         <!-- ============================================================== -->
         <!-- End Page Content -->
