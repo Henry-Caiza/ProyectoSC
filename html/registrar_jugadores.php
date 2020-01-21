@@ -21,7 +21,7 @@
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 
     <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
-
+    <link href="./CRUD/css/tabla.css" type="text/css" rel="stylesheet"/>
 
     
     
@@ -79,7 +79,7 @@
                         <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
                     <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                        <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
 
@@ -147,7 +147,7 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Jugadores</h3>
+                            <h3 class="box-title"> Información de Jugadores</h3>
                             <?php
                             include 'conexion.php';
                             
@@ -156,26 +156,33 @@
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				<input type="text" name="buscar" placeholder="Buscar nombres o apellidos" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="CRUD/insert.php" class="btn btn__nuevo">Nuevo</a>
+				<a href="CRUD/insert_jugadores.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
-		<table> 
+
+        <div id="div1"> 
+        <table> 
 			<tr class="head">
-			<td><font size = "2">  Cedula</font> </td>
+            <td><font size = "2">  Id</font> </td>
+			<td><font size = "2">  Cédula</font> </td>
             <td><font size = "2">  Nombres</font> </td>
             <td><font size = "2">  Apellidos</font> </td>	
             <td><font size = "2">  Equipo</font> </td>	
-            <td><font size = "2">  Numero Asignado</font> </td>		
+            <td><font size = "2">  Numero Asignado</font> </td>	
+            <td><font size = "2">  Pais</font> </td>	
+            <td><font size = "2">  Provincia</font> </td>
 			<td><font size = "2">  Ciudad</font> </td>	
-            <td><font size = "2">  Telefono</font> </td>	
-            <td><font size = "2">  Direccion</font> </td>	
-            <td><font size = "2">  Posicion</font> </td>	
+            <td><font size = "2">  Dirección</font> </td>
+            <td><font size = "2">  Teléfono</font> </td>	
+            <td><font size = "2">  Email</font> </td>	
+            <td><font size = "2">  Posición</font> </td>	
             <td><font size = "2">  Fecha Nacimiento</font> </td>	
+            <td><font size = "2">  Instrucción</font> </td>
 			<td><font size = "2">  Transferencia Estado</font> </td>
-			<td colspan="2" >Accion  </td>
+			<td colspan="2" >Acción  </td>
 			
 			</tr>
 
@@ -183,23 +190,31 @@
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                                         ?>
 				<tr >
+                 <td><?php echo $filas['id'] ?></td>
 				 <td><?php echo $filas['cedula'] ?></td>
                   <td><?php echo $filas['nombres'] ?></td>
                   <td><?php echo $filas['apellidos'] ?></td>
                   <td><?php echo $filas['equipo'] ?></td>
                   <td><?php echo $filas['numeroasig'] ?></td>
+                  <td><?php echo $filas['pais'] ?></td>
+                  <td><?php echo $filas['provincia'] ?></td>
 				  <td><?php echo $filas['ciudad'] ?></td>
-				  <td><?php echo $filas['telefono'] ?></td>
                   <td><?php echo $filas['direccion'] ?></td>
+				  <td><?php echo $filas['telefono'] ?></td>
+                  <td><?php echo $filas['email'] ?></td>
                   <td><?php echo $filas['posicion'] ?></td>
                   <td><?php echo $filas['fechanac'] ?></td>
+                  <td><?php echo $filas['instruccion'] ?></td>
                   <td><?php echo $filas['estadotransf'] ?></td>
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><a href="CRUD/update_jugadores.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="CRUD/delete_jugadores.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
 		</table>
+        
+        </div>
+		
 	</div>
 </body>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->

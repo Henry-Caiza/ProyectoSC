@@ -150,3 +150,13 @@ table tr td{
     padding: 5px 5px;
 }
 
+#div1{
+    overflow: scroll;
+    height: 200px;
+    width: 999px;
+}
+
+#div1 table {
+    width: 500px;
+
+}
