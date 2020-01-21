@@ -1,13 +1,11 @@
 <?php
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "scf";
-
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-if (!$conn) 
-{
-	die("No hay conexión: ".mysqli_connect_error());
+$database="scf";
+$user='root';
+$password='';
+try {
+	$con=new PDO('mysql:host=localhost;dbname='.$database,$user,$password);
+} catch (PDOException $e){
+	echo "Error".$e->getMessage();
 }
 
-
+?>

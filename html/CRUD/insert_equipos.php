@@ -2,25 +2,27 @@
 	include_once 'conexion.php';
 	
 	if(isset($_POST['guardar'])){
-		$nombre=$_POST['nombre'];
-		$apellidos=$_POST['apellidos'];
+		$nombreClub=$_POST['nombreClub'];
+		$nombrePresi=$_POST['nombrePresi'];
+		$localidad=$_POST['localidad'];
 		$telefono=$_POST['telefono'];
-		$ciudad=$_POST['ciudad'];
-		$correo=$_POST['correo'];
+		$email=$_POST['email'];
+		$numMaxjug=$_POST['numMaxjug'];
 
-		if(!empty($nombre) && !empty($apellidos) && !empty($telefono) && !empty($ciudad) && !empty($correo) ){
-			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
+		if(!empty($nombreClub) && !empty($nombrePresi) && !empty($localidad) && !empty($telefono) && !empty($email) && !empty($numMaxjug) ){
+			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
-				$consulta_insert=$con->prepare('INSERT INTO clientes(nombre,apellidos,telefono,ciudad,correo) VALUES(:nombre,:apellidos,:telefono,:ciudad,:correo)');
+				$consulta_insert=$con->prepare('INSERT INTO equipo(nombreClub,nombrePresi,localidad,telefono,email,numMaxjug) VALUES(:nombreClub,:nombrePresi,:localidad,:telefono,:email,:numMaxjug)');
 				$consulta_insert->execute(array(
-					':nombre' =>$nombre,
-					':apellidos' =>$apellidos,
+					':nombreClub' =>$nombreClub,
+					':nombrePresi' =>$nombrePresi,
+					':localidad' =>$localidad,
 					':telefono' =>$telefono,
-					':ciudad' =>$ciudad,
-					':correo' =>$correo
+					':email' =>$email,
+					':numMaxjug'=>$numMaxjug
 				));
-				header('Location: index.php');
+				header('Location: ../registrarequipo.php');
 			}
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
@@ -42,20 +44,18 @@
 		<h2>INGRESAR EQUIPO</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombre" placeholder="Codigo" class="input__text">
-				<input type="text" name="apellidos" placeholder="Telefonoe" class="input__text">
+				<input type="text" name="nombreClub" placeholder="Nombre del Club" class="input__text">
+				<input type="text" name="nombrePresi" placeholder="Nombre del Presidente" class="input__text">
 			</div>
 			<div class="form-group">
-				<input type="text" name="telefono" placeholder="Nombre Club" class="input__text">
-                <input type="text" name="ciudad" placeholder="Email" class="input__text">
+				<input type="text" name="localidad" placeholder="Localidad" class="input__text">
+                <input type="text" name="telefono" placeholder="Teléfono" class="input__text">
 			</div>
 			<div class="form-group">
-                <input type="text" name="correo" placeholder="Nombre Presidente" class="input__text">
-                <input type="text" name="ciudad" placeholder="Numero Maximo Jugadores" class="input__text">
+                <input type="text" name="email" placeholder="Email" class="input__text">
+                <input type="text" name="numMaxjug" placeholder="Número Máximo Jugadores" class="input__text">
             </div>
-            <div class="form-group">
-                <input type="text" name="correo" placeholder="Loacalidad" class="input__text">
-			</div>
+           
 			<div class="btn__group">
 				<a href="../registrarequipo.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">

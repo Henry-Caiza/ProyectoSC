@@ -74,18 +74,28 @@
                     <li style="padding: 70px 0 0;">
                         <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
-                    </li>
                     <li>
-                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Registrar Personal</a>
+                        <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Campeonato</a>
                     </li>
+
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Registrar Equipos</a>
+                                aria-hidden="true"></i>Resultados</a>
+                    </li>
+
+                    <li>
+                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
+                                aria-hidden="true"></i>Personal</a>
+                    </li>
+                    
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Equipos</a>
                     </li>
                     <li>
                         <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
-                                aria-hidden="true"></i>Registrar Jugadores</a>
+                                aria-hidden="true"></i>Jugadores</a>
                     </li>
                     <li>
                         <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
@@ -140,12 +150,13 @@
                             <?php
                             include 'conexion.php';
                             
-                            $resultado=mysqli_query($conn,"SELECT * FROM  carnet ");
+
+                            $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
                             ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				<input type="text" name="buscar" placeholder="Buscar nombre del club" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
 				<a href="CRUD/insert_equipos.php" class="btn btn__nuevo">Nuevo</a>
@@ -153,14 +164,14 @@
 		</div>
 		<table> 
 			<tr class="head">
-			<td><font size = "2">  Codigo</font> </td>
+			<td><font size = "2">  Id</font> </td>
             <td><font size = "2">  Nombre Club</font> </td>
-            <td><font size = "2">  Nombre Presidente</font> </td>	
+            <td><font size = "2">  Nombre del Presidente</font> </td>	
             <td><font size = "2">  Localidad</font> </td>		
-            <td><font size = "2">  Telefono</font> </td>	
+            <td><font size = "2">  Teléfono</font> </td>	
             <td><font size = "2">  Email</font> </td>	
-            <td><font size = "2">  Numero Maximo de jugadores</font> </td>	
-			<td colspan="2" >Accion  </td>
+            <td><font size = "2">  Número Máximo de jugadores</font> </td>	
+			<td colspan="2" >Acción  </td>
 			
 			</tr>
 
@@ -168,13 +179,13 @@
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                                         ?>
 				<tr >
-				 <td><?php echo $filas['cedula'] ?></td>
-                  <td><?php echo $filas['nombres'] ?></td>
-                  <td><?php echo $filas['apellidos'] ?></td>
-                  <td><?php echo $filas['equipo'] ?></td>
-                  <td><?php echo $filas['numeroasig'] ?></td>
-				  <td><?php echo $filas['ciudad'] ?></td>
-				  <td><?php echo $filas['telefono'] ?></td>
+				 <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['nombreClub'] ?></td>
+                  <td><?php echo $filas['nombrePresi'] ?></td>
+                  <td><?php echo $filas['localidad'] ?></td>
+                  <td><?php echo $filas['telefono'] ?></td>
+				  <td><?php echo $filas['email'] ?></td>
+				  <td><?php echo $filas['numMaxjug'] ?></td>
 
 					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
 					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>

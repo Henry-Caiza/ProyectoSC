@@ -1,5 +1,6 @@
 <?php 
 	include_once 'conexion.php';
+
 	if(isset($_POST['guardar'])){
 		$id=$_POST['id'];
 		$nombre=$_POST['nombre'];
@@ -10,9 +11,9 @@
         $numAsig=$_POST['numAsig'];
     
 
-		if(!empty($nombre) ||!empty($nombre) || !empty($apellido) || !empty($fechaNac) || !empty($cedula)|| !empty($equipo)|| !empty($numAsig) ){
-			if(!empty($id)){
-                echo "no conecta";
+		if(!empty($id) ||!empty($nombre) || !empty($apellido) || !empty($fechaNac) || !empty($cedula)|| !empty($equipo)|| !empty($numAsig) ){
+			if(!filter_var($cedula,FILTER_VALIDATE_INT)){
+				echo "<script> alert('Cedula no aceptada');</script>";
 			}else{
                 echo " conecta";
 				$consulta_insert=$con->prepare('INSERT INTO carnet(id,nombre,apellido,fechaNac,cedula,equipo,numAsig) VALUES(:id,:nombre,:apellido,:fechaNac,:cedula,:equipo,:numAsig)');
@@ -25,7 +26,7 @@
                     ':equipo' =>$equipo,
 					':numAsig' =>$numAsig
 				));
-				header('Location: index.php');
+				header('Location: ../Carnets.php');
 			}
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
@@ -70,3 +71,4 @@
 	</div>
 </body>
 </html>
+

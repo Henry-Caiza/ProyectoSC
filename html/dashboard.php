@@ -92,18 +92,23 @@
                     <li style="padding: 70px 0 0;">
                         <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
+                    <li>
+                        <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Campeonato</a>
                     </li>
+
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Registrar Personal</a>
+                                aria-hidden="true"></i>Personal Arbitrario</a>
                     </li>
+                    
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Registrar Equipos</a>
+                                aria-hidden="true"></i>Equipos</a>
                     </li>
                     <li>
                         <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
-                                aria-hidden="true"></i>Registrar Jugadores</a>
+                                aria-hidden="true"></i>Jugadores</a>
                     </li>
                     <li>
                         <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
@@ -113,6 +118,12 @@
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
+
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Resultados</a>
+                    </li>
+                    
                     <li>
                         <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
@@ -127,6 +138,7 @@
                     </li>
                    
                 </ul>
+                
             </div>
         </div>
         <!-- ============================================================== -->

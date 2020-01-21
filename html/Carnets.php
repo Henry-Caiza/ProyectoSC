@@ -75,18 +75,28 @@
                     <li style="padding: 70px 0 0;">
                         <a href="dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i>Inicio</a>
-                    </li>
                     <li>
-                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Registrar Personal</a>
+                        <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Campeonato</a>
                     </li>
+
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Registrar Equipos</a>
+                                aria-hidden="true"></i>Resultados</a>
+                    </li>
+
+                    <li>
+                        <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
+                                aria-hidden="true"></i>Personal</a>
+                    </li>
+                    
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Equipos</a>
                     </li>
                     <li>
                         <a href="registrar_jugadores.php" class="waves-effect"><i class="fa fa-users fa-fw"
-                                aria-hidden="true"></i>Registrar Jugadores</a>
+                                aria-hidden="true"></i>Jugadores</a>
                     </li>
                     <li>
                         <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
@@ -174,8 +184,8 @@
                   <td><?php echo $filas['cedula'] ?></td>
 				  <td><?php echo $filas['equipo'] ?></td>
 				  <td><?php echo $filas['numAsig'] ?></td>
-					<td><a href="update.php?id= <?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><a href="CRUD/update_carnet.php?id=<?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="CRUD/delete_carnet.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
