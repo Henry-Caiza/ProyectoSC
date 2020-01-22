@@ -162,7 +162,7 @@
 		</div>
 		<table> 
 			<tr class="head">
-			<td><font size = "2">  Código</font> </td>
+			<td><font size = "2">  Id</font> </td>
             <td><font size = "2">  Nombres</font> </td>
             <td><font size = "2">  Apellidos</font> </td>	
             <td><font size = "2">  Fecha de Nacimiento</font> </td>	

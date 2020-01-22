@@ -80,11 +80,6 @@
                     </li>
 
                     <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Resultados</a>
-                    </li>
-
-                    <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Personal</a>
                     </li>
@@ -105,6 +100,13 @@
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
+
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Resultados</a>
+                    </li>
+
+
                     <li>
                         <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
@@ -133,7 +135,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Equipos</li>
+                            <li class="active"> Equipos</li>
                         </ol>
 
                         
@@ -146,7 +148,7 @@
                             
                                 
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registro de Equipos</h3>
+                            <h3 class="box-title"> Equipos</h3>
                             <?php
                             include 'conexion.php';
                             
