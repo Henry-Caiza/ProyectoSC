@@ -57,7 +57,10 @@
                 <input type="text" name="equipo1" placeholder="Equipo 1" class="input__text">
                 <input type="text" name="equipo2" placeholder="Equipo 2" class="input__text">
             </div>
-            <p>Fecha de juego: <input type="date" name="fechaJuego"></p>
+			<div class="form-group">
+                <input type="date" name="fechaJuego" placeholder="Fecha de juego" class="input__text">
+            </div>
+            
            
 			<div class="btn__group">
 				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
