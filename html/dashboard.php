@@ -159,9 +159,10 @@
                     <div class="col-sm-12">
                         <div class="white-box">
                             <h3 class="box-title">SISTEMA DE CAMPEONATO DE FUTBOL</h3>
-                            <p class="text-muted">Panel Principal</p>
+                            <p class="text-muted"></p>
                             <div class="table-responsive">
-                                ESPACIO PARA PANEL PRINCIPAL 
+                                <font size = "20">BIENVENIDO</font> 
+                                <img src="../img/ac198c217df0bbc58195e48afd92de5e-jugador-de-futbol-tiro-pelota-by-vexels.png">
                             </div>
                         </div>
                     </div>
