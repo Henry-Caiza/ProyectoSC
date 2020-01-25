@@ -63,6 +63,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
+                    <li><a href="../index.html">Cerrar Sesion</a></li>  
                     
                 </ul>
             </div>
@@ -89,10 +90,7 @@
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
 
-                    <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Resultados</a>
-                    </li>
+                    
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
@@ -115,6 +113,11 @@
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Resultados</a>
+                    </li>
+
                     <li>
                         <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
@@ -165,7 +168,7 @@
                             $resultado=mysqli_query($conn,"SELECT * FROM  calendario ");
                             ?>
                              <div class="contenedor">
-		<h2>CALENDARIO</h2>
+		<h2>CALENDARIO DE PARTIDOS</h2>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
 				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
@@ -214,7 +217,7 @@
                 </div>
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
+            <footer class="footer text-center"> 2020 &copy; CopyRigth SOFTWARE </footer>
         </div>
         <!-- ============================================================== -->
         <!-- End Page Content -->

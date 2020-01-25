@@ -60,7 +60,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
-                    
+                    <li><a href="../index.html">Cerrar Sesion</a></li>  
                 </ul>
             </div>
         </nav>
@@ -80,10 +80,7 @@
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
 
-                    <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Resultados</a>
-                    </li>
+                    
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
@@ -105,6 +102,11 @@
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tablas</a>
+                    </li>
+
+                    <li>
+                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                                aria-hidden="true"></i>Resultados</a>
                     </li>
                     <li>
                         <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
@@ -144,7 +146,7 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title"> Información de Jugadores</h3>
+                            <h3 class="box-title">  Jugadores</h3>
                             <?php
                             include 'conexion.php';
                             
