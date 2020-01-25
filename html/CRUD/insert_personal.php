@@ -11,7 +11,7 @@
 		$cargo=$_POST['cargo'];
 
 		if(!empty($nombre) && !empty($apellido) && !empty($cedula) && !empty($email) && !empty($telefono) && !empty($direccion)  && !empty($cargo) ){
-			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+			if(!filter_var($email,FILTER_VALIDATE_EMAIL) && !filter_var($cedula,FILTER_VALIDATE_INT)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
 				$consulta_insert=$con->prepare('INSERT INTO personal(nombre,apellido,cedula,email,telefono,direccion,cargo) VALUES(:nombre,:apellido,:cedula,:email,:telefono,:direccion,:cargo)');
