@@ -41,6 +41,7 @@
 	<meta charset="UTF-8">
 	<title>Nuevo Carnet</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 	<div class="contenedor">
@@ -58,13 +59,19 @@
                 <input type="text" name="apellido" placeholder="Apellidos" class="input__text">
                 <input type="text" name="numAsig" placeholder="Número Asignado" class="input__text">
             </div>
-            <p>Fecha de nacimiento: <input type="date" name="fechaNac"></p>
+            <p>Fecha de nacimiento:</p>
+			<div class="form-group">
+                <input type="date" name="fechaNac" placeholder="Fecha Nacimiento" class="input__text">
+            </div>
 			<div class="btn__group">
                 <a href="../Carnets.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
             </div>
 		</form>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
 
