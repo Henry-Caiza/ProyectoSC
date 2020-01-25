@@ -11,7 +11,7 @@
 
 		if(!empty($nombreClub) && !empty($nombrePresi) && !empty($localidad) && !empty($telefono) && !empty($email) && !empty($numMaxjug) ){
 			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-				echo "<script> alert('Correo no valido');</script>";
+				echo "<script> alert('Datos no validos');</script>";
 			}else{
 				$consulta_insert=$con->prepare('INSERT INTO equipo(nombreClub,nombrePresi,localidad,telefono,email,numMaxjug) VALUES(:nombreClub,:nombrePresi,:localidad,:telefono,:email,:numMaxjug)');
 				$consulta_insert->execute(array(
@@ -25,12 +25,9 @@
 				header('Location: ../registrarequipo.php');
 			}
 		}else{
-			echo "<script> alert('Los campos estan vacios');</script>";
+			echo '<script> alert("Los campos estan vacios"); windows.location.href="../Carnets.php";</script>';
 		}
-
 	}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
