@@ -63,15 +63,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
-                   <!-- <li>
-                        <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i
-                                    class="fa fa-search"></i></a> </form>
-                    </li>
-                    <li>
-                        <a class="profile-pic" href="#"> <img src="../plugins/images/users/varun.jpg" alt="user-img"
-                                width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>
-                    </li>-->
+                    <li><a href="../index.html">Cerrar Sesion</a></li>  
                 </ul>
             </div>
             <!-- /.navbar-header -->
@@ -167,9 +159,10 @@
                     <div class="col-sm-12">
                         <div class="white-box">
                             <h3 class="box-title">SISTEMA DE CAMPEONATO DE FUTBOL</h3>
-                            <p class="text-muted">Panel Principal</p>
+                            <p class="text-muted"></p>
                             <div class="table-responsive">
-                                ESPACIO PARA PANEL PRINCIPAL 
+                                <font size = "20">BIENVENIDO</font> 
+                                <img src="../img/ac198c217df0bbc58195e48afd92de5e-jugador-de-futbol-tiro-pelota-by-vexels.png">
                             </div>
                         </div>
                     </div>
@@ -177,7 +170,7 @@
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> 2020 &copy; Propiedad de los Papus :V</footer>
+            <footer class="footer text-center"> 2020 &copy; CopyRigth SOFTWARE </footer>
         </div>
         <!-- /#page-wrapper -->
     </div>

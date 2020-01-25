@@ -60,6 +60,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
+                    <li><a href="../index.html">Cerrar Sesion</a></li>  
                     
                 </ul>
             </div>
@@ -161,7 +162,7 @@
 		</div>
 		<table> 
 			<tr class="head">
-			<td><font size = "2">  Código</font> </td>
+			<td><font size = "2">  Id</font> </td>
             <td><font size = "2">  Nombres</font> </td>
             <td><font size = "2">  Apellidos</font> </td>	
             <td><font size = "2">  Fecha de Nacimiento</font> </td>	

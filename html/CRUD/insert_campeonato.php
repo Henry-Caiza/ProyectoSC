@@ -59,8 +59,12 @@
                 <input type="text" name="direccion" placeholder="Dirección" class="input__text">
                 <input type="text" name="numeroEq" placeholder="Numero de Equipos" class="input__text">
             </div>
-            <p>Fecha Inicio: <input type="date" name="fechaInicio"></p>
-            <p>Fecha Fin: <input type="date" name="fechaFin"></p>
+			<p>Inicio:</p>
+			<div class="form-group">
+                <input type="date" name="fechaInicio" placeholder="Fecha Inicio" class="input__text">
+				<p> Fin:</p>
+                <input type="date" name="fechaFin" placeholder="Fecha Fin" class="input__text">
+            </div>
            
 			<div class="btn__group">
 				<a href="../registrar_campeonato.php" class="btn btn__danger">Cancelar</a>
