@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -149,14 +150,26 @@
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title">Registrar Campeonato</h3>
                             <?php
-                            include 'conexion.php';
-                            
-                            $resultado=mysqli_query($conn,"SELECT * FROM  campeonato ");
-                            ?>
+                                 include 'conexion.php';
+                                 $resultado=mysqli_query($conn,"SELECT * FROM  campeonato ");
+                                 
+                                 // metodo buscar
+                                    if(isset($_POST['btn_buscar'])){
+                                        $buscar_text=$_POST['buscar'];
+                                        $select_buscar=$con->prepare("SELECT * FROM campeonato WHERE nombre = 'buscar'");
+                                        //$select_buscar->execute(array(
+                                          //  ':campo' =>"%".$buscar_text."%"
+                                       // ));
+                                        //$resultado1=$select_buscar->fetchAll();
+                                    }
+                                ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
+            <p>
+             </p>
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="Buscar nombre" 
+				
+            <input type="text" name="buscar" placeholder="Buscar nombre" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
 				<a href="CRUD/insert_campeonato.php" class="btn btn__nuevo">Nuevo</a>
