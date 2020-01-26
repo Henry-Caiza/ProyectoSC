@@ -22,7 +22,7 @@
 			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
-				$consulta_insert=$con->prepare('INSERT INTO jugadores(cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,email,posicion,fechanac,instruccion,estadotransf) VALUES(:cedula,:nombres,:apellidos,:equipo,:numeroasig,:pais,:provincia,:ciudad,:direccion,:telefono,:email,:posicion,:fechanac,:instruccion,:estadotransf)');
+				$consulta_insert=$con->prepare('INSERT INTO jugadores (cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,email,posicion,fechanac,instruccion,estadotransf) VALUES(:cedula,:nombres,:apellidos,:equipo,:numeroasig,:pais,:provincia,:ciudad,:direccion,:telefono,:email,:posicion,:fechanac,:instruccion,:estadotransf)');
 				$consulta_insert->execute(array(
                     ':cedula' =>$cedula,
                     ':nombres' =>$nombres,
@@ -71,16 +71,15 @@
             </div>
             <div class="form-group"> 
                 <label for="select1"></label>
-                 <select name="select1" id="select1" class="form-control">
-                 <option value="">Selecione Equipo</option>
-                 
-                 <?php  
-                         $mysqli = new mysqli('localhost', 'root', '', 'scf');
-                         $query = $mysqli -> query ("SELECT * FROM equipo");
-                         while ($valores = mysqli_fetch_array($query)) {
-                        echo '<option value="">'.$valores[nombreClub].'</option>';}
-                 ?>
-                 </select>
+                <select name="equipo" id="equipo" class="form-control">
+                <option selected="" disabled="" hidden="">Escoja un equipo</option>
+                <?php  
+                    $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                    $query = $mysqli -> query ("SELECT * FROM equipo");
+                    while ($valores = mysqli_fetch_array($query)) {
+                    echo '<option value="'.$valores[nombreClub].'">'.$valores[nombreClub].'</option>';}
+                ?>
+                </select>
             </div>
 
 			<div class="form-group">
