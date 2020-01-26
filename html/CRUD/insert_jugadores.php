@@ -19,9 +19,9 @@
         $estadotransf=$_POST['estadotransf'];
 
 		if(!empty($cedula) && !empty($nombres) && !empty($apellidos) && !empty($equipo) && !empty($numeroasig) && !empty($pais) && !empty($provincia) && !empty($ciudad) && !empty($direccion) && !empty($telefono) && !empty($email) && !empty($posicion) && !empty($fechanac) && !empty($instruccion) && !empty($estadotransf) ){
-			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            /*if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
-			}else{
+			}else{ */
 				$consulta_insert=$con->prepare('INSERT INTO jugadores (cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,email,posicion,fechanac,instruccion,estadotransf) VALUES(:cedula,:nombres,:apellidos,:equipo,:numeroasig,:pais,:provincia,:ciudad,:direccion,:telefono,:email,:posicion,:fechanac,:instruccion,:estadotransf)');
 				$consulta_insert->execute(array(
                     ':cedula' =>$cedula,
@@ -40,10 +40,9 @@
                     ':instruccion' =>$instruccion,
                     ':estadotransf' =>$estadotransf
 				));
-                header('Location: ../registrar_jugadores.php');
-                echo "Datos Guardados";
-			}
-		}else{
+				header('Location: ../registrar_jugadores.php');
+			/*}*/ 
+		} else {
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
 
@@ -72,15 +71,15 @@
             </div>
             <div class="form-group"> 
                 <label for="select1"></label>
-                <select name="equipo" id="equipo" class="form-control">
-                <option selected="" disabled="" hidden="">Escoja un equipo</option>
-                <?php  
-                    $mysqli = new mysqli('localhost', 'root', '', 'scf');
-                    $query = $mysqli -> query ("SELECT * FROM equipo");
-                    while ($valores = mysqli_fetch_array($query)) {
-                    echo '<option value="'.$valores[nombreClub].'">'.$valores[nombreClub].'</option>';}
-                ?>
-                </select>
+                 <select name="equipo" id="equipo" class="form-control">
+                 <option selected="" disabled="" hidden="">Escoja un equipo</option>
+                 <?php  
+                         $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                         $query = $mysqli -> query ("SELECT * FROM equipo");
+                         while ($valores = mysqli_fetch_array($query)) {
+                        echo '<option value="'.$valores[nombreClub].'">'.$valores[nombreClub].'</option>';}
+                 ?>
+                 </select>
             </div>
 
 			<div class="form-group">
