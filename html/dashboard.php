@@ -108,7 +108,7 @@
                     </li>
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i>Tablas</a>
+                                aria-hidden="true"></i>Tabla de Posiciones</a>
                     </li>
 
                     <li>
@@ -117,7 +117,7 @@
                     </li>
                     
                     <li>
-                        <a href="" href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
+                        <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                      aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>

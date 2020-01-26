@@ -99,7 +99,7 @@
                     </li>
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i>Tablas</a>
+                                aria-hidden="true"></i>Tabla de Posiciones </a>
                     </li>
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"

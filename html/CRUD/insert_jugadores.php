@@ -40,7 +40,8 @@
                     ':instruccion' =>$instruccion,
                     ':estadotransf' =>$estadotransf
 				));
-				header('Location: ../registrar_jugadores.php');
+                header('Location: ../registrar_jugadores.php');
+                echo "Datos Guardados";
 			}
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
