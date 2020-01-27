@@ -132,10 +132,9 @@
                 <input type="text" name="estadotransf" value="<?php if($resultado) echo $resultado['estadotransf']; ?>" class="input__text" required>
 			</div>
 
-            <pre>Fecha Nacimiento  </pre>
+            <p>Fecha Nacimiento  </p>
             <div class="form-group">
-				<p> <input type="date" name="fechanac" value="<?php if($resultado) echo $resultado['fechanac']; ?>" >
-                </p>
+				<input type="date" name="fechanac" value="<?php if($resultado) echo $resultado['fechanac']; ?>" class="input_text" required >
                 
 			</div>
 
