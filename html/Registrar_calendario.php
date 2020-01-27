@@ -111,7 +111,7 @@
                     </li>
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i>Tablas</a>
+                                aria-hidden="true"></i>Tabla de Posiciones</a>
                     </li>
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
@@ -171,7 +171,7 @@
 		<h2>CALENDARIO DE PARTIDOS</h2>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				<input type="text" name="buscar" placeholder="buscar código del partido" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
 				<a href="./CRUD/insert_calendario.php" class="btn btn__nuevo">Nuevo</a>

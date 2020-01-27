@@ -4,12 +4,12 @@
 	if(isset($_POST['guardar'])){
 		$nombreClub=$_POST['nombreClub'];
 		$nombrePresi=$_POST['nombrePresi'];
-		$valores=$_POST['localidad'];
+		$localidad=$_POST['localidad'];
 		$telefono=$_POST['telefono'];
 		$email=$_POST['email'];
 		$numMaxjug=$_POST['numMaxjug'];
 
-		if(!empty($nombreClub) && !empty($nombrePresi) && !empty($telefono) && !empty($email) && !empty($numMaxjug) ){
+		if(!empty($nombreClub) && !empty($nombrePresi) && !empty($localidad) && !empty($telefono) && !empty($email) && !empty($numMaxjug) ){
 			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Datos no validos');</script>";
 			}else{
@@ -17,7 +17,7 @@
 				$consulta_insert->execute(array(
 					':nombreClub' =>$nombreClub,
 					':nombrePresi' =>$nombrePresi,
-					':localidad' =>$valores,
+					':localidad' =>$localidad,
 					':telefono' =>$telefono,
 					':email' =>$email,
 					':numMaxjug'=>$numMaxjug
@@ -44,33 +44,18 @@
 		</p>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombreClub" placeholder="Nombre del Club" class="input__text">
-				<input type="text" name="nombrePresi" placeholder="Nombre del Presidente" class="input__text">
+				<input type="text" name="nombreClub" placeholder="Nombre del Club" class="input__text" required>
+				<input type="text" name="nombrePresi" placeholder="Nombre del Presidente" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<!--<input type="text" name="localidad" placeholder="Localidad" class="input__text">-->
-                <input type="text" name="telefono" placeholder="Teléfono" class="input__text">
+				<input type="text" name="localidad" placeholder="Localidad" class="input__text" required>
+                <input type="text" name="telefono" placeholder="Teléfono" class="input__text" required>
 			</div>
 			<div class="form-group">
-                <input type="text" name="email" placeholder="Email" class="input__text">
-                <input type="text" name="numMaxjug" placeholder="Número Máximo Jugadores" class="input__text">
+                <input type="text" name="email" placeholder="Email" class="input__text" required>
+                <input type="text" name="numMaxjug" placeholder="Número Máximo Jugadores" class="input__text" required>
             </div>
-            <div class="form-group"> 
-                <label for="select1"></label>
-                 <select name="select1" id="select1" class="form-control">
-                 <option value="">Selecione localidad</option>
-                 
-                 <?php  
-                         $mysqli = new mysqli('localhost', 'root', '', 'scf');
-                         $query = $mysqli -> query ("SELECT * FROM jugadores");
-                         while ($valores = mysqli_fetch_array($query)) {
-                         echo '<option value="">'.$valores['ciudad'].'</option>';  
-                    }       
-                       $localidad=$valores['ciudad'];
-                 ?>
-                 </select>
-                 
-            </div>
+           
 			<div class="btn__group">
 				<a href="../registrarequipo.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">

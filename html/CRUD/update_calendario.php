@@ -69,16 +69,16 @@
 		<h2>MODIFICAR CALENDARIO</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="time" name="horario" value="<?php if($resultado) echo $resultado['horario']; ?>" class="input__text">
-				<input type="text" name="cancha" value="<?php if($resultado) echo $resultado['cancha']; ?>" class="input__text">
+				<input type="time" name="horario" value="<?php if($resultado) echo $resultado['horario']; ?>" class="input__text" required>
+				<input type="text" name="cancha" value="<?php if($resultado) echo $resultado['cancha']; ?>" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="nombreArbitro" value="<?php if($resultado) echo $resultado['nombreArbitro']; ?>" class="input__text">
-				<input type="text" name="eqVocalia" value="<?php if($resultado) echo $resultado['eqVocalia']; ?>" class="input__text">
+				<input type="text" name="nombreArbitro" value="<?php if($resultado) echo $resultado['nombreArbitro']; ?>" class="input__text" required>
+				<input type="text" name="eqVocalia" value="<?php if($resultado) echo $resultado['eqVocalia']; ?>" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="equipo1" value="<?php if($resultado) echo $resultado['equipo1']; ?>" class="input__text">
-                <input type="text" name="equipo2" value="<?php if($resultado) echo $resultado['equipo2']; ?>" class="input__text">
+				<input type="text" name="equipo1" value="<?php if($resultado) echo $resultado['equipo1']; ?>" class="input__text" required>
+                <input type="text" name="equipo2" value="<?php if($resultado) echo $resultado['equipo2']; ?>" class="input__text" required>
 			</div>
             <pre>Fecha Inicio  </pre>
             <div class="form-group">

@@ -47,25 +47,26 @@
 		<h2>INGRESAR CALENDARIOS</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="time" name="horario" placeholder="Horario" class="input__text">
-				<input type="text" name="cancha" placeholder="Cancha" class="input__text">
+				<input type="time" name="horario" placeholder="Horario" class="input__text" required>
+				<input type="text" name="cancha" placeholder="Cancha" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="nombreArbitro" placeholder="Nombre de Árbitro" class="input__text">
-                <input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text">
+				<input type="text" name="nombreArbitro" placeholder="Nombre de Árbitro" class="input__text" required>
+                <input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text" required>
 			</div>
 			<div class="form-group">
-                <input type="text" name="equipo1" placeholder="Equipo 1" class="input__text">
-                <input type="text" name="equipo2" placeholder="Equipo 2" class="input__text">
+                <input type="text" name="equipo1" placeholder="Equipo 1" class="input__text" required>
+                <input type="text" name="equipo2" placeholder="Equipo 2" class="input__text" required>
             </div>
 			<div class="form-group">
-                <input type="date" name="fechaJuego" placeholder="Fecha de juego" class="input__text">
+                <input type="date" name="fechaJuego" placeholder="Fecha de juego" class="input__text" required>
             </div>
             
            
 			<div class="btn__group">
 				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
+				
 			</div>
 		</form>
 	</div>

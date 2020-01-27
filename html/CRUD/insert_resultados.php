@@ -43,15 +43,15 @@
 		<h2>RESULTADOS DEL CAMPEONATO</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombre" placeholder="Nombre" class="input__text">
-				<input type="text" name="apellidos" placeholder="Apellidos" class="input__text">
+				<input type="text" name="nombre" placeholder="Nombre" class="input__text" required>
+				<input type="text" name="apellidos" placeholder="Apellidos" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="telefono" placeholder="Teléfono" class="input__text">
-				<input type="text" name="ciudad" placeholder="Ciudad" class="input__text">
+				<input type="text" name="telefono" placeholder="Teléfono" class="input__text" required>
+				<input type="text" name="ciudad" placeholder="Ciudad" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="correo" placeholder="Correo electrónico" class="input__text">
+				<input type="text" name="correo" placeholder="Correo electrónico" class="input__text" required>
 			</div>
 			<div class="btn__group">
 				<a href="index.php" class="btn btn__danger">Cancelar</a>

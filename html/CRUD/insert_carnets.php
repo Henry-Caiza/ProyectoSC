@@ -48,20 +48,20 @@
 		<h2>INGRESAR CARNET</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="id" placeholder="Código" class="input__text">
-				<input type="text" name="cedula" placeholder="Cédula" class="input__text">
+				<input type="text" name="id" placeholder="Código" class="input__text" required>
+				<input type="text" name="cedula" placeholder="Cédula" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="nombre" placeholder="Nombres" class="input__text">
-                <input type="text" name="equipo" placeholder="Equipo" class="input__text">
+				<input type="text" name="nombre" placeholder="Nombres" class="input__text" required>
+                <input type="text" name="equipo" placeholder="Equipo" class="input__text" required>
 			</div>
 			<div class="form-group">
-                <input type="text" name="apellido" placeholder="Apellidos" class="input__text">
-                <input type="text" name="numAsig" placeholder="Número Asignado" class="input__text">
+                <input type="text" name="apellido" placeholder="Apellidos" class="input__text" required>
+                <input type="text" name="numAsig" placeholder="Número Asignado" class="input__text" required>
             </div>
             <p>Fecha de nacimiento:</p>
 			<div class="form-group">
-                <input type="date" name="fechaNac" placeholder="Fecha Nacimiento" class="input__text">
+                <input type="date" name="fechaNac" placeholder="Fecha Nacimiento" class="input__text" required>
             </div>
 			<div class="btn__group">
                 <a href="../Carnets.php" class="btn btn__danger">Cancelar</a>

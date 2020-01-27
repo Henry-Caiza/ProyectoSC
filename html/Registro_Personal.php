@@ -108,7 +108,7 @@
                     </li>
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i>Tablas</a>
+                                aria-hidden="true"></i>Tabla de posiciones</a>
                     </li>
 
                     <li>

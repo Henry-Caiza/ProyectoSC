@@ -66,16 +66,16 @@
 		<h2>MODIFICAR EQUIPO</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombreClub" value="<?php if($resultado) echo $resultado['nombreClub']; ?>" class="input__text">
-				<input type="text" name="nombrePresi" value="<?php if($resultado) echo $resultado['nombrePresi']; ?>" class="input__text">
+				<input type="text" name="nombreClub" value="<?php if($resultado) echo $resultado['nombreClub']; ?>" class="input__text" required>
+				<input type="text" name="nombrePresi" value="<?php if($resultado) echo $resultado['nombrePresi']; ?>" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="localidad" value="<?php if($resultado) echo $resultado['localidad']; ?>" class="input__text">
-				<input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text">
+				<input type="text" name="localidad" value="<?php if($resultado) echo $resultado['localidad']; ?>" class="input__text" required>
+				<input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>" class="input__text">
-                <input type="text" name="numMaxjug" value="<?php if($resultado) echo $resultado['numMaxjug']; ?>" class="input__text">
+				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>" class="input__text" required>
+                <input type="text" name="numMaxjug" value="<?php if($resultado) echo $resultado['numMaxjug']; ?>" class="input__text" required>
 			</div>
 			<div class="btn__group">
 				<a href="../registrarequipo.php" class="btn btn__danger">Cancelar</a>

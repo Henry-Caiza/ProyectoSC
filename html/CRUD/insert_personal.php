@@ -11,7 +11,7 @@
 		$cargo=$_POST['cargo'];
 
 		if(!empty($nombre) && !empty($apellido) && !empty($cedula) && !empty($email) && !empty($telefono) && !empty($direccion)  && !empty($cargo) ){
-			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+			if(!filter_var($email,FILTER_VALIDATE_EMAIL) && !filter_var($cedula,FILTER_VALIDATE_INT)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
 				$consulta_insert=$con->prepare('INSERT INTO personal(nombre,apellido,cedula,email,telefono,direccion,cargo) VALUES(:nombre,:apellido,:cedula,:email,:telefono,:direccion,:cargo)');
@@ -47,19 +47,19 @@
 		<h2>INGRESAR PERSONAL</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombre" placeholder="Nombres" class="input__text">
-				<input type="text" name="apellido" placeholder="Apellidos" class="input__text">
+				<input type="text" name="nombre" placeholder="Nombres" class="input__text" required>
+				<input type="text" name="apellido" placeholder="Apellidos" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="cedula" placeholder="Cédula" class="input__text">
-                <input type="text" name="email" placeholder="Correo electrónico" class="input__text">
+				<input type="text" name="cedula" placeholder="Cédula" class="input__text" required>
+                <input type="text" name="email" placeholder="Correo electrónico" class="input__text" required>
 			</div>
 			<div class="form-group">
-                <input type="text" name="telefono" placeholder="Teléfono" class="input__text">
-                <input type="text" name="direccion" placeholder="Dirección" class="input__text">
+                <input type="text" name="telefono" placeholder="Teléfono" class="input__text" required>
+                <input type="text" name="direccion" placeholder="Dirección" class="input__text" required>
             </div>
 			<div class="form-group">
-                <input type="text" name="cargo" placeholder="Cargo" class="input__text">
+                <input type="text" name="cargo" placeholder="Cargo" class="input__text" required>
                 
             </div>
 			<div class="btn__group">

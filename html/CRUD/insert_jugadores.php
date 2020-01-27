@@ -6,14 +6,12 @@
         $nombres=$_POST['nombres'];
         $apellidos=$_POST['apellidos'];
         $valores=$_POST['equipo'];
-       // $equipo=(string) $_GET['equipo'];
         $numeroasig=$_POST['numeroasig'];
-        $pais=$_POST['pais'];
+        $pais=$_POST['pais'];   
         $provincia=$_POST['provincia'];
         $ciudad=$_POST['ciudad'];
         $direccion=$_POST['direccion'];
         $telefono=$_POST['telefono'];
-       // $email=$_POST['email'];
         $posicion=$_POST['posicion'];
 		$fechanac=$_POST['fechanac'];
         $instruccion=$_POST['instruccion'];
@@ -41,14 +39,11 @@
                     ':estadotransf' =>$estadotransf
 				));
 				header('Location: ../registrar_jugadores.php');
-			}
-		}else{
+			} 
+		} else {
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
-
 	}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -63,55 +58,52 @@
 		<h2>INGRESAR JUGADORES</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="cedula" placeholder="Cédula" class="input__text">
-				<input type="text" name="nombres" placeholder="Nombres" class="input__text">
+				<input type="text" name="cedula" placeholder="Cédula" class="input__text" required>
+				<input type="text" name="nombres" placeholder="Nombres" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="apellidos" placeholder="Apellidos" class="input__text">
+				<input type="text" name="apellidos" placeholder="Apellidos" class="input__text" required>
             </div>
             <div class="form-group"> 
                 <label for="select1"></label>
-                 <select name="select1" id="select1" class="form-control">
-                 <option value="">Selecione Equipo</option>
-                 
+                 <select name="equipo" id="equipo" class="form-control">
+                 <option selected="" disabled="" hidden="">Escoja un equipo</option>
                  <?php  
                          $mysqli = new mysqli('localhost', 'root', '', 'scf');
                          $query = $mysqli -> query ("SELECT * FROM equipo");
                          while ($valores = mysqli_fetch_array($query)) {
-                         echo '<option value="">'.$valores[nombreClub].'</option>';  
-                    }       
-                       $equipos=$valores;
+                        echo '<option value="'.$valores[nombreClub].'">'.$valores[nombreClub].'</option>';}
                  ?>
                  </select>
                  
             </div>
 
 			<div class="form-group">
-                <input type="text" name="numeroasig" placeholder="Número Asignado" class="input__text">
-                <input type="text" name="pais" placeholder="País" class="input__text">
+                <input type="text" name="numeroasig" placeholder="Número Asignado" class="input__text" required>
+                <input type="text" name="pais" placeholder="País" class="input__text" required>
             </div>
 
             <div class="form-group">
-                <input type="text" name="provincia" placeholder="Provincia" class="input__text">
-                <input type="text" name="ciudad" placeholder="Ciudad" class="input__text">
+                <input type="text" name="provincia" placeholder="Provincia" class="input__text" required>
+                <input type="text" name="ciudad" placeholder="Ciudad" class="input__text" required>
             </div>
 
             <div class="form-group">
-                <input type="text" name="direccion" placeholder="Dirección" class="input__text">
-                <input type="text" name="telefono" placeholder="Teléfono" class="input__text">
+                <input type="text" name="direccion" placeholder="Dirección" class="input__text" required>
+                <input type="text" name="telefono" placeholder="Teléfono" class="input__text" required>
             </div>
 
             <div class="form-group">
-                <input type="text" name="posicion" placeholder="Posición" class="input__text">
+                <input type="text" name="posicion" placeholder="Posición" class="input__text" required>
+                <input type="text" name="instruccion" placeholder="Instrucción" class="input__text" required>
             </div>
 
             <div class="form-group">
-                <input type="text" name="estadotransf" placeholder=" Transferencia Estado" class="input__text">
-                <input type="text" name="instruccion" placeholder="Instrucción" class="input__text">
+                <input type="text" name="estadotransf" placeholder=" Transferencia Estado" class="input__text" required>
             </div>
             <p>Fecha de Nacimiento</p>
             <div class="form-group">
-                <input type="date" name="fechanac" placeholder="Fecha de Nacimiento" class="input__text">
+                <input type="date" name="fechanac" placeholder="Fecha de Nacimiento" class="input__text" required>
     
             </div>
             

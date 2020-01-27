@@ -101,7 +101,7 @@
                     </li>
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i>Tablas</a>
+                                aria-hidden="true"></i>Tabla de Posiciones</a>
                     </li>
 
                     <li>
@@ -158,7 +158,7 @@
 				<input type="text" name="buscar" placeholder="Buscar nombres o apellidos" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="CRUD/inert_jugadores.php" class="btn btn__nuevo">Nuevo</a>
+				<a href="CRUD/insert_jugadores.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
 

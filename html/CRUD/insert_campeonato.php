@@ -49,22 +49,22 @@
 		<h2>INGRESAR CAMPEONATOS</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombre" placeholder="Nombre Campeonato" class="input__text">
-				<input type="text" name="responsable" placeholder="Responsable" class="input__text">
+				<input type="text" name="nombre" placeholder="Nombre Campeonato" class="input__text" required>
+				<input type="text" name="responsable" placeholder="Responsable" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="lugar" placeholder="Lugar" class="input__text">
-                <input type="text" name="telefono" placeholder="Teléfono" class="input__text">
+				<input type="text" name="lugar" placeholder="Lugar" class="input__text" required>
+                <input type="text" name="telefono" placeholder="Teléfono" class="input__text" required>
 			</div>
 			<div class="form-group">
-                <input type="text" name="direccion" placeholder="Dirección" class="input__text">
-                <input type="text" name="numeroEq" placeholder="Numero de Equipos" class="input__text">
+                <input type="text" name="direccion" placeholder="Dirección" class="input__text" required>
+                <input type="text" name="numeroEq" placeholder="Numero de Equipos" class="input__text"required>
             </div>
 			<p>Inicio:</p>
 			<div class="form-group">
-                <input type="date" name="fechaInicio" placeholder="Fecha Inicio" class="input__text">
+                <input type="date" name="fechaInicio" placeholder="Fecha Inicio" class="input__text" required>
 				<p> Fin:</p>
-                <input type="date" name="fechaFin" placeholder="Fecha Fin" class="input__text">
+                <input type="date" name="fechaFin" placeholder="Fecha Fin" class="input__text" required>
             </div>
            
 			<div class="btn__group">

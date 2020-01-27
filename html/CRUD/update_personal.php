@@ -69,20 +69,20 @@
 		<h2>MODIFICAR PERSONAL ARBITRARIO</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombre" value="<?php if($resultado) echo $resultado['nombre']; ?>" class="input__text">
-				<input type="text" name="apellido" value="<?php if($resultado) echo $resultado['apellido']; ?>" class="input__text">
+				<input type="text" name="nombre" value="<?php if($resultado) echo $resultado['nombre']; ?>" class="input__text" required>
+				<input type="text" name="apellido" value="<?php if($resultado) echo $resultado['apellido']; ?>" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text">
-				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>" class="input__text">
+				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text" required>
+				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text">
-                <input type="text" name="direccion" value="<?php if($resultado) echo $resultado['direccion']; ?>" class="input__text">
+				<input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text" required>
+                <input type="text" name="direccion" value="<?php if($resultado) echo $resultado['direccion']; ?>" class="input__text" required>
 			</div>
             
             <div class="form-group">
-			    <input type="text" name="cargo" value="<?php if($resultado) echo $resultado['cargo']; ?>" class="input__text" >
+			    <input type="text" name="cargo" value="<?php if($resultado) echo $resultado['cargo']; ?>" class="input__text" required>
                 
 			</div>
 			<div class="btn__group">
