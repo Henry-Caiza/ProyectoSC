@@ -158,7 +158,7 @@
 				<input type="text" name="buscar" placeholder="Buscar nombres o apellidos" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="CRUD/insert_jugadores.php" class="btn btn__nuevo">Nuevo</a>
+				<a href="CRUD/inert_jugadores.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
 
@@ -176,7 +176,7 @@
 			<td><font size = "2">  Ciudad</font> </td>	
             <td><font size = "2">  Dirección</font> </td>
             <td><font size = "2">  Teléfono</font> </td>	
-            <td><font size = "2">  Email</font> </td>	
+            
             <td><font size = "2">  Posición</font> </td>	
             <td><font size = "2">  Fecha Nacimiento</font> </td>	
             <td><font size = "2">  Instrucción</font> </td>
@@ -185,7 +185,6 @@
 			
 			</tr>
 
-			
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                                         ?>
 				<tr >
@@ -200,7 +199,6 @@
 				  <td><?php echo $filas['ciudad'] ?></td>
                   <td><?php echo $filas['direccion'] ?></td>
 				  <td><?php echo $filas['telefono'] ?></td>
-                  <td><?php echo $filas['email'] ?></td>
                   <td><?php echo $filas['posicion'] ?></td>
                   <td><?php echo $filas['fechanac'] ?></td>
                   <td><?php echo $filas['instruccion'] ?></td>
