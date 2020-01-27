@@ -55,7 +55,7 @@
 </head>
 <body>
 	<div class="contenedor">
-		<h2>INGRESAR JUGADORES</h2>
+		<h2>REGISTRAR JUGADORES</h2>
 		<form action="" method="post">
 			<div class="form-group">
 				<input type="text" name="cedula" placeholder="Cédula" class="input__text" required>
@@ -99,7 +99,12 @@
             </div>
 
             <div class="form-group">
-                <input type="text" name="estadotransf" placeholder=" Transferencia Estado" class="input__text" required>
+			<label for="select3"></label>
+				<select name="estadotransf"  class="form-control">
+					<option value="0"> Escoga Estado Transferencia</option>
+					<option value="Disponible">Disponible</option>
+					<option value="No Disponibe">No Disponible</option>
+				</select>
             </div>
             <p>Fecha de Nacimiento</p>
             <div class="form-group">

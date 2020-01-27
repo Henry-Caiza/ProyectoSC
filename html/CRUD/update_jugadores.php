@@ -129,7 +129,12 @@
 				<input type="text" name="instruccion" value="<?php if($resultado) echo $resultado['instruccion']; ?>" class="input__text" required>
 			</div>
             <div class="form-group">
-                <input type="text" name="estadotransf" value="<?php if($resultado) echo $resultado['estadotransf']; ?>" class="input__text" required>
+			<label for="select3"></label>
+				<select name="estadotransf" value="<?php if($resultado) echo $resultado['estadotransf']; ?>"  class="form-control">
+					<option value="0"> Escoga Estado Transferencia</option>
+					<option value="Dis">Disponible</option>
+					<option value="NoDis">No Disponible</option>
+				</select>
 			</div>
 
             <p>Fecha Nacimiento  </p>

@@ -176,11 +176,10 @@
 			<td><font size = "2">  Ciudad</font> </td>	
             <td><font size = "2">  Dirección</font> </td>
             <td><font size = "2">  Teléfono</font> </td>	
-            
             <td><font size = "2">  Posición</font> </td>	
             <td><font size = "2">  Fecha Nacimiento</font> </td>	
             <td><font size = "2">  Instrucción</font> </td>
-			<td><font size = "2">  Transferencia Estado</font> </td>
+			<td><font size = "2">  Estado Transferencia </font> </td>
 			<td colspan="2" >Acción  </td>
 			
 			</tr>

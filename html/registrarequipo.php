@@ -172,7 +172,7 @@
             <td><font size = "2">  Localidad</font> </td>		
             <td><font size = "2">  Teléfono</font> </td>	
             <td><font size = "2">  Email</font> </td>	
-            <td><font size = "2">  Número Máximo de jugadores</font> </td>	
+            <td><font size = "2">  Número de jugadores</font> </td>	
 			<td colspan="2" >Acción  </td>
 			
 			</tr>
