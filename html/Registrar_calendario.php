@@ -167,7 +167,7 @@
                             
                             $resultado=mysqli_query($conn,"SELECT * FROM  calendario ");
                             ?>
-                             <div class="contenedor">
+        <div class="contenedor">
 		<h2>CALENDARIO DE PARTIDOS</h2>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
