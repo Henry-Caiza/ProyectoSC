@@ -140,7 +140,6 @@
             <p>Fecha Nacimiento  </p>
             <div class="form-group">
 				<input type="date" name="fechanac" value="<?php if($resultado) echo $resultado['fechanac']; ?>" class="input_text" required >
-                
 			</div>
 
 			<div class="btn__group">
