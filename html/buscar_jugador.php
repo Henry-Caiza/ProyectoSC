@@ -156,6 +156,7 @@
 			<form action="" class="formulario" method="post">
 				<input type="text" name="cedula" placeholder="Buscar por cédula" class="input__text">
                 <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="../html/registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
                 </form>
                 </div>
                 
