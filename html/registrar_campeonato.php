@@ -204,7 +204,7 @@
                   <td><?php echo $filas['direccion'] ?></td>
                   <td><?php echo $filas['numeroEq'] ?></td>
 					<td><a href="CRUD/update_campeonato.php?id=<?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="CRUD/delete_campeonato.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
+                    <td><a href='CRUD/delete_campeonato.php?id= <?php echo $filas['id']; ?>' class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
@@ -238,6 +238,17 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="registrarequipo.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+</script>
 </body>
 
 </html>

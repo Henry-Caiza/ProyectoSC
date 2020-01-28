@@ -24,6 +24,8 @@
  
 </head>
 
+
+
 <body class="fix-header">
     <!-- ============================================================== -->
     <!-- Preloader -->
@@ -188,12 +190,13 @@
 				  <td><?php echo $filas['numMaxjug'] ?></td>
 
                   <td><a href="CRUD/update_equipos.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="CRUD/delete_equipos.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
+				 <td><a href='CRUD/delete_equipos.php?id= <?php echo $filas['id']; ?>' class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
 		</table>
                         </div>
+                        
                     </div>
 
                     
@@ -219,6 +222,18 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+
+<script type = "text/javascript" >
+function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="registrarequipo.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+</script>
 </body>
 
 </html>
