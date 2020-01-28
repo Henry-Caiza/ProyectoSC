@@ -156,14 +156,12 @@
                             $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
                             ?>
                              <div class="contenedor">
-		<div class="barra__buscador">
-			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="Buscar nombre del club" 
-				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
-				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="CRUD/insert_equipos.php" class="btn btn__nuevo">Nuevo</a>
-			</form>
-		</div>
+            <div class="barra__buscador">
+			    <form action="" class="formulario" method="post">
+                    <a href="buscar_equipo.php" class="btn btn__buscar">Buscar</a>
+				    <a href="CRUD/insert_equipos.php" class="btn btn__nuevo">Nuevo</a>
+			   </form>
+	    	</div>
 		<table> 
 			<tr class="head">
 			<td><font size = "2">  Id</font> </td>

@@ -156,7 +156,6 @@
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
             <a href="./buscar_jugador.php" class="btn btn__buscar">Buscar</a>
-
 				<a href="CRUD/insert_jugadores.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
