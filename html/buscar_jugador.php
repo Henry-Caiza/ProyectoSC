@@ -20,7 +20,7 @@
     <!-- Tabla CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 
-    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
+    <link href="CRUD/css/tabla.css" id="theme" rel="stylesheet">
     
  
 </head>
@@ -137,79 +137,82 @@
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
                             <li class="active">Registrar Jugadores</li>
+                            <li class="active">Buscar Jugadores</li>
                         </ol>
-
-                        
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">  Jugadores</h3>
+                            <h3 class="box-title">  Consulta Jugadores</h3>
                             <?php
                             include 'conexion.php';
-                            
-                            $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
+                            $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                           // $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                             ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-            <a href="./buscar_jugador.php" class="btn btn__buscar">Buscar</a>
-
-				<a href="CRUD/insert_jugadores.php" class="btn btn__nuevo">Nuevo</a>
-			</form>
-		</div>
-
-        <div id="div1"> 
+				<input type="text" name="cedula" placeholder="Buscar por cédula" class="input__text">
+                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="../html/registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
+                </form>
+                </div>
+                
+   <?php 
+   if (isset($_POST['btn_buscar']))
+   {
+       $cedula=$_POST['cedula'];
+       $resultado = mysqli_query($mysqli,"SELECT * FROM jugadores WHERE cedula = $cedula");
+       While($consulta = mysqli_fetch_assoc($resultado)){
+           echo "
+           <div id=\"div1\"> 
         <table> 
-			<tr class="head">
-            <td><font size = "2">  Id</font> </td>
-			<td><font size = "2">  Cédula</font> </td>
-            <td><font size = "2">  Nombres</font> </td>
-            <td><font size = "2">  Apellidos</font> </td>	
-            <td><font size = "2">  Equipo</font> </td>	
-            <td><font size = "2">  Numero Asignado</font> </td>	
-            <td><font size = "2">  Pais</font> </td>	
-            <td><font size = "2">  Provincia</font> </td>
-			<td><font size = "2">  Ciudad</font> </td>	
-            <td><font size = "2">  Dirección</font> </td>
-            <td><font size = "2">  Teléfono</font> </td>	
-            <td><font size = "2">  Posición</font> </td>	
-            <td><font size = "2">  Fecha Nacimiento</font> </td>	
-            <td><font size = "2">  Instrucción</font> </td>
-			<td><font size = "2">  Estado Transferencia </font> </td>
-			<td colspan="2" >Acción  </td>
-			
+			<tr class=\"head\">
+            <td><font size = \"2\">  Id</font> </td>
+			<td><font size = \"2\">  Cédula</font> </td>
+            <td><font size = \"2\">  Nombres</font> </td>
+            <td><font size = \"2\">  Apellidos</font> </td>	
+            <td><font size = \"2\">  Equipo</font> </td>	
+            <td><font size = \"2\">  Numero Asignado</font> </td>	
+            <td><font size = \"2\">  Pais</font> </td>	
+            <td><font size = \"2\">  Provincia</font> </td>
+			<td><font size = \"2\">  Ciudad</font> </td>	
+            <td><font size = \"2\">  Dirección</font> </td>
+            <td><font size = \"2\">  Teléfono</font> </td>	
+            <td><font size = \"2\">  Posición</font> </td>	
+            <td><font size = \"2\">  Fecha Nacimiento</font> </td>	
+            <td><font size = \"2\">  Instrucción</font> </td>
+			<td><font size = \"2\">  Estado Transferencia </font> </td>
+            <td colspan=\"2\" >Acción  </td>	
 			</tr>
-
-			<?php while($filas=mysqli_fetch_assoc($resultado)) {
-                                        ?>
-				<tr >
-                 <td><?php echo $filas['id'] ?></td>
-				 <td><?php echo $filas['cedula'] ?></td>
-                  <td><?php echo $filas['nombres'] ?></td>
-                  <td><?php echo $filas['apellidos'] ?></td>
-                  <td><?php echo $filas['equipo'] ?></td>
-                  <td><?php echo $filas['numeroasig'] ?></td>
-                  <td><?php echo $filas['pais'] ?></td>
-                  <td><?php echo $filas['provincia'] ?></td>
-				  <td><?php echo $filas['ciudad'] ?></td>
-                  <td><?php echo $filas['direccion'] ?></td>
-				  <td><?php echo $filas['telefono'] ?></td>
-                  <td><?php echo $filas['posicion'] ?></td>
-                  <td><?php echo $filas['fechanac'] ?></td>
-                  <td><?php echo $filas['instruccion'] ?></td>
-                  <td><?php echo $filas['estadotransf'] ?></td>
-					<td><a href="CRUD/update_jugadores.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="CRUD/delete_jugadores.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
-                </tr>
-				<?php } ?>
-
-		</table>
+        <tr >
+        <td>".$consulta['id']."</td>
+        <td>".$consulta['cedula']."</td>
+        <td>".$consulta['nombres']."</td>
+        <td>".$consulta['apellidos']."</td>
+        <td>".$consulta['equipo']."</td>
+         <td>".$consulta['numeroasig']."</td>
+         <td>".$consulta['pais']."</td>
+         <td>".$consulta['provincia']."</td>
+         <td>".$consulta['ciudad']."</td>
+         <td>".$consulta['direccion']."</td>
+         <td>".$consulta['telefono']."</td>
+         <td>".$consulta['posicion']."</td>
+         <td>".$consulta['fechanac']."</td>
+         <td>".$consulta['instruccion']."</td>
+         <td>".$consulta['estadotransf']."</td>
+         <td><a href=CRUD/update_jugadores.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
+         <td><a href=CRUD/delete_jugadores.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+         </tr>
+         </table>
+         </div>
+         ";
         
-        </div>
-		
+       }
+   }
+   ?>
 	</div>
 </body>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
