@@ -154,7 +154,7 @@
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="cedula" placeholder="Buscar por cédula" >
+				<input type="text" name="cedula" placeholder="Buscar por cédula" class="input__text">
                 <input type="submit" class="btn" name="btn_buscar" value="Buscar">
                 </form>
                 </div>
