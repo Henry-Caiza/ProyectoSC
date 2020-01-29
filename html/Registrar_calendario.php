@@ -114,7 +114,7 @@
                                 aria-hidden="true"></i>Tabla de Posiciones</a>
                     </li>
                     <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                        <a href="registrar_resultados.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Resultados</a>
                     </li>
 
@@ -165,7 +165,7 @@
                             <?php
                             include 'conexion.php';
                             
-                            $resultado=mysqli_query($conn,"SELECT * FROM  calendario ");
+                            $resultado=mysqli_query($conn,"SELECT * FROM  tablaresultadoscopia ");
                             ?>
         <div class="contenedor">
 		<h2>CALENDARIO DE PARTIDOS</h2>
@@ -204,7 +204,7 @@
 				  <td><?php echo $filas['equipo1'] ?></td>
                   <td><?php echo $filas['equipo2'] ?></td>
 					<td><a href="CRUD/update_calendario.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="CRUD/delete_calendario.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><a href='CRUD/delete_calendario.php?id=<?php echo $filas['id']; ?>'' class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
@@ -236,6 +236,18 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+
+    <script type = "text/javascript" >
+function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="registrarequipo.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+</script>
 </body>
 
 </html>

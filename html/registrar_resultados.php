@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Tablas</title>
+    <title>Registrar Resultados</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -17,14 +17,12 @@
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- color CSS -->
+    <!-- Tabla CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
+    
+ 
 </head>
 
 <body class="fix-header">
@@ -63,17 +61,10 @@
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
                     <li><a href="../index.html">Cerrar Sesion</a></li>  
-    </div>
                 </ul>
             </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
         </nav>
-        <!-- End Top Navigation -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+        
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
@@ -88,6 +79,8 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
+
+                    
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
@@ -110,6 +103,7 @@
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Tabla de Posiciones</a>
                     </li>
+
                     <li>
                         <a href="registrar_resultados.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Resultados</a>
@@ -130,10 +124,6 @@
                 </ul>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
         <!-- Page Content -->
         <!-- ============================================================== -->
         <div id="page-wrapper">
@@ -146,57 +136,85 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Tablas</li>
+                            <li class="active">Registrar Resultados</li>
                         </ol>
 
                         
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Tabla de Posiciones</h3>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Pos</th>
-                                            <th>Equipo</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mushuc Runa</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Olmedo</td>
-                                     
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>IDV</td>
-                                         
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Macara</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Fuerza Amarilla</td>
-                                          >
-                                        </tr>
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
+                            <h3 class="box-title">  Resultados</h3>
+                            <?php
+                            include 'conexion.php';
+                            $resultado=mysqli_query($conn,"SELECT * FROM  tablaresultadoscopia ");
+                          //  $resultado2=mysqli_query($conn,"SELECT * FROM  calendario ");
+                            ?>
+                             <div class="contenedor">
+                             <div class="barra__buscador"> 
+			    <form action="" class="formulario" method="post">
+                    <a href="buscar_equipo.php" class="btn btn__buscar">Buscar</a>
+                    <a href="registrar_resultados.php" class="btn btn__danger" 
+                    onclick= "<?php
+                    /* $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                     $query= $mysqli -> query("INSERT INTO tablaresultados(equipo1, equipo2, idcalendario, fechaJuego, horario)
+                     SELECT calendario.equipo1, calendario.equipo2, calendario.id, calendario.fechaJuego, calendario.horario FROM calendario 
+                     ");*/
+                  // $_DELETE_SQL="DELETE FROM tablaresultados";
+                   // mysqli_query($conn,"DELETE FROM  tablaresultados ");
+                    ?>">Actualizar
+                  </a>
+			   </form>
+	    	</div>
+        <table> 
+			<tr class="head">
+            <td><font size = "2">  Id</font> </td>
+			<td><font size = "2">  FechaJuego</font> </td> 
+            <td><font size = "2">  Horario</font> </td>
+            <td><font size = "2">  Código partido</font> </td>	
+            <td><font size = "2">  Equipo</font> </td>	
+            <td><font size = "2">  Goles</font> </td>
+			<td><font size = "2">  Tarjetas Amarillas</font> </td>	
+            <td><font size = "2">  Tarjetas Rojas</font> </td>
+            <td><font size = "2">  Equipo</font> </td>	
+            <td><font size = "2">  Goles</font> </td>
+            <td><font size = "2">  Tarjetas Amarrillas</font> </td>	
+            <td><font size = "2">  Tarjetas Rojas</font> </td>	
+			<td colspan="2" >Acción  </td>
+			</tr>
+
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                /*  $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                  $query= $mysqli -> query("INSERT INTO tablaresultados(equipo1, equipo2, idcalendario, fechaJuego, horario)
+                  SELECT calendario.equipo1, calendario.equipo2, calendario.id, calendario.fechaJuego, calendario.horario FROM calendario 
+                  ");
+                                    */    ?>
+				<tr >
+                  <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['fechaJuego'] ?></td>
+                  <td><?php echo $filas['horario'] ?></td>
+				  <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['equipo1'] ?></td>
+                  <td><?php echo $filas['goles_equipo1'] ?></td>
+				  <td><?php echo $filas['tarj_ama_eq1'] ?></td>
+                  <td><?php echo $filas['tarj_roj_eq1'] ?></td>
+                  <td><?php echo $filas['equipo2'] ?></td>
+				  <td><?php echo $filas['goles_equipo2'] ?></td>
+                  <td><?php echo $filas['tarj_ama_eq2'] ?></td>
+                  <td><?php echo $filas['tarj_roj_eq2'] ?></td>
+				  <td><a href='CRUD/update_resultados.php?id= <?php echo $filas['id']; ?>'  class="btn__update" >Editar</a></td>
+				  <td><a href='CRUD/delete_jugadores.php?id= <?php echo $filas['id']; ?>' class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
+                </tr>
+				<?php } ?>
+                
+                </table>
+        
+      
+		
+	</div>
+</body>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>
@@ -224,6 +242,17 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="registrarequipo.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+</script>
 </body>
 
 </html>

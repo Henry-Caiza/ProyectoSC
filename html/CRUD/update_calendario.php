@@ -1,10 +1,9 @@
 <?php
 	include_once 'conexion.php';
 
-	if(isset($_GET['id'])){
+	if(isset($_GET['id']) ){
 		$id=(int) $_GET['id'];
-
-		$buscar_id=$con->prepare('SELECT * FROM calendario WHERE id=:id LIMIT 1');
+		$buscar_id=$con->prepare('SELECT * FROM tablaresultadoscopia WHERE id=:id LIMIT 1');
 		$buscar_id->execute(array(
 			':id'=>$id
 		));
@@ -20,22 +19,34 @@
         $cancha=$_POST['cancha'];
         $nombreArbitro=$_POST['nombreArbitro'];
         $eqVocalia=$_POST['eqVocalia'];
-        $equipo1=$_POST['equipo1'];
-        $equipo2=$_POST['equipo2'];
+		$equipo1=$_POST['equipo1'];
+		$goles_equipo1=(int) $_GET['goles_equipo1'];
+        $tarj_ama_eq1=(int) $_GET['tarj_ama_eq1'];
+        $tarj_roj_eq1=(int) $_GET['tarj_roj_eq1']; 
+		$equipo2=$_POST['equipo2'];
+		$goles_equipo2=(int) $_GET['goles_equipo2'];
+        $tarj_ama_eq2=(int) $_GET['tarj_ama_eq2'];
+        $tarj_roj_eq3=(int) $_GET['tarj_roj_eq2'];
 		$id=(int) $_GET['id'];
 
 		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($nombreArbitro) && !empty($eqVocalia) && !empty($equipo1) && !empty($equipo2) ){
 			//if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				//echo "<script> alert('Correo no valido');</script>";
 			//}else{
-				$consulta_update=$con->prepare(' UPDATE calendario SET  
+				$consulta_update=$con->prepare(' UPDATE tablaresultadoscopia SET  
 					fechaJuego=:fechaJuego,
 					horario=:horario,
                     cancha=:cancha,
 					nombreArbitro=:nombreArbitro,
                     eqVocalia=:eqVocalia,
                     equipo1=:equipo1,
-					equipo2=:equipo2
+					goles_equipo1=:goles_equipo1,
+                    tarj_ama_eq1=:tarj_ama_eq1,
+					tarj_roj_eq1=:tarj_roj_eq1,
+					equipo2=:equipo2,
+					goles_equipo2=:goles_equipo2,
+					tarj_ama_eq2=:tarj_ama_eq2,
+                    tarj_roj_eq2=:tarj_roj_eq2
 					WHERE id=:id;'
 				);
 				$consulta_update->execute(array(
@@ -45,7 +56,13 @@
                     ':nombreArbitro' =>$nombreArbitro,
 					':eqVocalia' =>$eqVocalia,
 					':equipo1' =>$equipo1,
-                    ':equipo2' =>$equipo2,
+					':goles_equipo1' =>$goles_equipo1,
+                    ':tarj_ama_eq1' =>$tarj_ama_eq1,
+                    ':tarj_roj_eq1' =>$tarj_roj_eq1,
+					':equipo2' =>$equipo2,
+					':goles_equipo2' =>$goles_equipo2,
+					':tarj_ama_eq2' =>$tarj_ama_eq2,
+                    ':tarj_roj_eq2' =>$tarj_roj_eq2,
 					':id' =>$id
 				));
 				header('Location: ../Registrar_calendario.php');

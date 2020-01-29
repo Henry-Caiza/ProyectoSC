@@ -14,7 +14,7 @@
 			//if(!filter_var($telefono,FILTER_VALIDATE_EMAIL)){
 				//echo "<script> alert('Correo no valido');</script>";
 			//}else{
-				$consulta_insert=$con->prepare('INSERT INTO calendario(fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:fechaJuego,:horario,:cancha,:nombreArbitros,:eqVocalia,:equipos1,:equipos2)');
+				$consulta_insert=$con->prepare('INSERT INTO tablaresultadoscopia(fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:fechaJuego,:horario,:cancha,:nombreArbitros,:eqVocalia,:equipos1,:equipos2)');
 				$consulta_insert->execute(array(
                     ':fechaJuego' =>$fechaJuego,
                     ':horario' =>$horario,

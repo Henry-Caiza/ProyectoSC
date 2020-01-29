@@ -107,7 +107,7 @@
                                 aria-hidden="true"></i>Tabla de posiciones</a>
                     </li>
                     <li>
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
+                        <a href="registrar_resultados.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Resultados</a>
                     </li>
                     <li>
