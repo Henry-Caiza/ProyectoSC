@@ -14,7 +14,7 @@
 		$resultado=$con->query($query);
 		if($resultado)
 		{
-			echo "Se guardo la Imgagen";
+			echo "Se guardo la Imagen";
 		}else
 		{
 			echo "No Ni merga";
