@@ -156,16 +156,7 @@
                              <div class="barra__buscador"> 
 			    <form action="" class="formulario" method="post">
                     <a href="buscar_equipo.php" class="btn btn__buscar">Buscar</a>
-                    <a href="registrar_resultados.php" class="btn btn__danger" 
-                    onclick= "<?php
-                    /* $mysqli = new mysqli('localhost', 'root', '', 'scf');
-                     $query= $mysqli -> query("INSERT INTO tablaresultados(equipo1, equipo2, idcalendario, fechaJuego, horario)
-                     SELECT calendario.equipo1, calendario.equipo2, calendario.id, calendario.fechaJuego, calendario.horario FROM calendario 
-                     ");*/
-                  // $_DELETE_SQL="DELETE FROM tablaresultados";
-                   // mysqli_query($conn,"DELETE FROM  tablaresultados ");
-                    ?>">Actualizar
-                  </a>
+                    
 			   </form>
 	    	</div>
         <table> 
