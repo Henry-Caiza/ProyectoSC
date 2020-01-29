@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Equipos</title>
+    <title>Consultar Calendario</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -17,8 +17,11 @@
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- color CSS -->
+    <!-- Tabla CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="CRUD/css/tabla.css" id="theme" rel="stylesheet">
+    
  
 </head>
 
@@ -44,13 +47,12 @@
                     <!-- Logo -->
                     <a class="logo" href="dashboard.php">
                         <!-- Logo icon image, you can use font-icon also --><b>
-
                             <!--This is dark logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="dark-logo" />
                             <!--This is light logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="light-logo" />
                         </b>
-                        </a>  
+                        </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -77,12 +79,9 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
-
-                    
-
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal Arbitrario</a>
+                                aria-hidden="true"></i>Personal</a>
                     </li>
                     
                     <li>
@@ -99,7 +98,7 @@
                     </li>
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i>Tabla de Posiciones </a>
+                                aria-hidden="true"></i>Tabla de Posiciones</a>
                     </li>
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
@@ -130,43 +129,70 @@
                         <h4 class="page-title">SISTEMA DE CAMPEONATO DE FÚTBOL</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                        
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Tranferencia de Jugadores</li>
+                            <li class="active">Calendario</li>
+                            <li class="active">Buscar Calendario</li>
                         </ol>
-
-                        
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Transferencia de Jugadores</h3>
-                            <form>
-                                <p>Ingrese la cédula del jugador: <p> <input type="text" name="nombrejugador" size="30">
-                                <button type="button">
-                                    <img src="../images/demo/iconobuscar.png" width="28" height="24" style="vertical-align: middle">
-                                    Buscar
-                                  </button>
-                                </p>
-                                
-                                <p>Equipo de Destino</p>
-                                <select name="men2u">
-                                    <option value="0">Elegir equipo</option>
-                                    <option value="1">Equipo 2</option>
-                                    <option value="2">Equipo 3</option>
-                                    <option value="3">Equipo 4</option>
-                                    <option value="4">Equipo 5</option>
-                                    <option value="5">Equipo 6</option>
-                                  </select>
-                                </p>
-                                <input type="button" value="Transferir">
-                                <input type="button" value="Cancelar">
-                            </form>
-                                
-                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
+                            <!-- ############################################## DATOS DE BUSQUEDA ################################### -->
+                            <h3 class="box-title">Consulta Calendario</h3>
+                            <?php
+                                include 'conexion.php';
+                                $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                            ?>
+                             <div class="contenedor">
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+                <p>Buscar por fecha de juego: </p> 
+				<input type="date" name="fechaJuego" placeholder="Fecha de Juego" class="input__text">
+                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="../html/registrar_calendario.php" class="btn btn__danger">Cancelar</a>
+            </form>
+        </div>
+                
+    <?php 
+    if (isset($_POST['btn_buscar'])){
+        $fechaJuego=$_POST['fechaJuego'];
+        $resultado = mysqli_query($mysqli,"SELECT * FROM calendario WHERE fechaJuego = '$fechaJuego'");
+        While($consulta = mysqli_fetch_assoc($resultado)){
+            echo "
+            <table> 
+                <tr class=\"head\">
+                    <td><font size = \"2\">  Código de Partido</font> </td>
+                    <td><font size = \"2\">  Fecha</font> </td>
+                    <td><font size = \"2\">  Horario</font> </td>
+                    <td><font size = \"2\">  Cancha</font> </td>	
+                    <td><font size = \"2\">  Nombre Árbitro</font> </td>	
+                    <td><font size = \"2\">  Vocalía</font> </td>		
+                    <td><font size = \"2\">  Equipo 1</font> </td>	
+                    <td><font size = \"2\">  Equipo 2</font> </td>	
+                    <td colspan=\"2\" >Accion  </td>
+                </tr>
+            
+                <tr>
+                    <td>".$consulta['id']."</td>
+                    <td>".$consulta['fechaJuego']."</td>
+                    <td>".$consulta['horario']."</td>
+                    <td>".$consulta['cancha']."</td>
+                    <td>".$consulta['nombreArbitro']."</td>
+                    <td>".$consulta['eqVocalia']."</td>
+                    <td>".$consulta['equipo1']."</td>
+                    <td>".$consulta['equipo2']."</td>
+                    <td><a href=CRUD/update_calendario.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
+                    <td><a href=CRUD/delete_calendario.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+                </tr>
+            </table>";
+        }
+    }
+   ?>
+	</div>
+</body>
+                            <!-- ############################################## DATOS DE BUSQUEDA ################################### -->
                         </div>
                     </div>
 

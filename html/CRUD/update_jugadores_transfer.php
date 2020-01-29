@@ -15,62 +15,23 @@
 
 
 	if(isset($_POST['guardar'])){
-        $cedula=$_POST['cedula'];
-        $nombres=$_POST['nombres'];
-		$apellidos=$_POST['apellidos'];
 		$valores=$_POST['equipo'];
-		$numeroasig=$_POST['numeroasig'];
-        $pais=$_POST['pais'];
-        $provincia=$_POST['provincia'];
-        $ciudad=$_POST['ciudad'];
-        $direccion=$_POST['direccion'];
-        $telefono=$_POST['telefono'];
-        $posicion=$_POST['posicion'];
-        $fechanac=$_POST['fechanac'];
-        $instruccion=$_POST['instruccion'];
         $estadotransf=$_POST['estadotransf'];
 		$id=(int) $_GET['id'];
 
-		if(!empty($cedula) && !empty($nombres) && !empty($apellidos) && !empty($numeroasig) && !empty($pais) && !empty($provincia) && !empty($ciudad) && !empty($direccion)  && !empty($telefono) && !empty($posicion) && !empty($fechanac) && !empty($instruccion) && !empty($estadotransf) ){
-			if(!filter_var($cedula,FILTER_VALIDATE_INT)){
-				echo "<script> alert('Cedula no valido');</script>";
-			}else{
+		if(!empty($estadotransf) ){
 				$consulta_update=$con->prepare(' UPDATE jugadores SET  
-					cedula=:cedula,
-                    nombres=:nombres,
-					apellidos=:apellidos,
+					
                     equipo=:equipos,
-					numeroasig=:numeroasig,
-                    pais=:pais,
-                    provincia=:provincia,
-					ciudad=:ciudad,
-                    direccion=:direccion,
-                    telefono=:telefono,
-                    posicion=:posicion,
-                    fechanac=:fechanac,
-                    instruccion=:instruccion,
 					estadotransf=:estadotransf
 					WHERE id=:id;'
 				);
 				$consulta_update->execute(array(
-                    ':cedula' =>$cedula,
-                    ':nombres' =>$nombres,
-                    ':apellidos' =>$apellidos,
-                    ':equipos' =>$valores,
-                    ':numeroasig' =>$numeroasig,
-                    ':pais' =>$pais,
-                    ':provincia' =>$provincia,
-                    ':ciudad' =>$ciudad,
-                    ':direccion' =>$direccion,
-					':telefono' =>$telefono,
-                    ':posicion' =>$posicion,
-                    ':fechanac' =>$fechanac,
-                    ':instruccion' =>$instruccion,
+                   ':equipos' =>$valores,
 					':estadotransf' =>$estadotransf,
 					':id' =>$id
 				));
 				header('Location: ../registrar_jugadores.php');
-			}
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
@@ -90,11 +51,11 @@
 		<h2>MODIFICAR JUGADORES</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text" required>
-				<input type="text" name="nombres" value="<?php if($resultado) echo $resultado['nombres']; ?>" class="input__text" required>
+				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text" required disabled=»disabled»>
+				<input type="text" name="nombres" value="<?php if($resultado) echo $resultado['nombres']; ?>" class="input__text" required disabled=»disabled»>
 			</div>
 			<div class="form-group">
-				<input type="text" name="apellidos" value="<?php if($resultado) echo $resultado['apellidos']; ?>" class="input__text" required>
+				<input type="text" name="apellidos" value="<?php if($resultado) echo $resultado['apellidos']; ?>" class="input__text" required disabled=»disabled»>
 			
 			</div>
 			<div class="form-group"> 
@@ -113,20 +74,20 @@
                  
             </div>
 			<div class="form-group">
-				<input type="text" name="numeroasig" value="<?php if($resultado) echo $resultado['numeroasig']; ?>" class="input__text" required>
-                <input type="text" name="pais" value="<?php if($resultado) echo $resultado['pais']; ?>" class="input__text" required>
+				<input type="text" name="numeroasig" value="<?php if($resultado) echo $resultado['numeroasig']; ?>" class="input__text" required disabled=»disabled»>
+                <input type="text" name="pais" value="<?php if($resultado) echo $resultado['pais']; ?>" class="input__text" required disabled=»disabled»>
 			</div>
             <div class="form-group">
-				<input type="text" name="provincia" value="<?php if($resultado) echo $resultado['provincia']; ?>" class="input__text" required>
-                <input type="text" name="ciudad" value="<?php if($resultado) echo $resultado['ciudad']; ?>" class="input__text" required>
+				<input type="text" name="provincia" value="<?php if($resultado) echo $resultado['provincia']; ?>" class="input__text" required disabled=»disabled»>
+                <input type="text" name="ciudad" value="<?php if($resultado) echo $resultado['ciudad']; ?>" class="input__text" required disabled=»disabled»>
 			</div>
             <div class="form-group">
-				<input type="text" name="direccion" value="<?php if($resultado) echo $resultado['direccion']; ?>" class="input__text" required>
-                <input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text" required>
+				<input type="text" name="direccion" value="<?php if($resultado) echo $resultado['direccion']; ?>" class="input__text" required disabled=»disabled»>
+                <input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text" required disabled=»disabled»>
 			</div>
             <div class="form-group">
-				<input type="text" name="posicion" value="<?php if($resultado) echo $resultado['posicion']; ?>" class="input__text" required>
-				<input type="text" name="instruccion" value="<?php if($resultado) echo $resultado['instruccion']; ?>" class="input__text" required>
+				<input type="text" name="posicion" value="<?php if($resultado) echo $resultado['posicion']; ?>" class="input__text" required disabled=»disabled»>
+				<input type="text" name="instruccion" value="<?php if($resultado) echo $resultado['instruccion']; ?>" class="input__text" required disabled=»disabled»>
 			</div>
             <div class="form-group">
 			<label for="select3"></label>
@@ -136,10 +97,10 @@
 					<option value="NoDis">No Disponible</option>
 				</select>
 			</div>
-			<p> Fecha Nacimiento </p>
-			<div class="form-group">
-				<input type="date" name="fechanac" value="<?php if($resultado) echo $resultado['fechanac']; ?>" class="input__text" required>
-				
+
+          <p>Fecha Nacimiento  </p>
+            <div class="form-group">
+				<input type="date" name="fechanac" value="<?php if($resultado) echo $resultado['fechanac']; ?>" class="input_text" required disabled=»disabled» >
 			</div>
 
 			<div class="btn__group">

@@ -83,17 +83,14 @@
 				<input type="text" name="direccion" value="<?php if($resultado) echo $resultado['direccion']; ?>" class="input__text" required>
                 <input type="text" name="numeroEq" value="<?php if($resultado) echo $resultado['numeroEq']; ?>" class="input__text" required>
 			</div>
-            <pre>Fecha Inicio  </pre>
-            <div class="form-group">
-				<p> <input type="date" name="fechaInicio" value="<?php if($resultado) echo $resultado['fechaInicio']; ?>" >
-                </p>
-                
+            <p>Fecha Inicio  </p>
+			<div class="form-group">
+				<input type="date" name="fechaInicio" value="<?php if($resultado) echo $resultado['fechaInicio']; ?>" class="input__text" required> 
 			</div>
-            <pre> Fecha Fin   </pre>
             
+            <p> Fecha Fin   </p>
             <div class="form-group">
-				
-                <input type="date" name="fechaFin" value="<?php if($resultado) echo $resultado['fechaFin']; ?>" >
+				<input type="date" name="fechaFin" value="<?php if($resultado) echo $resultado['fechaFin']; ?>" class="input__text" required> 
 			</div>
 
 			<div class="btn__group">
