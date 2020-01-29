@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Registrar Campeonato</title>
+    <title>Consultar Campeonato</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -21,10 +20,7 @@
     <!-- Tabla CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 
-    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
-
-
-    
+    <link href="CRUD/css/tabla.css" id="theme" rel="stylesheet">
     
  
 </head>
@@ -65,7 +61,6 @@
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
                     <li><a href="../index.html">Cerrar Sesion</a></li>  
-                    
                 </ul>
             </div>
         </nav>
@@ -84,6 +79,8 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
+
+                    
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
@@ -104,8 +101,9 @@
                     </li>
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i>Tabla de posiciones</a>
+                                aria-hidden="true"></i>Tabla de Posiciones</a>
                     </li>
+
                     <li>
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Resultados</a>
@@ -138,66 +136,71 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Campeonato</li>
+                            <li class="active">Registrar Campeonatos</li>
+                            <li class="active">Buscar Campeonatos</li>
                         </ol>
-
-                        
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Registrar Campeonato</h3>
+                            <h3 class="box-title">  Consulta Campeonatos</h3>
                             <?php
-                                 include 'conexion.php';
-                                 $resultado=mysqli_query($conn,"SELECT * FROM  campeonato ");
-                                 
-                                 ?>
+                            include 'conexion.php';
+                            $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                           // $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
+                            ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
-            <p>
-             </p>
 			<form action="" class="formulario" method="post">
-            <a href="./buscar_campeonato.php" class="btn btn__buscar">Buscar</a>
-            
-				<a href="CRUD/insert_campeonato.php" class="btn btn__nuevo">Nuevo</a>
-			</form>
-		</div>
-		<table> 
-			<tr class="head">
-			<td><font size = "2">  Id</font> </td>
-            <td><font size = "2">  Nombre Campeonato</font> </td>
-            <td><font size = "2">  Fecha Inicio</font> </td>	
-            <td><font size = "2">  Fecha Fin</font> </td>	
-            <td><font size = "2">  Responsable</font> </td>		
-			<td><font size = "2">  Lugar</font> </td>	
-            <td><font size = "2">  Teléfono</font> </td>	
-            <td><font size = "2">  Dirección</font> </td>	
-            <td><font size = "2">  Número de Equipos</font> </td>	
-			<td colspan="2" >Acción  </td>
-			
+				<input type="text" name="nombre" placeholder="Buscar por nombre del campeonato" class="input__text">
+                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="../html/registrar_campeonato.php" class="btn btn__danger">Cancelar</a>
+                </form>
+                </div>
+                
+   <?php 
+   if (isset($_POST['btn_buscar']))
+   {
+       $nombre=$_POST['nombre'];
+       $resultado = mysqli_query($mysqli,"SELECT * FROM campeonato WHERE nombre = '$nombre'");
+       While($consulta = mysqli_fetch_assoc($resultado)){
+           echo "
+           
+        <table> 
+			<tr class=\"head\">
+            <td><font size = \"2\">  id</font> </td>
+			<td><font size = \"2\">  nombre</font> </td>
+            <td><font size = \"2\">  fechaInicio</font> </td>
+            <td><font size = \"2\">  fechaFin</font> </td>	
+            <td><font size = \"2\">  responsable</font> </td>	
+            <td><font size = \"2\">  lugar</font> </td>	
+            <td><font size = \"2\">  telefono</font> </td>	
+            <td><font size = \"2\">  direccion</font> </td>
+            <td><font size = \"2\">  numeroEq</font> </td>
+            <td colspan=\"2\" >Acción  </td>	
 			</tr>
-
-			
-			<?php while($filas=mysqli_fetch_assoc($resultado)) {
-                                        ?>
-				<tr >
-				 <td><?php echo $filas['id'] ?></td>
-                  <td><?php echo $filas['nombre'] ?></td>
-                  <td><?php echo $filas['fechaInicio'] ?></td>
-                  <td><?php echo $filas['fechaFin'] ?></td>
-                  <td><?php echo $filas['responsable'] ?></td>
-				  <td><?php echo $filas['lugar'] ?></td>
-				  <td><?php echo $filas['telefono'] ?></td>
-                  <td><?php echo $filas['direccion'] ?></td>
-                  <td><?php echo $filas['numeroEq'] ?></td>
-					<td><a href="CRUD/update_campeonato.php?id=<?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-                    <td><a href='CRUD/delete_campeonato.php?id= <?php echo $filas['id']; ?>' class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
-				</tr>
-				<?php } ?>
-
-		</table>
+        <tr >
+         <td>".$consulta['id']."</td>
+         <td>".$consulta['nombre']."</td>
+         <td>".$consulta['fechaInicio']."</td>
+         <td>".$consulta['fechaFin']."</td>
+         <td>".$consulta['responsable']."</td>
+         <td>".$consulta['lugar']."</td>
+         <td>".$consulta['telefono']."</td>
+         <td>".$consulta['direccion']."</td>
+         <td>".$consulta['numeroEq']."</td>
+         <td><a href=CRUD/update_equipos.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
+         <td><a href=CRUD/delete_equipos.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+         </tr>
+         </table>
+    
+         ";
+        
+       }
+   }
+   ?>
 	</div>
 </body>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
@@ -227,17 +230,6 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
-    <script type = "text/javascript" >
-function preguntar(){
-    if(confirm('Estas seguro de que deeas eliminar?')){
-     //   windows.location.href="registrarequipo.php";
-      return true;
-    }
-    else {
-    return false;
-    }
-}
-</script>
 </body>
 
 </html>
