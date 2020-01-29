@@ -2,6 +2,7 @@
 	include_once 'conexion.php';
 	
 	if(isset($_POST['guardar'])){
+		$escudo=$_POST['escudo'];
 		$nombreClub=$_POST['nombreClub'];
 		$nombrePresi=$_POST['nombrePresi'];
 		$localidad=$_POST['localidad'];
@@ -13,8 +14,9 @@
 			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Datos no validos');</script>";
 			}else{
-				$consulta_insert=$con->prepare('INSERT INTO equipo(nombreClub,nombrePresi,localidad,telefono,email,numMaxjug) VALUES(:nombreClub,:nombrePresi,:localidad,:telefono,:email,:numMaxjug)');
+				$consulta_insert=$con->prepare('INSERT INTO equipo(escudo,nombreClub,nombrePresi,localidad,telefono,email,numMaxjug) VALUES(:nombreClub,:nombrePresi,:localidad,:telefono,:email,:numMaxjug)');
 				$consulta_insert->execute(array(
+					':escudo' =>$escudo,
 					':nombreClub' =>$nombreClub,
 					':nombrePresi' =>$nombrePresi,
 					':localidad' =>$localidad,
@@ -70,8 +72,13 @@
 					<option value="19">19</option>
 					<option value="20">20</option>
 				</select>
-            </div>
-           
+			</div>
+			
+			<div class="custom-file" lang="es">
+ 			 <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+  			<label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+			</div><br><br>
+
 			<div class="btn__group">
 				<a href="../registrarequipo.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">

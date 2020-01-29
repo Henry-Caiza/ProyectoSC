@@ -94,7 +94,7 @@
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal</a>
+                                aria-hidden="true"></i>Personal Arbitrario</a>
                     </li>
                     
                     <li>
@@ -168,12 +168,9 @@
                             $resultado=mysqli_query($conn,"SELECT * FROM  tablaresultadoscopia ");
                             ?>
         <div class="contenedor">
-		<h2>CALENDARIO DE PARTIDOS</h2>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar código del partido" 
-				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
-				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="buscar_calendario.php" class="btn btn__buscar">Buscar</a>
 				<a href="./CRUD/insert_calendario.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>

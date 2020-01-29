@@ -169,27 +169,27 @@
            echo "
            
         <table> 
-			<tr class=\"head\">
-            <td><font size = \"2\">  Id</font> </td>
-			<td><font size = \"2\">  Nombre Club</font> </td>
-            <td><font size = \"2\">  Nombre del Presidente</font> </td>
-            <td><font size = \"2\">  Localidad</font> </td>	
-            <td><font size = \"2\">  Teléfono</font> </td>	
-            <td><font size = \"2\">  Email</font> </td>	
-            <td><font size = \"2\">  Número de jugadores</font> </td>	
-            <td colspan=\"2\" >Acción  </td>	
-			</tr>
-        <tr >
-        <td>".$consulta['id']."</td>
-        <td>".$consulta['nombreClub']."</td>
-        <td>".$consulta['nombrePresi']."</td>
-        <td>".$consulta['localidad']."</td>
-        <td>".$consulta['telefono']."</td>
-         <td>".$consulta['email']."</td>
-         <td>".$consulta['numMaxjug']."</td>
-         <td><a href=CRUD/update_equipos.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
-         <td><a href=CRUD/delete_equipos.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
-         </tr>
+                <tr class=\"head\">
+                <td><font size = \"2\">  Id</font> </td>
+                <td><font size = \"2\">  Nombre Club</font> </td>
+                <td><font size = \"2\">  Nombre del Presidente</font> </td>
+                <td><font size = \"2\">  Localidad</font> </td>	
+                <td><font size = \"2\">  Teléfono</font> </td>	
+                <td><font size = \"2\">  Email</font> </td>	
+                <td><font size = \"2\">  Número de jugadores</font> </td>	
+                <td colspan=\"2\" >Acción  </td>	
+                </tr>
+            <tr >
+            <td>".$consulta['id']."</td>
+            <td>".$consulta['nombreClub']."</td>
+            <td>".$consulta['nombrePresi']."</td>
+            <td>".$consulta['localidad']."</td>
+            <td>".$consulta['telefono']."</td>
+            <td>".$consulta['email']."</td>
+            <td>".$consulta['numMaxjug']."</td>
+            <td><a href=CRUD/update_equipos.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
+            <td><a href=CRUD/delete_equipos.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+            </tr>
          </table>
     
          ";

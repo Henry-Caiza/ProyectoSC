@@ -19,6 +19,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
  
 </head>
 
@@ -82,7 +83,7 @@
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal</a>
+                                aria-hidden="true"></i>Personal Arbitrario</a>
                     </li>
                     
                     <li>
@@ -144,42 +145,76 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Transferencia de Jugadores</h3>
-                            <form>
-                                <p>Ingrese la cédula del jugador: <p> <input type="text" name="nombrejugador" size="30">
-                                <button type="button">
-                                    <img src="../images/demo/iconobuscar.png" width="23" height="23" style="vertical-align: middle">
-                                    Buscar
-                                  </button>
-                                </p>
-                                
-                                <p>Equipo de Destino</p>
-                                <select name="men2u">
-                                    <option value="0">Elegir equipo</option>
-                                    <option value="1">Equipo 1</option>
-                                    <option value="1">Equipo 2</option>
-                                    <option value="2">Equipo 3</option>
-                                    <option value="3">Equipo 4</option>
-                                    <option value="4">Equipo 5</option>
-                                    <option value="5">Equipo 6</option>
-                                    <option value="4">Equipo 7</option>
-                                    <option value="5">Equipo 8</option>
-                                    <option value="1">Equipo 9</option>
-                                    <option value="1">Equipo 10</option>
-                                    <option value="2">Equipo 11</option>
-                                    <option value="3">Equipo 12</option>
-                                    <option value="4">Equipo 13</option>
-                                    <option value="5">Equipo 14</option>
-                                    <option value="4">Equipo 15</option>
-                                    <option value="5">Equipo 16</option>
-                                  </select>
-                                </p>
-                                <p>Fecha desde: <input type="date" name="fecha"></p>
-                                <p>Fecha hasta: <input type="date" name="fecha"></p>
-                                <input type="button" value="Transferir">
-                                <input type="button" value="Cancelar">
-                            </form>
-                                
+                            <h3 class="box-title">  Consulta Jugadores</h3>
+                            <?php
+                            include 'conexion.php';
+                            $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                           // $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
+                            ?>
+                             <div class="contenedor">
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+				<input type="text" name="cedula" placeholder="Buscar por cédula" class="input__text">
+                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="../html/registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
+                </form>
+                </div>
+                
+   <?php 
+   if (isset($_POST['btn_buscar']))
+   {
+       $cedula=$_POST['cedula'];
+       $resultado = mysqli_query($mysqli,"SELECT * FROM jugadores WHERE cedula = $cedula");
+       While($consulta = mysqli_fetch_assoc($resultado)){
+           echo "
+           <div id=\"div1\"> 
+        <table> 
+			<tr class=\"head\">
+            <td><font size = \"2\">  Id</font> </td>
+			<td><font size = \"2\">  Cédula</font> </td>
+            <td><font size = \"2\">  Nombres</font> </td>
+            <td><font size = \"2\">  Apellidos</font> </td>	
+            <td><font size = \"2\">  Equipo</font> </td>	
+            <td><font size = \"2\">  Numero Asignado</font> </td>	
+            <td><font size = \"2\">  Pais</font> </td>	
+            <td><font size = \"2\">  Provincia</font> </td>
+			<td><font size = \"2\">  Ciudad</font> </td>	
+            <td><font size = \"2\">  Dirección</font> </td>
+            <td><font size = \"2\">  Teléfono</font> </td>	
+            <td><font size = \"2\">  Posición</font> </td>	
+            <td><font size = \"2\">  Fecha Nacimiento</font> </td>	
+            <td><font size = \"2\">  Instrucción</font> </td>
+			<td><font size = \"2\">  Estado Transferencia </font> </td>
+            <td colspan=\"2\" >Acción  </td>	
+			</tr>
+        <tr >
+        <td>".$consulta['id']."</td>
+        <td>".$consulta['cedula']."</td>
+        <td>".$consulta['nombres']."</td>
+        <td>".$consulta['apellidos']."</td>
+        <td>".$consulta['equipo']."</td>
+         <td>".$consulta['numeroasig']."</td>
+         <td>".$consulta['pais']."</td>
+         <td>".$consulta['provincia']."</td>
+         <td>".$consulta['ciudad']."</td>
+         <td>".$consulta['direccion']."</td>
+         <td>".$consulta['telefono']."</td>
+         <td>".$consulta['posicion']."</td>
+         <td>".$consulta['fechanac']."</td>
+         <td>".$consulta['instruccion']."</td>
+         <td>".$consulta['estadotransf']."</td>
+         <td><a href=CRUD/update_jugadores_transfer.php?id=".$consulta['id']. "  class=\"btn__update\" >Transferir</a></td>
+        
+         </tr>
+         </table>
+         </div>
+         ";
+        
+       }
+   }
+   ?>
+	</div>
+</body>     
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>

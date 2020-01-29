@@ -17,8 +17,9 @@
 		$fechaJuego=$_POST['fechaJuego'];
         $horario=$_POST['horario'];
         $cancha=$_POST['cancha'];
-        $nombreArbitro=$_POST['nombreArbitro'];
+        $valores=$_POST['nombreArbitro'];
         $eqVocalia=$_POST['eqVocalia'];
+<<<<<<< HEAD
 		$equipo1=$_POST['equipo1'];
 		$goles_equipo1=(int) $_GET['goles_equipo1'];
         $tarj_ama_eq1=(int) $_GET['tarj_ama_eq1'];
@@ -27,9 +28,13 @@
 		$goles_equipo2=(int) $_GET['goles_equipo2'];
         $tarj_ama_eq2=(int) $_GET['tarj_ama_eq2'];
         $tarj_roj_eq3=(int) $_GET['tarj_roj_eq2'];
+=======
+        $valores1=$_POST['equipo1'];
+        $valores2=$_POST['equipo2'];
+>>>>>>> 26da807ed9bc6627256bd25849dabbfb551a8809
 		$id=(int) $_GET['id'];
 
-		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($nombreArbitro) && !empty($eqVocalia) && !empty($equipo1) && !empty($equipo2) ){
+		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) ){
 			//if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				//echo "<script> alert('Correo no valido');</script>";
 			//}else{
@@ -53,8 +58,9 @@
                     ':fechaJuego' =>$fechaJuego,
                     ':horario' =>$horario,
 					':cancha' =>$cancha,
-                    ':nombreArbitro' =>$nombreArbitro,
+                    ':nombreArbitro' =>$valores,
 					':eqVocalia' =>$eqVocalia,
+<<<<<<< HEAD
 					':equipo1' =>$equipo1,
 					':goles_equipo1' =>$goles_equipo1,
                     ':tarj_ama_eq1' =>$tarj_ama_eq1,
@@ -63,6 +69,10 @@
 					':goles_equipo2' =>$goles_equipo2,
 					':tarj_ama_eq2' =>$tarj_ama_eq2,
                     ':tarj_roj_eq2' =>$tarj_roj_eq2,
+=======
+					':equipo1' =>$valores1,
+                    ':equipo2' =>$valores2,
+>>>>>>> 26da807ed9bc6627256bd25849dabbfb551a8809
 					':id' =>$id
 				));
 				header('Location: ../Registrar_calendario.php');
@@ -85,22 +95,58 @@
 	<div class="contenedor">
 		<h2>MODIFICAR CALENDARIO</h2>
 		<form action="" method="post">
+			<p>Horario de juego</p>
 			<div class="form-group">
 				<input type="time" name="horario" value="<?php if($resultado) echo $resultado['horario']; ?>" class="input__text" required>
 				<input type="text" name="cancha" value="<?php if($resultado) echo $resultado['cancha']; ?>" class="input__text" required>
 			</div>
+			<p>Fecha de juego</p>
 			<div class="form-group">
-				<input type="text" name="nombreArbitro" value="<?php if($resultado) echo $resultado['nombreArbitro']; ?>" class="input__text" required>
+				<input type="date" name="fechaJuego" value="<?php if($resultado) echo $resultado['fechaJuego']; ?>" class="input__text" required>
 				<input type="text" name="eqVocalia" value="<?php if($resultado) echo $resultado['eqVocalia']; ?>" class="input__text" required>
 			</div>
+			<p>Nombre de Arbitro</p>
 			<div class="form-group">
-				<input type="text" name="equipo1" value="<?php if($resultado) echo $resultado['equipo1']; ?>" class="input__text" required>
-                <input type="text" name="equipo2" value="<?php if($resultado) echo $resultado['equipo2']; ?>" class="input__text" required>
+				<label for="select1"></label>
+				<select name="nombreArbitro" id="nombreArbitro" class="form-control">
+					<option selected="" disabled="" hidden=""><?php if($resultado) echo $resultado['nombreArbitro']; ?></option>
+					<?php  
+                        $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                        $query = $mysqli -> query ("SELECT * FROM personal");
+                        while ($valores = mysqli_fetch_array($query)) {
+							echo '<option value="'.$valores[nombre].'">'.$valores[nombre].'</option>';
+						}
+                 	?>
+                </select>
 			</div>
-            <pre>Fecha Inicio  </pre>
-            <div class="form-group">
-				<p> <input type="date" name="fechaJuego" value="<?php if($resultado) echo $resultado['fechaJuego']; ?>" > </p>
+			<p>Equipo 1</p>
+			<div class="form-group">
+				<label for="select2"></label>
+				<select name="equipo1" id="equipo1" class="form-control">
+					<option selected="" disabled="" hidden=""><?php if($resultado) echo $resultado['equipo1']; ?></option>
+					<?php  
+                        $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                        $query = $mysqli -> query ("SELECT * FROM equipo");
+                        while ($valores1 = mysqli_fetch_array($query)) {
+							echo '<option value="'.$valores1[nombreClub].'">'.$valores1[nombreClub].'</option>';
+						}
+                 	?>
+                </select>
 			</div>
+			<p>Equipo 2</p>
+			<div class="form-group">
+				<label for="select3"></label>
+				<select name="equipo2" id="equipo2" class="form-control">
+					<option selected="" disabled="" hidden=""><?php if($resultado) echo $resultado['equipo2']; ?></option>
+					<?php  
+                        $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                        $query = $mysqli -> query ("SELECT * FROM equipo");
+                        while ($valores2 = mysqli_fetch_array($query)) {
+							echo '<option value="'.$valores2[nombreClub].'">'.$valores2[nombreClub].'</option>';}
+                 	?>
+                </select>
+			</div>
+            
 			<div class="btn__group">
 				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">

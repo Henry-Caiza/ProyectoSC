@@ -84,7 +84,7 @@
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal</a>
+                                aria-hidden="true"></i>Personal Arbitrario</a>
                     </li>
                     
                     <li>
@@ -161,7 +161,7 @@
 		</div>
 
         <div id="div1"> 
-        <table> 
+            <table> 
 			<tr class="head">
             <td><font size = "2">  Id</font> </td>
 			<td><font size = "2">  Cédula</font> </td>

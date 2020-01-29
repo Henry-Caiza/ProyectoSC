@@ -91,7 +91,7 @@
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal</a>
+                                aria-hidden="true"></i>Personal Arbitrario</a>
                     </li>
                     
                     <li>
@@ -171,9 +171,7 @@
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="Buscar Nombres o Apellidos" 
-				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
-				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="./buscar_personal.php" class="btn btn__buscar">Buscar</a>
 				<a href="CRUD/insert_personal.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
@@ -236,6 +234,17 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+    function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="Registro_Personal.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+    </script>
 </body>
 
 </html>

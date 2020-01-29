@@ -56,10 +56,27 @@
 				<input type="text" name="lugar" placeholder="Lugar" class="input__text" required>
                 <input type="text" name="telefono" placeholder="Teléfono" class="input__text" required>
 			</div>
+			
 			<div class="form-group">
                 <input type="text" name="direccion" placeholder="Dirección" class="input__text" required>
-                <input type="text" name="numeroEq" placeholder="Numero de Equipos" class="input__text"required>
+                <label for="select2"></label>
+				<select name="numeroEq"  class="form-control">
+					<option value="0">Escoga número de equipos</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+				</select>
+				
             </div>
+			
 			<p>Inicio:</p>
 			<div class="form-group">
                 <input type="date" name="fechaInicio" placeholder="Fecha Inicio" class="input__text" required>
