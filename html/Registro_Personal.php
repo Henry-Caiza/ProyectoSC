@@ -164,11 +164,13 @@
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title"> Personal Arbitrario</h3>
                             <?php
+                            
                             include 'conexion.php';
                             
                             $resultado=mysqli_query($conn,"SELECT * FROM  personal ");
                             ?>
                              <div class="contenedor">
+                             <div align="center"><img src="../img/3.png"  width="180" height="180"></div>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
                 <a href="./buscar_personal.php" class="btn btn__buscar">Buscar</a>
