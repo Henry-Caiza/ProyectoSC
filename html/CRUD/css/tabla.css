@@ -93,7 +93,9 @@ form .btn{
     float: right;
     background: #1b743c !important;
 }
-
+.btn__actualizar{
+    background: rgb(94, 163, 3);
+}
 .btn__group{
     width: 100%;
     display: flex;
