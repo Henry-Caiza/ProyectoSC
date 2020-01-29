@@ -159,43 +159,32 @@
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title">Tabla de Posiciones</h3>
                             <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Pos</th>
-                                            <th>Equipo</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mushuc Runa</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Olmedo</td>
-                                     
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>IDV</td>
-                                         
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Macara</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Fuerza Amarilla</td>
-                                          >
-                                        </tr>
-                                       
-                                    </tbody>
-                                </table>
+                                <?php
+                                    include 'conexion.php';
+                                    $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                                    $resultado = mysqli_query($mysqli,"SELECT equipo,puntos FROM tablapos Order by 2 Desc");
+                                ?>  
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Equipo</th>
+                                                <th>Puntos</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        
+                                            <?php while ($filas=mysqli_fetch_assoc($resultado)){
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $filas['equipo']?></td>
+                                                        <td><?php echo $filas['puntos']?></td>           
+                                                    </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                             
+
                             </div>
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
@@ -225,5 +214,4 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
 </body>
-
 </html>
