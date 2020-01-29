@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Calendario</title>
+    <title>Consultar Calendario</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -17,15 +17,12 @@
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- color CSS -->
+    <!-- Tabla CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
-    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+
+    <link href="CRUD/css/tabla.css" id="theme" rel="stylesheet">
+    
+ 
 </head>
 
 <body class="fix-header">
@@ -55,7 +52,7 @@
                             <!--This is light logo icon--><img src="../plugins/images/logoAdmin2.png" alt="home"
                                 class="light-logo" />
                         </b>
-                         </a>
+                        </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -64,17 +61,10 @@
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
                     <li><a href="../index.html">Cerrar Sesion</a></li>  
-                    
                 </ul>
             </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
         </nav>
-        <!-- End Top Navigation -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+        
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
@@ -89,12 +79,9 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
-
-                    
-
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal Arbitrario</a>
+                                aria-hidden="true"></i>Personal</a>
                     </li>
                     
                     <li>
@@ -117,7 +104,6 @@
                         <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Resultados</a>
                     </li>
-
                     <li>
                         <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
@@ -134,10 +120,6 @@
                 </ul>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
         <!-- Page Content -->
         <!-- ============================================================== -->
         <div id="page-wrapper">
@@ -147,65 +129,70 @@
                         <h4 class="page-title">SISTEMA DE CAMPEONATO DE FÚTBOL</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                        
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
                             <li class="active">Calendario</li>
+                            <li class="active">Buscar Calendario</li>
                         </ol>
-
-                        
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Calendario</h3>
+                            <!-- ############################################## DATOS DE BUSQUEDA ################################### -->
+                            <h3 class="box-title">Consulta Calendario</h3>
                             <?php
                                 include 'conexion.php';
-                                $resultado=mysqli_query($conn,"SELECT * FROM  calendario ");
+                                $mysqli = new mysqli('localhost', 'root', '', 'scf');
                             ?>
-        <div class="contenedor">
+                             <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-                <a href="buscar_calendario.php" class="btn btn__buscar">Buscar</a>
-				<a href="./CRUD/insert_calendario.php" class="btn btn__nuevo">Nuevo</a>
-			</form>
-		</div>
-		<table> 
-			<tr class="head">
-            <td><font size = "2">  Código de Partido</font> </td>
-			<td><font size = "2">  Fecha</font> </td>
-            <td><font size = "2">  Horario</font> </td>
-            <td><font size = "2">  Cancha</font> </td>	
-            <td><font size = "2">  Nombre Árbitro</font> </td>	
-            <td><font size = "2">  Vocalía</font> </td>		
-			<td><font size = "2">  Equipo 1</font> </td>	
-            <td><font size = "2">  Equipo 2</font> </td>	
-			<td colspan="2" >Accion  </td>
-			
-			</tr>
-
-			
-			<?php while($filas=mysqli_fetch_assoc($resultado)) {
-                                        ?>
-				<tr >
-				 <td><?php echo $filas['id'] ?></td>
-                  <td><?php echo $filas['fechaJuego'] ?></td>
-                  <td><?php echo $filas['horario'] ?></td>
-                  <td><?php echo $filas['cancha'] ?></td>
-                  <td><?php echo $filas['nombreArbitro'] ?></td>
-				  <td><?php echo $filas['eqVocalia'] ?></td>
-				  <td><?php echo $filas['equipo1'] ?></td>
-                  <td><?php echo $filas['equipo2'] ?></td>
-					<td><a href="CRUD/update_calendario.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="CRUD/delete_calendario.php?id=<?php echo $filas['id']; ?>" class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
-				</tr>
-				<?php } ?>
-
-		</table>
-                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
+                <p>Buscar por fecha de juego: </p> 
+				<input type="date" name="fechaJuego" placeholder="Fecha de Juego" class="input__text">
+                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="../html/registrar_calendario.php" class="btn btn__danger">Cancelar</a>
+            </form>
+        </div>
+                
+    <?php 
+    if (isset($_POST['btn_buscar'])){
+        $fechaJuego=$_POST['fechaJuego'];
+        $resultado = mysqli_query($mysqli,"SELECT * FROM calendario WHERE fechaJuego = '$fechaJuego'");
+        While($consulta = mysqli_fetch_assoc($resultado)){
+            echo "
+            <table> 
+                <tr class=\"head\">
+                    <td><font size = \"2\">  Código de Partido</font> </td>
+                    <td><font size = \"2\">  Fecha</font> </td>
+                    <td><font size = \"2\">  Horario</font> </td>
+                    <td><font size = \"2\">  Cancha</font> </td>	
+                    <td><font size = \"2\">  Nombre Árbitro</font> </td>	
+                    <td><font size = \"2\">  Vocalía</font> </td>		
+                    <td><font size = \"2\">  Equipo 1</font> </td>	
+                    <td><font size = \"2\">  Equipo 2</font> </td>	
+                    <td colspan=\"2\" >Accion  </td>
+                </tr>
+            
+                <tr>
+                    <td>".$consulta['id']."</td>
+                    <td>".$consulta['fechaJuego']."</td>
+                    <td>".$consulta['horario']."</td>
+                    <td>".$consulta['cancha']."</td>
+                    <td>".$consulta['nombreArbitro']."</td>
+                    <td>".$consulta['eqVocalia']."</td>
+                    <td>".$consulta['equipo1']."</td>
+                    <td>".$consulta['equipo2']."</td>
+                    <td><a href=CRUD/update_calendario.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
+                    <td><a href=CRUD/delete_calendario.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+                </tr>
+            </table>";
+        }
+    }
+   ?>
+	</div>
+</body>
+                            <!-- ############################################## DATOS DE BUSQUEDA ################################### -->
                         </div>
                     </div>
 
@@ -232,16 +219,6 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
-    <script type = "text/javascript" >
-        function preguntar(){
-            if(confirm('Estas seguro de que deeas eliminar?')){
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-    </script>
 </body>
 
 </html>
