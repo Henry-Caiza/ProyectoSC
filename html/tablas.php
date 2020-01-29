@@ -19,6 +19,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -156,47 +157,37 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title">Tabla de Posiciones</h3>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Pos</th>
-                                            <th>Equipo</th>
-                                           
+                            
+                                <?php
+                                    include 'conexion.php';
+                                    $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                                    $resultado = mysqli_query($mysqli,"SELECT equipo,puntos FROM tablapos Order by 2 Desc");
+                                ?>  
+                                
+                                    <div id="div1"> 
+                                    <table>
+                                        
+                                        <tr class="head">
+			                                <td><font size = "2">  Equipos</font> </td>
+                                            <td><font size = "2">   Puntos</font> </td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mushuc Runa</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Olmedo</td>
-                                     
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>IDV</td>
-                                         
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Macara</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Fuerza Amarilla</td>
-                                          >
-                                        </tr>
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
+                                    
+                                        
+                                            <?php while ($filas=mysqli_fetch_assoc($resultado)){
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $filas['equipo']?></td>
+                                                        <td><?php echo $filas['puntos']?></td>           
+                                                    </tr>
+                                            <?php } ?>
+                                
+                                    </table>
+                                    </div>
+		
+                             
+
+                            
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>
@@ -225,5 +216,4 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
 </body>
-
 </html>
