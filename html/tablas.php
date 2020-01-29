@@ -19,6 +19,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -156,23 +157,22 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title">Tabla de Posiciones</h3>
-                            <div class="table-responsive">
+                            
                                 <?php
                                     include 'conexion.php';
                                     $mysqli = new mysqli('localhost', 'root', '', 'scf');
                                     $resultado = mysqli_query($mysqli,"SELECT equipo,puntos FROM tablapos Order by 2 Desc");
                                 ?>  
+                                
+                                    <div id="div1"> 
                                     <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Equipo</th>
-                                                <th>Puntos</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                        
+                                        <tr class="head">
+			                                <td><font size = "2">  Equipos</font> </td>
+                                            <td><font size = "2">   Puntos</font> </td>
+                                        </tr>
+                                    
                                         
                                             <?php while ($filas=mysqli_fetch_assoc($resultado)){
                                                 ?>
@@ -181,11 +181,13 @@
                                                         <td><?php echo $filas['puntos']?></td>           
                                                     </tr>
                                             <?php } ?>
-                                        </tbody>
+                                
                                     </table>
+                                    </div>
+		
                              
 
-                            </div>
+                            
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
                     </div>

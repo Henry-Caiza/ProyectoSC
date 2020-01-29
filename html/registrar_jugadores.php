@@ -161,7 +161,7 @@
 		</div>
 
         <div id="div1"> 
-        <table> 
+            <table> 
 			<tr class="head">
             <td><font size = "2">  Id</font> </td>
 			<td><font size = "2">  Cédula</font> </td>
