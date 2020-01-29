@@ -136,10 +136,10 @@
 					<option value="NoDis">No Disponible</option>
 				</select>
 			</div>
-
-            <p>Fecha Nacimiento  </p>
-            <div class="form-group">
-				<input type="date" name="fechanac" value="<?php if($resultado) echo $resultado['fechanac']; ?>" class="input_text" required >
+			<p> Fecha Nacimiento </p>
+			<div class="form-group">
+				<input type="date" name="fechanac" value="<?php if($resultado) echo $resultado['fechanac']; ?>" class="input__text" required>
+				
 			</div>
 
 			<div class="btn__group">

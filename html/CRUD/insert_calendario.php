@@ -10,7 +10,7 @@
         $valores1=$_POST['equipo1'];
         $valores2=$_POST['equipo2'];
 
-		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($valores)  && !empty($eqVocalia) && !empty($valores1) && !empty($valores2) ){
+		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($valores) && !empty($eqVocalia) && !empty($valores1) && !empty($valores2) ){
 			//if(!filter_var($telefono,FILTER_VALIDATE_EMAIL)){
 				//echo "<script> alert('Correo no valido');</script>";
 			//}else{
@@ -46,11 +46,16 @@
 	<div class="contenedor">
 		<h2>INGRESAR CALENDARIOS</h2>
 		<form action="" method="post">
+			<p>Horario de juego</p>
 			<div class="form-group">
 				<input type="time" name="horario" placeholder="Horario" class="input__text" required>
 				<input type="text" name="cancha" placeholder="Cancha" class="input__text" required>
 			</div>
-			
+			<p>Fecha de juego</p>
+            <div class="form-group">
+                <input type="date" name="fechaJuego" placeholder="Fecha de Juego" class="input__text" required>
+				<input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text" required>
+            </div>
 			<div class="form-group">
 			<label for="select3"></label>
                  <select name="nombreArbitro" id="nombreArbitro" class="form-control">
@@ -62,9 +67,6 @@
                         echo '<option value="'.$valores[nombre].'">'.$valores[nombre].'</option>';}
                  ?>
                  </select>
-			</div>
-			<div class="form-group">
-                <input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text" required>
 			</div>
 			<p> Equipo 1 </p>
 			<div class="form-group">
@@ -91,9 +93,6 @@
 							echo '<option value="'.$valores2[nombreClub].'">'.$valores2[nombreClub].'</option>';}
 					?>
 					</select>
-            </div>
-			<div class="form-group">
-                <input type="date" name="fechaJuego" placeholder="Fecha de juego" class="input__text" required>
             </div>
 			<div class="btn__group">
 				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>

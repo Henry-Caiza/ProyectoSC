@@ -94,7 +94,7 @@
 
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal</a>
+                                aria-hidden="true"></i>Personal Arbitrario</a>
                     </li>
                     
                     <li>
@@ -163,17 +163,13 @@
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title">Calendario</h3>
                             <?php
-                            include 'conexion.php';
-                            
-                            $resultado=mysqli_query($conn,"SELECT * FROM  calendario ");
+                                include 'conexion.php';
+                                $resultado=mysqli_query($conn,"SELECT * FROM  calendario ");
                             ?>
         <div class="contenedor">
-		<h2>CALENDARIO DE PARTIDOS</h2>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar código del partido" 
-				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
-				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="buscar_calendario.php" class="btn btn__buscar">Buscar</a>
 				<a href="./CRUD/insert_calendario.php" class="btn btn__nuevo">Nuevo</a>
 			</form>
 		</div>
@@ -204,7 +200,7 @@
 				  <td><?php echo $filas['equipo1'] ?></td>
                   <td><?php echo $filas['equipo2'] ?></td>
 					<td><a href="CRUD/update_calendario.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="CRUD/delete_calendario.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><a href="CRUD/delete_calendario.php?id=<?php echo $filas['id']; ?>" class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
 				</tr>
 				<?php } ?>
 
@@ -236,6 +232,16 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+        function preguntar(){
+            if(confirm('Estas seguro de que deeas eliminar?')){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
 </body>
 
 </html>
