@@ -167,6 +167,7 @@
 		<table> 
 			<tr class="head">
 			<td><font size = "2">  Id</font> </td>
+            <td><font size = "2">  Escudo</font> </td>
             <td><font size = "2">  Nombre Club</font> </td>
             <td><font size = "2">  Nombre del Presidente</font> </td>	
             <td><font size = "2">  Localidad</font> </td>		
@@ -182,6 +183,8 @@
                                         ?>
 				<tr >
 				 <td><?php echo $filas['id'] ?></td>
+                 <td><img src="data:image/jpg;base64,<?php echo base64_encode($filas['escudo']);?> " width="70"
+     height="70"/></td>
                   <td><?php echo $filas['nombreClub'] ?></td>
                   <td><?php echo $filas['nombrePresi'] ?></td>
                   <td><?php echo $filas['localidad'] ?></td>
