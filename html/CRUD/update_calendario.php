@@ -19,7 +19,6 @@
         $cancha=$_POST['cancha'];
         $valores=$_POST['nombreArbitro'];
         $eqVocalia=$_POST['eqVocalia'];
-<<<<<<< HEAD
 		$equipo1=$_POST['equipo1'];
 		$goles_equipo1=(int) $_GET['goles_equipo1'];
         $tarj_ama_eq1=(int) $_GET['tarj_ama_eq1'];
@@ -28,10 +27,6 @@
 		$goles_equipo2=(int) $_GET['goles_equipo2'];
         $tarj_ama_eq2=(int) $_GET['tarj_ama_eq2'];
         $tarj_roj_eq3=(int) $_GET['tarj_roj_eq2'];
-=======
-        $valores1=$_POST['equipo1'];
-        $valores2=$_POST['equipo2'];
->>>>>>> 26da807ed9bc6627256bd25849dabbfb551a8809
 		$id=(int) $_GET['id'];
 
 		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) ){
@@ -60,7 +55,6 @@
 					':cancha' =>$cancha,
                     ':nombreArbitro' =>$valores,
 					':eqVocalia' =>$eqVocalia,
-<<<<<<< HEAD
 					':equipo1' =>$equipo1,
 					':goles_equipo1' =>$goles_equipo1,
                     ':tarj_ama_eq1' =>$tarj_ama_eq1,
@@ -69,10 +63,6 @@
 					':goles_equipo2' =>$goles_equipo2,
 					':tarj_ama_eq2' =>$tarj_ama_eq2,
                     ':tarj_roj_eq2' =>$tarj_roj_eq2,
-=======
-					':equipo1' =>$valores1,
-                    ':equipo2' =>$valores2,
->>>>>>> 26da807ed9bc6627256bd25849dabbfb551a8809
 					':id' =>$id
 				));
 				header('Location: ../Registrar_calendario.php');

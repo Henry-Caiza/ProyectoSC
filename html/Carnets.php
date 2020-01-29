@@ -80,10 +80,6 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> 26da807ed9bc6627256bd25849dabbfb551a8809
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Personal Arbitrario</a>
@@ -106,16 +102,9 @@
                                 aria-hidden="true"></i>Tablas</a>
                     </li>
                     <li>
-<<<<<<< HEAD
                         <a href="registrar_resultados.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Resultados</a>
                     </li>
-=======
-                        <a href="registrarequipo.php" class="waves-effect"><i class="fa fa-shield fa-fw"
-                                aria-hidden="true"></i>Resultados</a>
-                    </li>
-
->>>>>>> 26da807ed9bc6627256bd25849dabbfb551a8809
                     <li>
                         <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
