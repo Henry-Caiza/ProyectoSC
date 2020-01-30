@@ -175,7 +175,6 @@
             <td><font size = "2">  Tarjetas Rojas</font> </td>	
 			<td colspan="2" >Acción  </td>
 			</tr>
-
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                 /*  $mysqli = new mysqli('localhost', 'root', '', 'scf');
                   $query= $mysqli -> query("INSERT INTO tablaresultados(equipo1, equipo2, idcalendario, fechaJuego, horario)
