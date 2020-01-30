@@ -152,6 +152,7 @@
                             $resultado=mysqli_query($conn,"SELECT * FROM  tablaresultadoscopia ");
                           //  $resultado2=mysqli_query($conn,"SELECT * FROM  calendario ");
                             ?>
+                            <div align="center"><img src="../img/9.png"  width="200" height="200"></div>
                              <div class="contenedor">
                              <div class="barra__buscador"> 
 			    <form action="" class="formulario" method="post">

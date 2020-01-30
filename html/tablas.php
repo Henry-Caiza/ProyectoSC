@@ -164,8 +164,12 @@
                                     $mysqli = new mysqli('localhost', 'root', '', 'scf');
                                     $resultado = mysqli_query($mysqli,"SELECT equipo,puntos FROM tablapos Order by 2 Desc");
                                 ?>  
-                                
-                                    <div id="div1"> 
+                                <div align="center"><img src="../img/7.png"  width="200" height="200"></div>
+                                <div> 
+                                </div>
+                                <br/>
+                                <br/>
+                                    <div align="center" id="div1"> 
                                     <table>
                                         
                                         <tr class="head">

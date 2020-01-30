@@ -152,11 +152,11 @@
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title"> Equipos</h3>
                             <?php
-                            include 'conexion.php';
                             
-
+                            include 'conexion.php';
                             $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
                             ?>
+                            <div align="center"><img src="../img/8.png"  width="200" height="200"></div>
                              <div class="contenedor">
             <div class="barra__buscador">
 			    <form action="" class="formulario" method="post">

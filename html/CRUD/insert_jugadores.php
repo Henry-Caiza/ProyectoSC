@@ -5,7 +5,7 @@
 		$cedula=$_POST['cedula'];
         $nombres=$_POST['nombres'];
         $apellidos=$_POST['apellidos'];
-        //$valores=$_POST['equipo'];
+        $valores=$_POST['equipo'];
         $numeroasig=$_POST['numeroasig'];
         $pais=$_POST['pais'];   
         $provincia=$_POST['provincia'];
