@@ -79,12 +79,9 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
-
-                    
-
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal</a>
+                                aria-hidden="true"></i>Personal Arbitrario</a>
                     </li>
                     
                     <li>
@@ -114,7 +111,7 @@
                     </li>
                     <li>
                         <a href="Reportes.php" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
-                                aria-hidden="true"></i>Reportes</a>
+                                aria-hidden="true"></i>Tabla de goleadores</a>
                     </li>
                     <li>
                         <a href="Carnets.php" class="waves-effect"><i class="fa fa-credit-card fa-fw"
@@ -176,7 +173,6 @@
             <td><font size = "2">  Tarjetas Rojas</font> </td>	
 			<td colspan="2" >Acción  </td>
 			</tr>
-
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                 /*  $mysqli = new mysqli('localhost', 'root', '', 'scf');
                   $query= $mysqli -> query("INSERT INTO tablaresultados(equipo1, equipo2, idcalendario, fechaJuego, horario)
@@ -196,7 +192,7 @@
 				  <td><?php echo $filas['goles_equipo2'] ?></td>
                   <td><?php echo $filas['tarj_ama_eq2'] ?></td>
                   <td><?php echo $filas['tarj_roj_eq2'] ?></td>
-				  <td><a href='CRUD/update_resultados.php?id= <?php echo $filas['id']; ?>'  class="btn__update" >Editar</a></td>
+				  <td><a href='CRUD/update_resultados.php?id= <?php echo $filas['id']; ?>'  class="btn__update" >Ingresar/Editar</a></td>
 				  <td><a href='CRUD/delete_jugadores.php?id= <?php echo $filas['id']; ?>' class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
                 </tr>
 				<?php } ?>
