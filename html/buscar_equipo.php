@@ -143,7 +143,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="white-box">
+                        <div class="white-box"> 
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                             <h3 class="box-title">  Consulta Equipos</h3>
                             <?php
