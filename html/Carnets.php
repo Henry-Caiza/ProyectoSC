@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Carnets</title>
+    <title>Carnet</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -19,7 +21,6 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
-
     <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
  
 </head>
@@ -60,8 +61,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
-                    <li><a href="../index.html">Cerrar Sesion</a></li>  
-                    
+                    <li><a href="../index.html">Cerrar Sesion</a></li>   
                 </ul>
             </div>
         </nav>
@@ -80,6 +80,9 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
+
+                   
+
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Personal Arbitrario</a>
@@ -99,8 +102,9 @@
                     </li>
                     <li>
                         <a href="tablas.php" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i>Tablas</a>
+                                aria-hidden="true"></i>Tabla de Posiciones</a>
                     </li>
+
                     <li>
                         <a href="registrar_resultados.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Resultados</a>
@@ -133,7 +137,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Carnets</li>
+                            <li class="active">Carnet de Jugador</li>
                         </ol>
 
                         
@@ -142,54 +146,84 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                           <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                           <h3 class="box-title">Registro de Carnets</h3>
+                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
+                            <h3 class="box-title"> Generar Carnet</h3>
                             <?php
                             include 'conexion.php';
-                            
-                            $resultado=mysqli_query($conn,"SELECT * FROM carnet ");
+                            $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                           // $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                             ?>
+                            <div align="center"><img src="../img/6.png"  width="200" height="200"></div>
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
-				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
-				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
-				<a href="CRUD/insert_carnets.php" class="btn btn__nuevo">Nuevo</a>
-			</form>
-		</div>
-		<table> 
-			<tr class="head">
-			<td><font size = "2">  Id</font> </td>
-            <td><font size = "2">  Nombres</font> </td>
-            <td><font size = "2">  Apellidos</font> </td>	
-            <td><font size = "2">  Fecha de Nacimiento</font> </td>	
-            <td><font size = "2">  Cédula</font> </td>		
-			<td><font size = "2">  Equipo</font> </td>	
-            <td><font size = "2">  Número Asignado</font> </td>	
-           	
-			<td colspan="2" >Accion  </td>
-			
-			</tr>	
-			<?php while($filas=mysqli_fetch_assoc($resultado)) {
-                                        ?>
-				<tr >   
-				 <td><?php echo $filas['id'] ?></td>
-                  <td><?php echo $filas['nombre'] ?></td>
-                  <td><?php echo $filas['apellido'] ?></td>
-                  <td><?php echo $filas['fechaNac'] ?></td>
-                  <td><?php echo $filas['cedula'] ?></td>
-				  <td><?php echo $filas['equipo'] ?></td>
-				  <td><?php echo $filas['numAsig'] ?></td>
-                  <td><a href="CRUD/update_carnet.php?id= <?php echo $filas['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="CRUD/delete_carnet.php?id=<?php echo $filas['id']; ?>" class="btn__delete">Eliminar</a></td>
-				</tr>
-				<?php } ?>
-
-		</table>
+				<input type="text" name="cedula" placeholder="Buscar por cédula" class="input__text">
+                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <a href="../html/registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
+                </form>
+                </div>
+                
+   <?php 
+   if (isset($_POST['btn_buscar']))
+   {
+       $cedula=$_POST['cedula'];
+       $resultado = mysqli_query($mysqli,"SELECT * FROM jugadores WHERE cedula = $cedula");
+       While($consulta = mysqli_fetch_assoc($resultado)){
+           echo "
+           <div id=\"div1\"> 
+        <table> 
+			<tr class=\"head\">
+            <td><font size = \"2\">  Id</font> </td>
+			<td><font size = \"2\">  Cédula</font> </td>
+            <td><font size = \"2\">  Nombres</font> </td>
+            <td><font size = \"2\">  Apellidos</font> </td>	
+            <td><font size = \"2\">  Equipo</font> </td>	
+            <td><font size = \"2\">  Numero Asignado</font> </td>	
+            <td><font size = \"2\">  Pais</font> </td>	
+            <td><font size = \"2\">  Provincia</font> </td>
+			<td><font size = \"2\">  Ciudad</font> </td>	
+            <td><font size = \"2\">  Dirección</font> </td>
+            <td><font size = \"2\">  Teléfono</font> </td>	
+            <td><font size = \"2\">  Posición</font> </td>	
+            <td><font size = \"2\">  Fecha Nacimiento</font> </td>	
+            <td><font size = \"2\">  Instrucción</font> </td>
+			<td><font size = \"2\">  Estado Transferencia </font> </td>
+            <td colspan=\"2\" >Acción  </td>	
+			</tr>
+        <tr >
+        <td>".$consulta['id']."</td>
+        <td>".$consulta['cedula']."</td>
+        <td>".$consulta['nombres']."</td>
+        <td>".$consulta['apellidos']."</td>
+        <td>".$consulta['equipo']."</td>
+         <td>".$consulta['numeroasig']."</td>
+         <td>".$consulta['pais']."</td>
+         <td>".$consulta['provincia']."</td>
+         <td>".$consulta['ciudad']."</td>
+         <td>".$consulta['direccion']."</td>
+         <td>".$consulta['telefono']."</td>
+         <td>".$consulta['posicion']."</td>
+         <td>".$consulta['fechanac']."</td>
+         <td>".$consulta['instruccion']."</td>
+         <td>".$consulta['estadotransf']."</td>
+         <td><a href=../Proyecto/pdf/Plantilla/carnet.php?id=".$consulta['id']. "  class=\"btn__update\" >Imprimir Carnet</a></td>
+        
+         </tr>
+         </table>
+         </div>
+         ";
+        
+       }
+   }
+   ?>
+	</div>
+</body>     
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            </div>
+                        </div>
                     </div>
+
+                    
+                </div>
             </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2020 &copy; CopyRigth SOFTWARE </footer>

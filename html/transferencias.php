@@ -151,6 +151,7 @@
                             $mysqli = new mysqli('localhost', 'root', '', 'scf');
                            // $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                             ?>
+                            <div align="center"><img src="../img/6.png"  width="200" height="200"></div>
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">

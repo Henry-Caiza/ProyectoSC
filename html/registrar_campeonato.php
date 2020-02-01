@@ -154,6 +154,7 @@
                                  $resultado=mysqli_query($conn,"SELECT * FROM  campeonato ");
                                  
                                  ?>
+                                  <div align="center"><img src="../img/1.png"  width="200" height="200"></div>
                              <div class="contenedor">
 		<div class="barra__buscador">
             <p>

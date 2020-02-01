@@ -1,34 +1,25 @@
 <?php 
 	include_once 'conexion.php';
 	
-	if(isset($_POST['guardar'])){
-		$escudo=$_POST['escudo'];
-		$nombreClub=$_POST['nombreClub'];
-		$nombrePresi=$_POST['nombrePresi'];
-		$localidad=$_POST['localidad'];
-		$telefono=$_POST['telefono'];
-		$email=$_POST['email'];
-		$numMaxjug=$_POST['numMaxjug'];
+	if(isset($_POST['guardar'])){;
+		$imagen=addslashes(file_get_contents($_FILES['Imagen']['tmp_name']));
+		$nombreClub = $_POST['nombreClub'];
+		$nombrePresi = $_POST['nombrePresi'];
+		$localidad = $_POST['localidad'];
+		$telefono = $_POST['telefono'];
+		$email = $_POST['email'];
+		$numMaxjug = $_POST['numMaxjug'];
 
-		if(!empty($nombreClub) && !empty($nombrePresi) && !empty($localidad) && !empty($telefono) && !empty($email) && !empty($numMaxjug) ){
-			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-				echo "<script> alert('Datos no validos');</script>";
-			}else{
-				$consulta_insert=$con->prepare('INSERT INTO equipo(escudo,nombreClub,nombrePresi,localidad,telefono,email,numMaxjug) VALUES(:nombreClub,:nombrePresi,:localidad,:telefono,:email,:numMaxjug)');
-				$consulta_insert->execute(array(
-					':escudo' =>$escudo,
-					':nombreClub' =>$nombreClub,
-					':nombrePresi' =>$nombrePresi,
-					':localidad' =>$localidad,
-					':telefono' =>$telefono,
-					':email' =>$email,
-					':numMaxjug'=>$numMaxjug
-				));
-				header('Location: ../registrarequipo.php');
-			}
-		}else{
-			echo '<script> alert("Los campos estan vacios"); windows.location.href="../Carnets.php";</script>';
+		$query="INSERT INTO equipo(escudo,nombreClub,nombrePresi,localidad,telefono,email,numMaxjug) VALUES('$imagen','$nombreClub','$nombrePresi','$localidad','$telefono','$email','$numMaxjug')";
+		$resultado=$con->query($query);
+		if($resultado)
+		{
+			echo "Se guardo la Imagen";
+		}else
+		{
+			echo "No Ni merga";
 		}
+		header('Location: ../registrarequipo.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -44,7 +35,7 @@
 		<h2>INGRESAR EQUIPO</h2>
 		<p> 
 		</p>
-		<form action="" method="post">
+		<form action="" method="POST" enctype="multipart/form-data">
 			<div class="form-group">
 				<input type="text" name="nombreClub" placeholder="Nombre del Club" class="input__text" required>
 				<input type="text" name="nombrePresi" placeholder="Nombre del Presidente" class="input__text" required>
@@ -73,11 +64,12 @@
 					<option value="20">20</option>
 				</select>
 			</div>
+
+			<div class="form-group">
+                <input type="file" name="Imagen"/>
+            </div>
+
 			
-			<div class="custom-file" lang="es">
- 			 <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-  			<label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-			</div><br><br>
 
 			<div class="btn__group">
 				<a href="../registrarequipo.php" class="btn btn__danger">Cancelar</a>

@@ -1,4 +1,6 @@
 <?php
+include 'conexion.php';
+
 function getPlantilla(){
    $plantilla='
    <!DOCTYPE html>
