@@ -156,67 +156,14 @@
                             <div align="center"><img src="../img/6.png"  width="200" height="200"></div>
                              <div class="contenedor">
 		<div class="barra__buscador">
-			<form action="" class="formulario" method="post">
-				<input type="text" name="cedula" placeholder="Buscar por cédula" class="input__text">
-                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+			<form action="imprimircar.php" class="formulario" method="post">
+				<input type="text" name="cedula" placeholder="Ingrese la cedula del Jugador" class="input__text">
+                <input type="submit" class="btn" name="btn_buscar" value="Imprimir">
                 <a href="../html/registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
                 </form>
                 </div>
                 
-   <?php 
-   if (isset($_POST['btn_buscar']))
-   {
-       $cedula=$_POST['cedula'];
-       $resultado = mysqli_query($mysqli,"SELECT * FROM jugadores WHERE cedula = $cedula");
-       While($consulta = mysqli_fetch_assoc($resultado)){
-           echo "
-           <div id=\"div1\"> 
-        <table> 
-			<tr class=\"head\">
-            <td><font size = \"2\">  Id</font> </td>
-			<td><font size = \"2\">  Cédula</font> </td>
-            <td><font size = \"2\">  Nombres</font> </td>
-            <td><font size = \"2\">  Apellidos</font> </td>	
-            <td><font size = \"2\">  Equipo</font> </td>	
-            <td><font size = \"2\">  Numero Asignado</font> </td>	
-            <td><font size = \"2\">  Pais</font> </td>	
-            <td><font size = \"2\">  Provincia</font> </td>
-			<td><font size = \"2\">  Ciudad</font> </td>	
-            <td><font size = \"2\">  Dirección</font> </td>
-            <td><font size = \"2\">  Teléfono</font> </td>	
-            <td><font size = \"2\">  Posición</font> </td>	
-            <td><font size = \"2\">  Fecha Nacimiento</font> </td>	
-            <td><font size = \"2\">  Instrucción</font> </td>
-			<td><font size = \"2\">  Estado Transferencia </font> </td>
-            <td colspan=\"2\" >Acción  </td>	
-			</tr>
-        <tr >
-        <td>".$consulta['id']."</td>
-        <td>".$consulta['cedula']."</td>
-        <td>".$consulta['nombres']."</td>
-        <td>".$consulta['apellidos']."</td>
-        <td>".$consulta['equipo']."</td>
-         <td>".$consulta['numeroasig']."</td>
-         <td>".$consulta['pais']."</td>
-         <td>".$consulta['provincia']."</td>
-         <td>".$consulta['ciudad']."</td>
-         <td>".$consulta['direccion']."</td>
-         <td>".$consulta['telefono']."</td>
-         <td>".$consulta['posicion']."</td>
-         <td>".$consulta['fechanac']."</td>
-         <td>".$consulta['instruccion']."</td>
-         <td>".$consulta['estadotransf']."</td>
-         <td><a href=../pdf/pdfcarnet.php?id=".$consulta['id']. "  class=\"btn__update\" >Imprimir Carnet</a></td>
-            
-         </tr>
-         </table>
-         </div>
-         ";
-        
-       }
-   }
-   ?>
-	</div>
+  	</div>
 </body>     
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
                         </div>
