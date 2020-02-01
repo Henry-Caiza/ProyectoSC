@@ -8,6 +8,7 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html lang="">
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
 <title>Jugadores</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -130,7 +131,7 @@ Licence URI: http://www.os-templates.com/template-terms
                             $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                         ?>
                         <div class="contenedor">
-                            <table> 
+                            <table>   
                                 <tr class="head">
                                     <td><font size = "2">  Id</font> </td>
                                     <td><font size = "2">  Fotografía</font> </td>
