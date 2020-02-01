@@ -69,12 +69,9 @@
 <body>
 	<div class="contenedor">
 		<h2>REGISTRAR JUGADORES</h2>
-<<<<<<< HEAD
-		<form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
         <br><h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Cédula  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Nombres</h6>
-=======
-		<form action="" method="post" enctype="multipart/form-data">
->>>>>>> 4f0cb8def41a78d232be88d99d30cf11b206e729
+
 			<div class="form-group">
 				<input type="text" name="cedula" placeholder="Cédula" class="input__text" >
 				<input type="text" name="nombres" placeholder="Nombres" class="input__text" >
