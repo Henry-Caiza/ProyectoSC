@@ -50,7 +50,7 @@ Licence URI: http://www.os-templates.com/template-terms
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
-      <h1>SISTEMA DE CAMPEONATOS DE FUTBOL</h1>
+      <h2>SISTEMA DE CAMPEONATOS DE FÚTBOL</h2>
       <div class="one_half"><img src="../images/demo/logo2.jpg" alt=""></div> 
     
     </div>
@@ -92,7 +92,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper bgded overlay" style="background-image:url('../images/demo/portadaEquipos.jpg');">
+<div class="wrapper bgded overlay" style="background-image:url('../images/demo/pc.jpg');">
   <section id="breadcrumb" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <ul>
@@ -101,7 +101,7 @@ Licence URI: http://www.os-templates.com/template-terms
       <li><a href="#">Calendario</a></li>
     </ul>
     <!-- ################################################################################################ -->
-    <h6 class="heading">Calendario</h6>
+    
     <!-- ################################################################################################ -->
   </section>
 </div>
