@@ -8,10 +8,18 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html lang="">
 <head>
-<title>Equipos</title>
+<title>Resultados</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<!-- animation CSS -->
+<link href="../html/css/animate.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../html/css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="../html/css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="../html/CRUD/css/tabla.css" id="theme" rel="stylesheet">
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -22,8 +30,8 @@ Licence URI: http://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <div class="fl_left">
       <ul>
-        <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-        <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+        <li><i class="fa fa-phone"></i> +593 939525732</li>
+        <li><i class="fa fa-envelope-o"></i> sistemacs@gmail.com</li>
       </ul>
     </div>
     <div class="fl_right">
@@ -42,13 +50,13 @@ Licence URI: http://www.os-templates.com/template-terms
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
-      <h1>SISTEMA DE CAMPEONATOS DE FUTBOL</h1>
+      <h1>SISTEMA DE CAMPEONATOS DE FÚTBOL</h1>
       <div class="one_half"><img src="../images/demo/logo2.jpg" alt=""></div> 
     
     </div>
   <div id="quickinfo" class="fl_right">
     <ul class="nospace inline">
-      <li><strong>Telefono:</strong><br>
+      <li><strong>Teléfono:</strong><br>
         09393525732</li>
       <li><strong>Correo:</strong><br>
         siscf@gmail.com</li>
@@ -62,14 +70,14 @@ Licence URI: http://www.os-templates.com/template-terms
         <li class="active"><a href="../index.html">Inicio</a></li>
         <li><a class="drop" href="#">Campeonato</a>
           <ul>
-            <li ><a href="../pages/calendario.html">Calendario</a></li>
-            <li><a href="./resultados.html">Resultados</a></li>
+            <li ><a href="../pages/calendario.php">Calendario</a></li>
+            <li><a href="./resultados.php">Resultados</a></li>
           </ul>
         </li>
-        <li class="active"><a href="equipos.html">Equipos</a></li>
+        <li class="active"><a href="equipos.php">Equipos</a></li>
      
 
-        <li><a href="#">Jugadores</a></li>
+        <li><a href="./jugadores.php">Jugadores</a></li>
         <li><a class="drop" href="#">Tablas</a>
           <ul>
             <li><a href="#">Posiciones</a></li>
@@ -89,10 +97,11 @@ Licence URI: http://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <ul>
       <li><a href="#">Inicio</a></li>
-      <li><a href="#">Equipos</a></li>
+      <li><a href="#">Campeonato</a></li>
+      <li><a href="#">Resultados</a></li>
     </ul>
     <!-- ################################################################################################ -->
-    <h6 class="heading">Equipos</h6>
+    <h6 class="heading">Resultados</h6>
     <!-- ################################################################################################ -->
   </section>
 </div>
@@ -107,46 +116,72 @@ Licence URI: http://www.os-templates.com/template-terms
       <!-- ################################################################################################ -->
       <div id="gallery">
         <figure>
-          <header class="heading">Equipos </header>
-          <figcaption>Equipos del Campeonato de Futbol<p></p></figcaption>
+          <header class="heading">Resultado de los Partidos de Fútbol </header>
           <ul class="nospace clear">
-            <li class="one_quarter first"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 1</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 2</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 3</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 4</a></li>
-            <li class="one_quarter first"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 5</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 6</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 7</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 8</a></li>
-            <li class="one_quarter first"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 9</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 10</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 11</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 12</a></li>
-            <li class="one_quarter first"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 13</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 14</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 15</a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/equipo.jpg" alt="">Equipo 16</a></li>
+            
           </ul>
         </figure>
       </div>
       <!-- lugar para programar los equipos -->
       <!-- ################################################################################################ -->
-      <!--<nav class="pagination">
-        <ul>
-          <li><a href="#">&laquo; Previous</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">6</a></li>
-          <li class="current"><strong>7</strong></li>
-          <li><a href="#">8</a></li>
-          <li><a href="#">9</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">14</a></li>
-          <li><a href="#">15</a></li>
-          <li><a href="#">Next &raquo;</a></li>
-        </ul>
-      </nav>-->
+
+      <?php
+                            include 'conexion.php';
+                            $resultado=mysqli_query($conn,"SELECT * FROM  tablaresultadoscopia ");
+                          //  $resultado2=mysqli_query($conn,"SELECT * FROM  calendario ");
+                            ?>
+                            
+                             <div class="contenedor">
+                             
+        <table> 
+			<tr class="head">
+            <td><font size = "2">  Id Partido</font> </td>
+			      <td><font size = "2">  FechaJuego</font> </td> 
+            <td><font size = "2">  Horario</font> </td>
+            <td><font size = "2">  Código partido</font> </td>	
+            <td><font size = "2">  Equipo</font> </td>	
+            <td><font size = "2">  Goles</font> </td>
+			      <td><font size = "2">  Tarjetas Amarillas</font> </td>	
+            <td><font size = "2">  Tarjetas Rojas</font> </td>
+            <td><font size = "2">  Equipo</font> </td>	
+            <td><font size = "2">  Goles</font> </td>
+            <td><font size = "2">  Tarjetas Amarillas</font> </td>	
+            <td><font size = "2">  Tarjetas Rojas</font> </td>	
+			</tr>
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                /*  $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                  $query= $mysqli -> query("INSERT INTO tablaresultados(equipo1, equipo2, idcalendario, fechaJuego, horario)
+                  SELECT calendario.equipo1, calendario.equipo2, calendario.id, calendario.fechaJuego, calendario.horario FROM calendario 
+                  ");
+                                    */    ?>
+				<tr >
+                  <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['fechaJuego'] ?></td>
+                  <td><?php echo $filas['horario'] ?></td>
+				          <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['equipo1'] ?></td>
+                  <td><?php echo $filas['goles_equipo1'] ?></td>
+				          <td><?php echo $filas['tarj_ama_eq1'] ?></td>
+                  <td><?php echo $filas['tarj_roj_eq1'] ?></td>
+                  <td><?php echo $filas['equipo2'] ?></td>
+				          <td><?php echo $filas['goles_equipo2'] ?></td>
+                  <td><?php echo $filas['tarj_ama_eq2'] ?></td>
+                  <td><?php echo $filas['tarj_roj_eq2'] ?></td>
+                </tr>
+				        <?php } ?>
+                
+                </table>
+        
+      
+		
+	</div>
+                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
       <!-- ################################################################################################ -->
     </div>
     <!-- ################################################################################################ -->

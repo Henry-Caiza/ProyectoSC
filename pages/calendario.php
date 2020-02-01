@@ -8,10 +8,18 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html lang="">
 <head>
-<title>SISTEMA DE CAMPEONATOS DE FUTBOL ESPOCH RIOBAMBA  </title>
+<title>Calendario</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<!-- animation CSS -->
+<link href="../html/css/animate.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../html/css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="../html/css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="../html/CRUD/css/tabla.css" id="theme" rel="stylesheet">
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -22,14 +30,14 @@ Licence URI: http://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <div class="fl_left">
       <ul>
-        <li><i class="fa fa-phone"></i> 593 0939525732</li>
-        <li><i class="fa fa-envelope-o"></i> SistemaCS@gmail.com</li>
+        <li><i class="fa fa-phone"></i> +593 939525732</li>
+        <li><i class="fa fa-envelope-o"></i> sistemacs@gmail.com</li>
       </ul>
     </div>
     <div class="fl_right">
       <ul>
-        <li><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
-        <li><a href="loginsis.html">Login</a></li>
+        <li><a href="../index.html"><i class="fa fa-lg fa-home"></i></a></li>
+        <li><a href="../loginsis.html">Login</a></li>
       </ul>
     </div>
     <!-- ################################################################################################ -->
@@ -43,61 +51,59 @@ Licence URI: http://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
       <h1>SISTEMA DE CAMPEONATOS DE FUTBOL</h1>
-      <div class="one_half"><img src="images/demo/logo2.jpg" alt=""></div> 
+      <div class="one_half"><img src="../images/demo/logo2.jpg" alt=""></div> 
     
     </div>
-    <div id="quickinfo" class="fl_right">
-      <ul class="nospace inline">
-        <li><strong>Telefono:</strong><br>
-          09393525732</li>
-        <li><strong>Correo</strong><br>
-          siscf@gmail.com</li>
-      </ul>
-    </div>
+  <div id="quickinfo" class="fl_right">
+    <ul class="nospace inline">
+      <li><strong>Telefono:</strong><br>
+        09393525732</li>
+      <li><strong>Correo:</strong><br>
+        siscf@gmail.com</li>
+    </ul>
+  </div>
     <!-- ################################################################################################ -->
   </header>
   <nav id="mainav" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <ul class="clear">
-      <li class="active"><a href="index.html">Inicio</a></li>
-      <li><a class="drop" href="#">Campeonato</a>
-        <ul>
-          <li ><a href="pages/calendario.php">Calendario</a></li>
-          <li><a href="pages/resultados.php">Resultados</a></li>
-        </ul>
-      </li>
-      <li><a href="pages/equipos.php">Equipos</a></li>
-      <li><a href="pages/jugadores.php">Jugadores</a></li>
-      <li><a class="drop" href="#">Tablas</a>
-        <ul>
-          <li><a href="#">Posiciones</a></li>
-          <li><a href="#">Goleadores</a></li>
-        </ul>
-      </li>
-  
-    </ul>
+        <li class="active"><a href="../index.html">Inicio</a></li>
+        <li><a class="drop" href="#">Campeonato</a>
+          <ul>
+            <li ><a href="../pages/calendario.php">Calendario</a></li>
+            <li><a href="./resultados.php">Resultados</a></li>
+          </ul>
+        </li>
+        <li class="active"><a href="equipos.php">Equipos</a></li>
+     
+
+        <li><a href="./jugadores.php">Jugadores</a></li>
+        <li><a class="drop" href="#">Tablas</a>
+          <ul>
+            <li><a href="#">Posiciones</a></li>
+            <li><a href="#">Goleadores</a></li>
+          </ul>
+        </li>
+    
+      </ul>
     <!-- ################################################################################################ -->
   </nav>
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper bgded overlay" style="background-image:url('images/demo/portada1.jpg');">
-  <div id="pageintro" class="hoc clear"> 
+<div class="wrapper bgded overlay" style="background-image:url('../images/demo/portadaEquipos.jpg');">
+  <section id="breadcrumb" class="hoc clear"> 
     <!-- ################################################################################################ -->
-    <article>
-      <p>CAMPEONATO 2020</p>
-      <h3 class="heading">Enero 2020-Julio 2020</h3>
-      <p>Inicia un nuevo Campeonato a cargo de GAD RIOBAMBA,en el que participaran varios equipos Amateurs de la ciudad de Riobamba, con sede en la provincia de Chimborazo,en la categoria Senior</p>
-      <footer>
-        <ul class="nospace inline pushright">
-          <li><a class="btn" href="#">Leer Más</a></li>
-  
-        </ul>
-      </footer>
-    </article>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Campeonato</a></li>
+      <li><a href="#">Calendario</a></li>
+    </ul>
     <!-- ################################################################################################ -->
-  </div>
+    <h6 class="heading">Calendario</h6>
+    <!-- ################################################################################################ -->
+  </section>
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -106,18 +112,61 @@ Licence URI: http://www.os-templates.com/template-terms
   <main class="hoc container clear"> 
     <!-- main body -->
     <!-- ################################################################################################ -->
-    <div class="sectiontitle">
-      <h6 class="heading">Dirección de Desarrollo Social y Humano</h6>
-    </div>
-    <div class="group">
-      <div class="one_half first">
-        <p>OBJETIVO GENERAL:
-
-          Elaborar e implementar proyectos  en programas sociales y económicos de emprendimiento, en el marco del Plan Nacional de Desarrollo para cuantificar las mejoras en el bienestar de la población, que permitan medir en SUMAK KAWSAY o Buen Vivir.</p>
-
-        </ul>
+    <div class="content"> 
+      <!-- ################################################################################################ -->
+      <div id="gallery">
+        <figure>
+          <header class="heading">Calendario de Partidos de Fútbol </header>
+          <ul class="nospace clear">
+            
+          </ul>
+        </figure>
       </div>
-      <div class="one_half"><img class="inspace-10 borderedbox" src="images/demo/riobamba.png" alt=""></div>  <!--Imagen Pequeña de lado derecho parte blanca-->
+      <!-- lugar para programar los equipos -->
+      <!-- ################################################################################################ -->
+
+      <?php
+                            include 'conexion.php';
+                            
+                            $resultado=mysqli_query($conn,"SELECT * FROM  tablaresultadoscopia ");
+                            ?>
+        <div class="contenedor">
+		<table> 
+			<tr class="head">
+            <td><font size = "2">  Código de Partido</font> </td>
+			      <td><font size = "2">  Fecha</font> </td>
+            <td><font size = "2">  Horario</font> </td>
+            <td><font size = "2">  Cancha</font> </td>	
+            <td><font size = "2">  Nombre Árbitro</font> </td>	
+            <td><font size = "2">  Vocalía</font> </td>		
+			      <td><font size = "2">  Equipo 1</font> </td>	
+            <td><font size = "2">  Equipo 2</font> </td>	
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+				 <td><?php echo $filas['id'] ?></td>
+                  <td><?php echo $filas['fechaJuego'] ?></td>
+                  <td><?php echo $filas['horario'] ?></td>
+                  <td><?php echo $filas['cancha'] ?></td>
+                  <td><?php echo $filas['nombreArbitro'] ?></td>
+                  <td><?php echo $filas['eqVocalia'] ?></td>
+                  <td><?php echo $filas['equipo1'] ?></td>
+                  <td><?php echo $filas['equipo2'] ?></td>
+				
+				</tr>
+				<?php } ?>
+		</table>
+                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+      <!-- ################################################################################################ -->
     </div>
     <!-- ################################################################################################ -->
     <!-- / main body -->
@@ -126,34 +175,19 @@ Licence URI: http://www.os-templates.com/template-terms
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<!-- ################################################################################################ 
-<div class="wrapper bgded overlay" style="background-image:url('images/demo/portada1.jpg');"> <!--Banner Iconos-->
-  
 <!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-
-    <!-- ################################################################################################ -->
-  </section>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row4 bgded overlay" style="background-image:url('images/demo/fondocontactos.jpg');">
+<div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/fondocontactos.jpg');">
   <footer id="footer" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div class="one_third first">
       <h6 class="heading">REDES SOCIALES</h6>
-      <figure><a href="https://www.twitter.com"><img class="borderedbox inspace-10 btmspace-15" src="images/demo/tw1.png" alt="">TWITTER</a>
-        <figure><a href="https://www.instagram.com"><img class="borderedbox inspace-10 btmspace-15" src="images/demo/ins.png" alt="">INSTAGRAM</a>
-          <figure><a href="https://www.facebook.com"><img class="borderedbox inspace-10 btmspace-15" src="images/demo/fac1.png" alt="">FACEBOOK</a>
+      <figure><a href="https://www.twitter.com"></a><img class="borderedbox inspace-10 btmspace-15" src="../images/demo/tw1.png" alt="">TWITTER</a>
+        <figure><a href="https://www.instagram.com"><img class="borderedbox inspace-10 btmspace-15" src="../images/demo/ins.png" alt="">INSTAGRAM</a>
+          <figure><a href="https://www.facebook.com"><img class="borderedbox inspace-10 btmspace-15" src="../images/demo/fac1.png" alt="">FACEBOOK</a>
     </div>
     <div class="one_third">
-      <h6 class="heading">INSTITUCION</h6>
-      <figure><a href="#"><img class="borderedbox inspace-10 btmspace-15" src="images/demo/desarrollosocial.jpg" alt=""></a>
+      <h6 class="heading">INSTITUCIÓN</h6>
+      <figure><a href="#"><img class="borderedbox inspace-10 btmspace-15" src="../images/demo/desarrollosocial.jpg" alt=""></a>
         <figcaption>
           <h6 class="nospace font-x1"><a href="#">Dirección</a></h6>
           <li><i class="fa fa-dir"></i> Barrio San Martín, Calles Bolívar Chiriboga y Heriberto Merino (Esquina)</li>
@@ -180,8 +214,8 @@ Licence URI: http://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>

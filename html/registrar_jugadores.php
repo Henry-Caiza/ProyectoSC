@@ -79,9 +79,6 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
-
-                    
-
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Personal Arbitrario</a>
