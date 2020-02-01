@@ -95,7 +95,7 @@
                                 aria-hidden="true"></i>Jugadores</a>
                     </li>
                     <li>
-                        <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
+                        <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-calendar fa-fw"
                                 aria-hidden="true"></i>Calendario</a>
                     </li>
                     <li>
@@ -114,8 +114,8 @@
                                 aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>
-                        <a href="Reportes.php" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
-                                aria-hidden="true"></i>Reportes</a>
+                        <a href="Reportes.php" class="waves-effect"><i class="fa fa-list-alt fa-fw"
+                                aria-hidden="true"></i>Tabla de goleadores</a>
                     </li>
                     <li>
                         <a href="Carnets.php" class="waves-effect"><i class="fa fa-credit-card fa-fw"
