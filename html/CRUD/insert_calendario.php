@@ -53,7 +53,7 @@
 			<p>Fecha de juego</p>
             <div class="form-group">
                 <input type="date" name="fechaJuego" placeholder="Fecha de Juego" class="input__text" required>
-				<input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text" required onclick="validarNombre()">
+				<input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text" required onclick=" return validarNombre()">
             </div>
 			<div class="form-group">
 			<label for="select3"></label>
@@ -95,7 +95,7 @@
             </div>
 			<div class="btn__group">
 				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
-				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick="preguntar()">
+				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick=" validaNombre()">
 			</div>
 			<div>
 			</div>

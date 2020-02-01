@@ -9,17 +9,15 @@
 		$telefono=$_POST['telefono'];
 		$direccion=$_POST['direccion'];
 		$cargo=$_POST['cargo'];
-
+		
 		if(!empty($nombre) && !empty($apellido) && !empty($cedula) && !empty($email) && !empty($telefono) && !empty($direccion)  && !empty($cargo) ){
 			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}
-			if( !filter_var($cedula,FILTER_VALIDATE_INT)){
-				$cedula2=validarCI($cedula);
-				if($cedula2=="Cedula Cedula Incorrecta" ){
-					echo "<script> alert('Cédula no valida');</script>";
-				}
-			}
+			/*if( !filter_var($cedula,FILTER_VALIDATE_INT)){
+				$cedula2=validarCI($cedula);*/
+				
+		//	}
 			
 			else{
 				$consulta_insert=$con->prepare('INSERT INTO personal(nombre,apellido,cedula,email,telefono,direccion,cargo) VALUES(:nombre,:apellido,:cedula,:email,:telefono,:direccion,:cargo)');
@@ -72,7 +70,7 @@
             </div>
 			<div class="btn__group">
 				<a href="../Registro_Personal.php" class="btn btn__danger">Cancelar</a>
-				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
+				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick="validar()">
 			</div>
 		</form>
 	</div>
@@ -81,7 +79,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <?php function validarCI($strCedula)
 {
-
 if(is_null($strCedula) || empty($strCedula)){//compruebo si que el numero enviado es vacio o null
 echo "Por Favor Ingrese la Cedula";
 }else{//caso contrario sigo el proceso
@@ -125,18 +122,39 @@ echo "Cedula Correcta";
 }else{
 echo "Cedula Incorrecta";
 }
-}else{
-echo "Este Nro de Cedula no corresponde a ninguna provincia del ecuador";
 }
-
-
-}else{
-echo "Es un Numero y tiene solo".$total_caracteres;
 }
-}else{
-echo "Esta Cedula no corresponde a un Nro de Cedula de Ecuador";
 }
 }
 } ?>
+<script type="text/javascript">
+      function validar() {
+        var cad = document.getElementById("cedula").value.trim();
+        var total = 0;
+        var longitud = cad.length;
+        var longcheck = longitud - 1;
+
+        if (cad !== "" && longitud === 10){
+          for(i = 0; i < longcheck; i++){
+            if (i%2 === 0) {
+              var aux = cad.charAt(i) * 2;
+              if (aux > 9) aux -= 9;
+              total += aux;
+            } else {
+              total += parseInt(cad.charAt(i)); // parseInt o concatenará en lugar de sumar
+            }
+          }
+
+          total = total % 10 ? 10 - total % 10 : 0;
+
+          if (cad.charAt(longitud-1) == total) {
+			alert("Cedula  válida");
+          }else{
+            alert("Cedula no válida");
+          }
+        }
+      }
+    </script>
+
 </body>
 </html>

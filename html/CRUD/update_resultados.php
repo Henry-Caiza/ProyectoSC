@@ -89,24 +89,27 @@
 	<div class="contenedor">
 		<h2>MODIFICAR RESULTADOS</h2>
 		<form action="" method="post">
-
+		<br><h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;Fecha de Juego&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Horario &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Código de Partido</h6>
             <div class="form-group">
 				<input type="text" name="fechaJuego" value="<?php if($resultado) echo $resultado['fechaJuego']; ?>" class="input__text" readonly="readonly">
                 <input type="text" name="horario" value="<?php if($resultado) echo $resultado['horario']; ?>" class="input__text" readonly="readonly">
                 <input type="text" name="idcalendario" value="<?php if($resultado) echo $resultado['id']; ?>" class="input__text" readonly="readonly">
-            </div>
-            
+			</div>
+			<h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;Equipo 1</h6>
             <div class="form-group">
 				<input type="text" name="equipo1" value="<?php if($resultado) echo $resultado['equipo1']; ?>" class="input__text" readonly="readonly">
 			</div>
+			<h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;Goles Anotados&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; Tarjetas Amarillas &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Rojas</h6>
 			<div class="form-group">
 				<input type="text" name="goles_equipo1" value="<?php if($resultado) echo $resultado['goles_equipo1']; ?>" class="input__text" required>
 				<input type="text" name="tarj_ama_eq1" value="<?php if($resultado) echo $resultado['tarj_ama_eq1']; ?>" class="input__text" required>
                 <input type="text" name="tarj_roj_eq1" value="<?php if($resultado) echo $resultado['tarj_roj_eq1']; ?>" class="input__text" required>
 			</div>
+			<h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;Equipo 2</h6>
 			<div class="form-group">
 				<input type="text" name="equipo2" value="<?php if($resultado) echo $resultado['equipo2']; ?>" class="input__text" readonly="readonly">
 			</div>
+			<h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp;  &nbsp;Goles Anotados&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; Tarjetas Amarillas &nbsp;     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Rojas</h6>
 			<div class="form-group">
 				<input type="text" name="goles_equipo2" value="<?php if($resultado) echo $resultado['goles_equipo2']; ?>" class="input__text" required>
                 <input type="text" name="tarj_ama_eq2" value="<?php if($resultado) echo $resultado['tarj_ama_eq2']; ?>" class="input__text" required>

@@ -27,7 +27,11 @@
 		if(!empty($nombre) && !empty($apellido) && !empty($cedula) && !empty($email) && !empty($telefono) && !empty($direccion)  ){
 			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
-			}else{
+			}
+			if("validar()"==$cedula){
+				echo "<script> alert('Cedula no valido');</script>";
+			}
+			else{
 				$consulta_update=$con->prepare(' UPDATE personal SET  
 					nombre=:nombre,
 					apellido=:apellido,
@@ -73,7 +77,7 @@
 				<input type="text" name="apellido" value="<?php if($resultado) echo $resultado['apellido']; ?>" class="input__text" required>
 			</div>
 			<div class="form-group">
-				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text" required>
+				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text" onclick = "validar()" required>
 				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>" class="input__text" required>
 			</div>
 			<div class="form-group">
@@ -87,12 +91,40 @@
 			</div>
 			<div class="btn__group">
 				<a href="../Registro_Personal.php" class="btn btn__danger">Cancelar</a>
-				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
+				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick="validar()">
 			</div>
 		</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    function validar() {
+        var cad = document.getElementById("cedula").value.trim();
+        var total = 0;
+        var longitud = cad.length;
+        var longcheck = longitud - 1;
+
+        if (cad !== "" && longitud === 10){
+          for(i = 0; i < longcheck; i++){
+            if (i%2 === 0) {
+              var aux = cad.charAt(i) * 2;
+              if (aux > 9) aux -= 9;
+              total += aux;
+            } else {
+              total += parseInt(cad.charAt(i)); // parseInt o concatenará en lugar de sumar
+            }
+          }
+
+          total = total % 10 ? 10 - total % 10 : 0;
+
+          if (cad.charAt(longitud-1) == total) {
+			alert("Cedula  válida");
+          }else{
+            alert("Cedula no válida");
+          }
+        }
+    }
+    </script>
 </body>
 </html>
