@@ -1,6 +1,5 @@
 <?php
 include 'conexion.php';
-
 function getPlantilla(){
    $plantilla='
    <!DOCTYPE html>
@@ -15,7 +14,7 @@ function getPlantilla(){
            <!-- Add icon library -->
        </head>
        <body>
-      
+        
        <div id="General">
        <div id="Datos"> 
        <p>CAMPEONATO DE FUTBOL</p>
@@ -32,7 +31,5 @@ function getPlantilla(){
        </div>
        </body>
        </html> ';
-       
-
 return $plantilla;
 }

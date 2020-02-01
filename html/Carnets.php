@@ -206,8 +206,8 @@
          <td>".$consulta['fechanac']."</td>
          <td>".$consulta['instruccion']."</td>
          <td>".$consulta['estadotransf']."</td>
-         <td><a href=../Proyecto/pdf/Plantilla/carnet.php?id=".$consulta['id']. "  class=\"btn__update\" >Imprimir Carnet</a></td>
-        
+         <td><a href=../pdf/pdfcarnet.php?id=".$consulta['id']. "  class=\"btn__update\" >Imprimir Carnet</a></td>
+            
          </tr>
          </table>
          </div>
