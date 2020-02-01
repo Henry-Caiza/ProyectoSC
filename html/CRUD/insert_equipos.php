@@ -17,7 +17,7 @@
 			echo "Se guardo la Imagen";
 		}else
 		{
-			echo "No Ni merga";
+			echo "No se guardó";
 		}
 		header('Location: ../registrarequipo.php');
 	}

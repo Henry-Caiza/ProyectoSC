@@ -79,12 +79,9 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
-
-                    
-
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i>Personal</a>
+                                aria-hidden="true"></i>Personal Arbitrario</a>
                     </li>
                     
                     <li>
@@ -114,7 +111,7 @@
                     </li>
                     <li>
                         <a href="Reportes.php" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
-                                aria-hidden="true"></i>Reportes</a>
+                                aria-hidden="true"></i>Tabla de goleadores</a>
                     </li>
                     <li>
                         <a href="Carnets.php" class="waves-effect"><i class="fa fa-credit-card fa-fw"
