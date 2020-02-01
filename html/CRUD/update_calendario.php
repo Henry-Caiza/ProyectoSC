@@ -20,7 +20,7 @@
         $valores=$_POST['nombreArbitro'];
         $eqVocalia=$_POST['eqVocalia'];
 		$equipo1=$_POST['equipo1'];
-		$goles_equipo1=(int) $_GET['goles_equipo1'];
+		//$goles_equipo1=(int) $_GET['goles_equipo1'];
         $tarj_ama_eq1=(int) $_GET['tarj_ama_eq1'];
         $tarj_roj_eq1=(int) $_GET['tarj_roj_eq1']; 
 		$equipo2=$_POST['equipo2'];
@@ -29,10 +29,30 @@
         $tarj_roj_eq3=(int) $_GET['tarj_roj_eq2'];
 		$id=(int) $_GET['id'];
 
+		$fechaActual = date("Y-m-d");
+		$mysqli = new mysqli('localhost', 'root', '', 'scf');
+		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'Sub20'");
+		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = 'Sub20'");
+        while($filas=mysqli_fetch_assoc($consultaFin)){
+		   $fechaFin=$filas['fechaFin'];
+	   }
+	   while($filas=mysqli_fetch_assoc($consultaInicio)){
+		$fechaInicio=$filas['fechaInicio'];
+	}
+	//	$datos = mysql_query($fechaFin);
 		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) ){
-			//if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
-				//echo "<script> alert('Correo no valido');</script>";
-			//}else{
+			if($fechaJuego < $fechaActual){
+				echo "<script> alert('la fecha ingresada es incorrecta');</script>";
+			}
+			else
+				if($fechaJuego>$fechaFin){
+					echo "<script> alert('La fecha ingresada es mayor a la de finalización del campeonato');</script>";
+				}
+				else
+				if($fechaJuego<$fechaInicio){
+					echo "<script> alert('La fecha ingresada es menor a la de inicio del campeonato');</script>";
+				}
+				else{
 				$consulta_update=$con->prepare(' UPDATE tablaresultadoscopia SET  
 					fechaJuego=:fechaJuego,
 					horario=:horario,
@@ -66,7 +86,7 @@
 					':id' =>$id
 				));
 				header('Location: ../Registrar_calendario.php');
-			//}
+			}
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}

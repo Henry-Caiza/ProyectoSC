@@ -10,13 +10,25 @@
         $valores1=$_POST['equipo1'];
 		$valores2=$_POST['equipo2'];
 
-		//$mysqli = new mysqli('localhost', 'root', '', 'scf');
-		//$query = $mysqli -> query ("SELECT fechaInicio FROM campeonato ");
+		$fechaActual = date('d-m-Y');
+		$mysqli = new mysqli('localhost', 'root', '', 'scf');
+		$query = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'Sub20'");
+		$query1 = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'Sub20'");
 		
 		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($valores) && !empty($eqVocalia) && !empty($valores1) && !empty($valores2) ){
-			
-				$consulta_insert=$con->prepare('INSERT INTO tablaresultadoscopia(fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:fechaJuego,:horario,:cancha,:nombreArbitros,:eqVocalia,:equipos1,:equipos2)');
-				$consulta_insert->execute(array(
+			if($fechaJuego < $fechaActual){
+				echo "<script> alert('La fecha ingresada es incorrecta');</script>";
+			}
+			if($fechaJuego < $query){
+				echo "<script> alert('La fecha ingresada es mayor a la de finalización del campeonato);</script>";
+			}
+			else{
+				if($fechaJuego > $query1){
+					echo "<script> alert('La fecha ingresada es menor a la de inicio del campeonato);</script>";
+				}
+				else{
+					$consulta_insert=$con->prepare('INSERT INTO tablaresultadoscopia(fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:fechaJuego,:horario,:cancha,:nombreArbitros,:eqVocalia,:equipos1,:equipos2)');
+					$consulta_insert->execute(array(
                     ':fechaJuego' =>$fechaJuego,
                     ':horario' =>$horario,
 					':cancha' =>$cancha,
@@ -24,9 +36,10 @@
 					':eqVocalia' =>$eqVocalia,
 					':equipos1' =>$valores1,
                     ':equipos2' =>$valores2
-				));
-				header('Location: ../Registrar_calendario.php');
-			//}
+					));
+					header('Location: ../Registrar_calendario.php');
+				}
+			}
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
@@ -53,7 +66,7 @@
 			<p>Fecha de juego</p>
             <div class="form-group">
                 <input type="date" name="fechaJuego" placeholder="Fecha de Juego" class="input__text" required>
-				<input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text" required onclick="validarNombre()">
+				<input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text" required onclick="validarNombre('eqVocalia')">
             </div>
 			<div class="form-group">
 			<label for="select3"></label>
@@ -117,7 +130,7 @@
     		}
 		}
 
-		function validaNombre() {
+		function validaNombre(nombre) {
     		var nombre = document.getElementById("eqVocalia");
     		var patron = /^[a-zA-ZÃ€-Ã¿\u00f1\u00d1\s]*$/;
 			if(nombre.value.search(patron)){
