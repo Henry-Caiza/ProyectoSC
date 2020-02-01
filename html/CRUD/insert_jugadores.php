@@ -2,6 +2,7 @@
 	include_once 'conexion.php';
 	
 	if(isset($_POST['guardar'])){
+        $imagen=addslashes(file_get_contents($_FILES['Imagen']['tmp_name']));
 		$cedula=$_POST['cedula'];
         $nombres=$_POST['nombres'];
         $apellidos=$_POST['apellidos'];
@@ -16,13 +17,24 @@
 		$fechanac=$_POST['fechanac'];
         $instruccion=$_POST['instruccion'];
         $estadotransf=$_POST['estadotransf'];
+        
 
-		if(!empty($cedula) && !empty($nombres) && !empty($apellidos) && !empty($numeroasig) && !empty($pais) && !empty($provincia) && !empty($ciudad) && !empty($direccion) && !empty($telefono) && !empty($posicion) && !empty($fechanac) && !empty($instruccion) && !empty($estadotransf) ){
+        $query="INSERT INTO jugadores(foto,cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,posicion,fechanac,instruccion,estadotransf) VALUES('$imagen','$cedula','$nombres','$apellidos','$valores','$numeroasig','$pais','$provincia','$ciudad','$direccion','$telefono','$posicion','$fechanac','$instruccion','$estadotransf')";
+		$resultado=$con->query($query);
+		if($resultado)
+		{
+			echo "Se guardo la Imagen";
+		}else
+		{
+			echo "No se guardó";
+		}
+		/*if(!empty($imagen) && !empty($cedula) && !empty($nombres) && !empty($apellidos)&& !empty($valores) && !empty($numeroasig) && !empty($pais) && !empty($provincia) && !empty($ciudad) && !empty($direccion) && !empty($telefono) && !empty($posicion) && !empty($fechanac) && !empty($instruccion) && !empty($estadotransf) ){
 			if(!filter_var($cedula,FILTER_VALIDATE_INT)){
 				echo "<script> alert('Cedula no valida');</script>";
 			}else{
-				$consulta_insert=$con->prepare('INSERT INTO jugadores(cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,posicion,fechanac,instruccion,estadotransf) VALUES(:cedula,:nombres,:apellidos,:equipos,:numeroasig,:pais,:provincia,:ciudad,:direccion,:telefono,:posicion,:fechanac,:instruccion,:estadotransf)');
+				$consulta_insert=$con->prepare('INSERT INTO jugadores(foto,cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,posicion,fechanac,instruccion,estadotransf) VALUES(:Imagen,:cedula,:nombres,:apellidos,:equipos,:numeroasig,:pais,:provincia,:ciudad,:direccion,:telefono,:posicion,:fechanac,:instruccion,:estadotransf)');
 				$consulta_insert->execute(array(
+                    ':foto' =>$imagen,
                     ':cedula' =>$cedula,
                     ':nombres' =>$nombres,
 					':apellidos' =>$apellidos,
@@ -37,14 +49,14 @@
                     ':fechanac' =>$fechanac,
                     ':instruccion' =>$instruccion,
                     ':estadotransf' =>$estadotransf
-                ));
+                ));*/
                 
                 header('Location: ../registrar_jugadores.php');
             } 
-		} else {
+		/*} else {
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
-	}
+	}*/
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,8 +69,12 @@
 <body>
 	<div class="contenedor">
 		<h2>REGISTRAR JUGADORES</h2>
+<<<<<<< HEAD
 		<form action="" method="post">
         <br><h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Cédula  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Nombres</h6>
+=======
+		<form action="" method="post" enctype="multipart/form-data">
+>>>>>>> 4f0cb8def41a78d232be88d99d30cf11b206e729
 			<div class="form-group">
 				<input type="text" name="cedula" placeholder="Cédula" class="input__text" >
 				<input type="text" name="nombres" placeholder="Nombres" class="input__text" >
@@ -119,18 +135,16 @@
                 <input type="date" name="fechanac" placeholder="Fecha de Nacimiento" class="input__text" >
     
             </div>
-          <?php 
-        
-          ?>
+
+            <div class="form-group">
+                <input type="file" name="Imagen"/>
+            </div>
+          
 			<div class="btn__group">
 				<a href="../registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
                 <input type="submit" name="guardar" value="Guardar" class="btn btn__primary"  >
                 
             </div>
-
-            <?php 
-       
-        ?>
 
 		</form>
     </div>

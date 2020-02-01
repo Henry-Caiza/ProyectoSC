@@ -79,9 +79,6 @@
                         <a href="registrar_campeonato.php" class="waves-effect"><i class="fa fa-shield fa-fw"
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
-
-                    
-
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Personal Arbitrario</a>
@@ -96,7 +93,7 @@
                                 aria-hidden="true"></i>Jugadores</a>
                     </li>
                     <li>
-                        <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-columns fa-fw"
+                        <a href="Registrar_calendario.php" class="waves-effect"><i class="fa fa-calendar fa-fw"
                                 aria-hidden="true"></i>Calendario</a>
                     </li>
                     <li>
@@ -113,8 +110,8 @@
                                 aria-hidden="true"></i>Transferencias</a>
                     </li>
                     <li>
-                        <a href="Reportes.php" class="waves-effect"><i class="fa fa-file-text-o fa-fw"
-                                aria-hidden="true"></i>Reportes</a>
+                        <a href="Reportes.php" class="waves-effect"><i class="fa fa-list-alt fa-fw"
+                                aria-hidden="true"></i>Tabla de goleadores</a>
                     </li>
                     <li>
                         <a href="Carnets.php" class="waves-effect"><i class="fa fa-credit-card fa-fw"
@@ -152,7 +149,7 @@
                             $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                             ?>
                             <div align="center"><img src="../img/2.png"  width="200" height="200"></div>
-                             <div class="contenedor">
+                             <div class="contenedor"> 
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
             <a href="./buscar_jugador.php" class="btn btn__buscar">Buscar</a>
@@ -164,6 +161,7 @@
             <table> 
 			<tr class="head">
             <td><font size = "2">  Id</font> </td>
+            <td><font size = "2">  Fotografía</font> </td>
 			<td><font size = "2">  Cédula</font> </td>
             <td><font size = "2">  Nombres</font> </td>
             <td><font size = "2">  Apellidos</font> </td>	
@@ -186,6 +184,8 @@
                                         ?>
 				<tr >
                  <td><?php echo $filas['id'] ?></td>
+                 <td><img src="data:image/jpg;base64,<?php echo base64_encode($filas['foto']);?> " width="70"
+     height="70"/></td>
 				 <td><?php echo $filas['cedula'] ?></td>
                   <td><?php echo $filas['nombres'] ?></td>
                   <td><?php echo $filas['apellidos'] ?></td>
