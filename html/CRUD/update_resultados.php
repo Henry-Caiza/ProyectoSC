@@ -27,7 +27,7 @@
         $tarj_ama_eq2=$_POST['tarj_ama_eq2'];
         $tarj_roj_eq2=$_POST['tarj_roj_eq2'];
 		$id=(int) $_GET['id'];
-        
+
         if( !empty($fechaJuego) &&!empty($horario)  && !empty($equipo1)   && !empty($equipo2)   ){
 			if(!filter_var($goles_equipo1,FILTER_VALIDATE_INT)){
 				echo "<script> alert('Goles');</script>";
@@ -39,7 +39,6 @@
 			if($goles_equipo1>50 || $goles_equipo2>50 || $tarj_ama_eq1>15 || $tarj_roj_eq1>5 || $tarj_ama_eq2>15 || $tarj_roj_eq2>5){
 				echo "<script> alert('Valores fuera de rango');</script>";
 			}
-		
 			else{
 				$consulta_update=$con->prepare(' UPDATE tablaresultadoscopia SET  
                     fechaJuego=:fechaJuego,
@@ -71,6 +70,7 @@
 				));
 				header('Location: ../registrar_resultados.php');
 			}
+		
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
@@ -112,15 +112,35 @@
                 <input type="text" name="tarj_ama_eq2" value="<?php if($resultado) echo $resultado['tarj_ama_eq2']; ?>" class="input__text" required>
                 <input type="text" name="tarj_roj_eq2" value="<?php if($resultado) echo $resultado['tarj_roj_eq2']; ?>" class="input__text" required>
 			</div>
-
+			<?php 
+			function verificar($a){
+             if( !empty($a)){
+				echo "<script> alert('datos guardados');</script>";
+			 }
+			}
+			
+			?>
 			<div class="btn__group">
 				<a href="../registrar_resultados.php" class="btn btn__danger">Cancelar</a>
-				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
+				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick=" varificar($goles_equipo1)"
+				
+				>
 			</div>
 		</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type = "text/javascript" >
+function preguntar(){
+    if(confirm('Desea guardar?')){
+     //   windows.location.href="registrarequipo.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+</script>
 </body>
 </html>
