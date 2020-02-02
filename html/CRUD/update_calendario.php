@@ -35,6 +35,9 @@
         $tarj_ama_eq2=$_POST['tarj_ama_eq2'];
         $tarj_roj_eq2=$_POST['tarj_roj_eq2'];
 		$id=(int) $_GET['id'];
+		
+		$hora_inicial = '10:00';
+		$hora_final = '15:00';
 
 		$fechaActual = date("Y-m-d");
 		$mysqli = new mysqli('localhost', 'root', '', 'scf');
@@ -63,6 +66,10 @@
 						if($equipo1==$equipo2){
 							echo "<script> alert('No se puede ingresar Equipos iguales. Intentelo de nuevo.');</script>";
 						}
+						else///////////////////////////////////////////VALIDAR LA HORA///////////////////////////////////
+						if($horario < $hora_inicial && $horario > $hora_final){
+							echo "<script> alert('El horario ingresado es incorrecto');</script>";
+						}///////////////////////////////////////////VALIDAR LA HORA///////////////////////////////////
 						else{
 				$consulta_update=$con->prepare(' UPDATE tablaresultadoscopia SET  
 					fechaJuego=:fechaJuego,

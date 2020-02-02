@@ -36,7 +36,10 @@
 				if($valores1==$valores2){
 					echo "<script> alert('No se puede ingresar Equipos iguales. Intentelo de nuevo.');</script>";
 				}
-				else{
+				else
+					if($horario < "07:00" && $horario > "16:00"){
+						echo "<script> alert('El horario ingresado es incorrecto');</script>";
+					}else{
 					$consulta_insert=$con->prepare('INSERT INTO tablaresultadoscopia(fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:fechaJuego,:horario,:cancha,:nombreArbitros,:eqVocalia,:equipos1,:equipos2)');
 					$consulta_insert->execute(array(
                     ':fechaJuego' =>$fechaJuego,
