@@ -142,7 +142,7 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">  Consulta Jugadores</h3>
+                            <h3 class="box-title">  Transferencias</h3>
                             <?php
                             include 'conexion.php';
                             $mysqli = new mysqli('localhost', 'root', '', 'scf');

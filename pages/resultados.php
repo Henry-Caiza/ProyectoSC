@@ -8,6 +8,7 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html lang="">
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
 <title>Resultados</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">

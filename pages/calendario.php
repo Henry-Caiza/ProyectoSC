@@ -8,6 +8,7 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html lang="">
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
 <title>Calendario</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -50,7 +51,7 @@ Licence URI: http://www.os-templates.com/template-terms
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
-      <h2>SISTEMA DE CAMPEONATOS DE FÚTBOL</h2>
+      <h1>SISTEMA DE CAMPEONATOS DE FÚTBOL</h1>
       <div class="one_half"><img src="../images/demo/logo2.jpg" alt=""></div> 
     
     </div>
