@@ -17,21 +17,19 @@
 		$fechanac=$_POST['fechanac'];
         $instruccion=$_POST['instruccion'];
         $estadotransf=$_POST['estadotransf'];
-        
-
+        $fechaMinima= '1980-01-01';
+        $fechaMaxima= '2002-01-01';
+        //$fechaActual = date("Y-m-d");
         $query="INSERT INTO jugadores(foto,cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,posicion,fechanac,instruccion,estadotransf) VALUES('$imagen','$cedula','$nombres','$apellidos','$valores','$numeroasig','$pais','$provincia','$ciudad','$direccion','$telefono','$posicion','$fechanac','$instruccion','$estadotransf')";
 		$resultado=$con->query($query);
-		if($resultado)
-		{
-			echo "Se guardo la Imagen";
-		}else
-		{
-			echo "No se guardó";
-		}
-		/*if(!empty($imagen) && !empty($cedula) && !empty($nombres) && !empty($apellidos)&& !empty($valores) && !empty($numeroasig) && !empty($pais) && !empty($provincia) && !empty($ciudad) && !empty($direccion) && !empty($telefono) && !empty($posicion) && !empty($fechanac) && !empty($instruccion) && !empty($estadotransf) ){
+		if(!empty($imagen) && !empty($cedula) && !empty($nombres) && !empty($apellidos)&& !empty($valores) && !empty($numeroasig) && !empty($pais) && !empty($provincia) && !empty($ciudad) && !empty($direccion) && !empty($telefono) && !empty($posicion) && !empty($fechanac) && !empty($instruccion) && !empty($estadotransf) ){
 			if(!filter_var($cedula,FILTER_VALIDATE_INT)){
 				echo "<script> alert('Cedula no valida');</script>";
-			}else{
+            }
+            if($fechanac<$fechaMinima || $fechanac>$fechaMaxima){
+                echo "<script> alert('Fecha fuera de rango');</script>";
+            }
+            else{
 				$consulta_insert=$con->prepare('INSERT INTO jugadores(foto,cedula,nombres,apellidos,equipo,numeroasig,pais,provincia,ciudad,direccion,telefono,posicion,fechanac,instruccion,estadotransf) VALUES(:Imagen,:cedula,:nombres,:apellidos,:equipos,:numeroasig,:pais,:provincia,:ciudad,:direccion,:telefono,:posicion,:fechanac,:instruccion,:estadotransf)');
 				$consulta_insert->execute(array(
                     ':foto' =>$imagen,
@@ -49,14 +47,14 @@
                     ':fechanac' =>$fechanac,
                     ':instruccion' =>$instruccion,
                     ':estadotransf' =>$estadotransf
-                ));*/
+                ));
                 
                 header('Location: ../registrar_jugadores.php');
             } 
-		/*} else {
+		} else {
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
-	}*/
+	}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -70,13 +68,16 @@
 	<div class="contenedor">
 		<h2>REGISTRAR JUGADORES</h2>
 		<form action="" method="post" enctype="multipart/form-data">
+        <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Cédula &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombres</h6>
 			<div class="form-group">
 				<input type="text" name="cedula" placeholder="Cédula" class="input__text" >
 				<input type="text" name="nombres" placeholder="Nombres" class="input__text" >
 			</div>
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Apellidos</h6>
 			<div class="form-group">
 				<input type="text" name="apellidos" placeholder="Apellidos" class="input__text" >
             </div>
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Equipo </h6>
             <div class="form-group"> 
                 <label for="select1"></label>
                  <select name="equipo" id="equipo" class="form-control">
@@ -90,27 +91,27 @@
                  </select>
                  
             </div>
-
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Número Asignado &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; País</h6>
 			<div class="form-group">
                 <input type="text" name="numeroasig" placeholder="Número Asignado" class="input__text" >
                 <input type="text" name="pais" placeholder="País" class="input__text" >
             </div>
-
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Provincia &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Ciudad</h6>
             <div class="form-group">
                 <input type="text" name="provincia" placeholder="Provincia" class="input__text" >
                 <input type="text" name="ciudad" placeholder="Ciudad" class="input__text" >
             </div>
-
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dirección &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Teléfono</h6>
             <div class="form-group">
                 <input type="text" name="direccion" placeholder="Dirección" class="input__text" >
                 <input type="text" name="telefono" placeholder="Teléfono" class="input__text" >
             </div>
-
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Posición &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Instrucción</h6>
             <div class="form-group">
                 <input type="text" name="posicion" placeholder="Posición" class="input__text" >
                 <input type="text" name="instruccion" placeholder="Instrucción" class="input__text" >
             </div>
-
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Estado de Transferencia</h6>
             <div class="form-group">
 			<label for="select3"></label>
 				<select name="estadotransf"  class="form-control">
@@ -119,12 +120,12 @@
 					<option value="No Disponibe">No Disponible</option>
 				</select>
             </div>
-            <p>Fecha de Nacimiento</p>
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fecha de Nacimiento</h6>
             <div class="form-group">
                 <input type="date" name="fechanac" placeholder="Fecha de Nacimiento" class="input__text" >
     
             </div>
-
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Foto de Jugador</h6>
             <div class="form-group">
                 <input type="file" name="Imagen"/>
             </div>

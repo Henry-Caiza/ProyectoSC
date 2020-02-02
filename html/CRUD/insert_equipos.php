@@ -12,13 +12,6 @@
 
 		$query="INSERT INTO equipo(escudo,nombreClub,nombrePresi,localidad,telefono,email,numMaxjug) VALUES('$imagen','$nombreClub','$nombrePresi','$localidad','$telefono','$email','$numMaxjug')";
 		$resultado=$con->query($query);
-		if($resultado)
-		{
-			echo "Se guardo la Imagen";
-		}else
-		{
-			echo "No se guardó";
-		}
 		header('Location: ../registrarequipo.php');
 	}
 ?>
@@ -33,21 +26,22 @@
 <body>
 	<div class="contenedor">
 		<h2>INGRESAR EQUIPO</h2>
-		<p> 
-		</p>
 		<form action="" method="POST" enctype="multipart/form-data">
+		<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombre de Equipo &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombre de Presidente</h6>
 			<div class="form-group">
 				<input type="text" name="nombreClub" placeholder="Nombre del Club" class="input__text" required>
 				<input type="text" name="nombrePresi" placeholder="Nombre del Presidente" class="input__text" required>
 			</div>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Localidad &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Teléfono</h6>
 			<div class="form-group">
 				<input type="text" name="localidad" placeholder="Localidad" class="input__text" required>
                 <input type="text" name="telefono" placeholder="Teléfono" class="input__text" required>
 			</div>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Correo Electrónico</h6>
 			<div class="form-group">
                 <input type="text" name="email" placeholder="Email" class="input__text" required>
             </div>
-
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Número de Equipos</h6>
 			<div class="form-group">
 			<label for="select2"></label>
 				<select name="numMaxjug"  class="form-control">
@@ -64,7 +58,7 @@
 					<option value="20">20</option>
 				</select>
 			</div>
-
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Escudo del Equipo</h6>
 			<div class="form-group">
                 <input type="file" name="Imagen"/>
             </div>

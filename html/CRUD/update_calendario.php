@@ -20,13 +20,20 @@
         $valores=$_POST['nombreArbitro'];
         $eqVocalia=$_POST['eqVocalia'];
 		$equipo1=$_POST['equipo1'];
-		//$goles_equipo1=(int) $_GET['goles_equipo1'];
+		$goles_equipo1=$_POST['goles_equipo1'];
+        $tarj_ama_eq1=$_POST['tarj_ama_eq1'];
+        $tarj_roj_eq1=$_POST['tarj_roj_eq1']; 
+	/*	$goles_equipo1=(int) $_GET['goles_equipo1'];
         $tarj_ama_eq1=(int) $_GET['tarj_ama_eq1'];
-        $tarj_roj_eq1=(int) $_GET['tarj_roj_eq1']; 
+		$tarj_roj_eq1=(int) $_GET['tarj_roj_eq1'];
 		$equipo2=$_POST['equipo2'];
 		$goles_equipo2=(int) $_GET['goles_equipo2'];
         $tarj_ama_eq2=(int) $_GET['tarj_ama_eq2'];
-        $tarj_roj_eq3=(int) $_GET['tarj_roj_eq2'];
+		$tarj_roj_eq2=(int) $_GET['tarj_roj_eq2']; */
+		$equipo2=$_POST['equipo2'];
+		$goles_equipo2=$_POST['goles_equipo2'];
+        $tarj_ama_eq2=$_POST['tarj_ama_eq2'];
+        $tarj_roj_eq2=$_POST['tarj_roj_eq2'];
 		$id=(int) $_GET['id'];
 
 		$fechaActual = date("Y-m-d");
@@ -105,17 +112,18 @@
 	<div class="contenedor">
 		<h2>MODIFICAR CALENDARIO</h2>
 		<form action="" method="post">
-			<p>Horario de juego</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Horario&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Cancha </h6>
 			<div class="form-group">
 				<input type="time" name="horario" value="<?php if($resultado) echo $resultado['horario']; ?>" class="input__text" required>
 				<input type="text" name="cancha" value="<?php if($resultado) echo $resultado['cancha']; ?>" class="input__text" required>
+				
 			</div>
-			<p>Fecha de juego</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fecha de Juego &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Vocalía </h6>
 			<div class="form-group">
 				<input type="date" name="fechaJuego" value="<?php if($resultado) echo $resultado['fechaJuego']; ?>" class="input__text" required>
 				<input type="text" name="eqVocalia" value="<?php if($resultado) echo $resultado['eqVocalia']; ?>" class="input__text" required>
 			</div>
-			<p>Nombre de Arbitro</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Nombre de Árbitro</h6>
 			<div class="form-group">
 				<label for="select1"></label>
 				<select name="nombreArbitro" id="nombreArbitro" class="form-control">
@@ -129,7 +137,7 @@
                  	?>
                 </select>
 			</div>
-			<p>Equipo 1</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Equipo 1</h6>
 			<div class="form-group">
 				<label for="select2"></label>
 				<select name="equipo1" id="equipo1" class="form-control">
@@ -143,7 +151,7 @@
                  	?>
                 </select>
 			</div>
-			<p>Equipo 2</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Equipo 2</h6>
 			<div class="form-group">
 				<label for="select3"></label>
 				<select name="equipo2" id="equipo2" class="form-control">
@@ -156,11 +164,21 @@
                  	?>
                 </select>
 			</div>
-            
+          
+			
+			
 			<div class="btn__group">
 				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick="preguntar()">
 			</div>
+			
+				<input style="visibility: hidden" type="text" name="goles_equipo1" value="<?php if($resultado) echo $resultado['goles_equipo1']; ?>" class="input__text" readonly="readonly">
+                <input style="visibility: hidden" type="text" name="tarj_ama_eq1" value="<?php if($resultado) echo $resultado['tarj_ama_eq1']; ?>" class="input__text" readonly="readonly">
+                <input style="visibility: hidden" type="text" name="tarj_roj_eq1" value="<?php if($resultado) echo $resultado['tarj_roj_eq1']; ?>" class="input__text" readonly="readonly">
+				<input style="visibility: hidden" type="text" name="goles_equipo2" value="<?php if($resultado) echo $resultado['goles_equipo2']; ?>" class="input__text" readonly="readonly">
+                <input style="visibility: hidden" type="text" name="tarj_ama_eq2" value="<?php if($resultado) echo $resultado['tarj_ama_eq2']; ?>" class="input__text" readonly="readonly">
+                <input style="visibility: hidden" type="text" name="tarj_roj_eq2" value="<?php if($resultado) echo $resultado['tarj_roj_eq2']; ?>" class="input__text" readonly="readonly">
+			
 		</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

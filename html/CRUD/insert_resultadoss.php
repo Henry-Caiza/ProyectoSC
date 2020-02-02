@@ -9,7 +9,6 @@
 		$goles_equipo2=$_POST['goles_equipo2'];
 		$tarj_ama_eq2=$_POST['tarj_ama_eq2'];
         $tarj_roj_eq2=$_POST['tarj_roj_eq2'];
-
 		if(!empty($goles_equipo1) && !empty($tarj_ama_eq1) && !empty($tarj_roj_eq1) && !empty($goles_equipo2) && !empty($tarj_ama_eq2) && !empty($tarj_roj_eq2) ){
 			if(!filter_var($goles_equipo1,FILTER_VALIDATE_INT)){
 				echo "<script> alert('Goles');</script>";
