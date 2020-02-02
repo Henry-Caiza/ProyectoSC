@@ -53,20 +53,19 @@
 		<h2>INGRESAR PERSONAL</h2>
 		<form action="" method="post">
 			<div class="form-group">
-				<input type="text" name="nombre" placeholder="Nombres" class="input__text" required>
-				<input type="text" name="apellido" placeholder="Apellidos" class="input__text" required>
+				<input type="text" name="nombre" placeholder="Nombres" minlegth="3" maxlength="20" class="input__text" required pattern="[A-Za-z\sáéíóúÁÉÍÓÚ]{3,30}" title="Letras Mínimo: 3. Números: No permitidos">
+				<input type="text" name="apellido" placeholder="Apellidos" minlegth="3" maxlength="20" class="input__text" required pattern="[A-Za-z\sáéíóú]{3,30}" title="Letras Mínimo: 3. Números: No permitidos">
 			</div>
 			<div class="form-group">
-				<input type="text" name="cedula" placeholder="Cédula" class="input__text" required>
-                <input type="text" name="email" placeholder="Correo electrónico" class="input__text" required>
+				<input type="text" name="cedula" placeholder="Cédula" minlegth="10" maxlength="10" class="input__text" required pattern="[0-9]{10}" title="Letras: No. Cantidad Números: 10">
+                <input type="email" name="email" placeholder="Correo electrónico" minlegth="10" maxlength="30" class="input__text" required pattern="[a-zA-Z0-9_-]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="No es un correo válidos">
 			</div>
 			<div class="form-group">
-                <input type="text" name="telefono" placeholder="Teléfono" class="input__text" required>
-                <input type="text" name="direccion" placeholder="Dirección" class="input__text" required>
+                <input type="tel" name="telefono" placeholder="Teléfono" minlegth="7" maxlength="10" class=	"input__text" required pattern="[0-9]{7,10}" title="Letras : No. Cantidad Números: 10">
+                <input type="text" name="direccion" placeholder="Dirección" minlegth="3" maxlength="30" class="input__text" required pattern="[A-Za-z0-9\sáéíóú]{3,30}" title="Letras Mínimo: 3. Caracteres Especiales:No">
             </div>
 			<div class="form-group">
-                <input type="text" name="cargo" placeholder="Cargo" class="input__text" required>
-                
+                <input type="text" name="cargo" placeholder="Cargo" minlegth="5" maxlength="20" class="input__text" required pattern="[A-Za-z\sáéíóúÁÉÍÓÚ]{5,20}" title="Letras Mínimo: 5. Números: No permitidos"> 
             </div>
 			<div class="btn__group">
 				<a href="../Registro_Personal.php" class="btn btn__danger">Cancelar</a>

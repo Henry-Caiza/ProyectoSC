@@ -47,12 +47,12 @@
 		<form action="" method="post">
 			<p>Horario de juego</p>
 			<div class="form-group">
-				<input type="time" name="horario" placeholder="Horario" class="input__text" required>
-				<input type="text" name="cancha" placeholder="Cancha" class="input__text" required>
+				<input type="time" name="horario" placeholder="Horario" min="10:00" max="17:00" class="input__text" required>
+				<input type="text" name="cancha" placeholder="Cancha" minlegth="3" maxlength="30" class="input__text" required pattern="[A-Za-z0-9\sáéíóú]{3,30}" title="Letras Mínimo: 3. Caracteres Especiales:No">
 			</div>
 			<p>Fecha de juego</p>
             <div class="form-group">
-                <input type="date" name="fechaJuego" placeholder="Fecha de Juego" class="input__text" required>
+                <input type="date" name="fechaJuego" placeholder="Fecha de Juego" min= "<?php $fechat=date("Y-m-d"); echo $fechat?>" max="2030-12-31" class="input__text" required>
 				<input type="text" name="eqVocalia" placeholder="Vocalía" class="input__text" required onclick=" return validarNombre()">
             </div>
 			<div class="form-group">
