@@ -10,21 +10,31 @@
         $valores1=$_POST['equipo1'];
 		$valores2=$_POST['equipo2'];
 
-		$fechaActual = date('d-m-Y');
-		$mysqli = new mysqli('localhost', 'root', '', 'scf');
-		$query = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'Sub20'");
-		$query1 = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'Sub20'");
+		$fechaActual = date("Y-m-d");
 		
+		$mysqli = new mysqli('localhost', 'root', '', 'scf');
+		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'Sub20'");
+		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = 'Sub20'");
+        while($filas=mysqli_fetch_assoc($consultaFin)){
+		   	$fechaFin=$filas['fechaFin'];
+	   	}
+	   	while($filas=mysqli_fetch_assoc($consultaInicio)){
+			$fechaInicio=$filas['fechaInicio'];
+		}
+
 		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($valores) && !empty($eqVocalia) && !empty($valores1) && !empty($valores2) ){
 			if($fechaJuego < $fechaActual){
 				echo "<script> alert('La fecha ingresada es incorrecta');</script>";
 			}
-			if($fechaJuego < $query){
-				echo "<script> alert('La fecha ingresada es mayor a la de finalización del campeonato);</script>";
+			if($fechaJuego > $fechaFin){
+				echo "<script> alert('La fecha ingresada es mayor a la de finalización del campeonato');</script>";
 			}
 			else{
-				if($fechaJuego > $query1){
-					echo "<script> alert('La fecha ingresada es menor a la de inicio del campeonato);</script>";
+				if($fechaJuego < $fechaInicio){
+					echo "<script> alert('La fecha ingresada es menor a la de inicio del campeonato');</script>";
+				}else
+				if($valores1==$valores2){
+					echo "<script> alert('No se puede ingresar Equipos iguales. Intentelo de nuevo.');</script>";
 				}
 				else{
 					$consulta_insert=$con->prepare('INSERT INTO tablaresultadoscopia(fechaJuego,horario,cancha,nombreArbitro,eqVocalia,equipo1,equipo2) VALUES(:fechaJuego,:horario,:cancha,:nombreArbitros,:eqVocalia,:equipos1,:equipos2)');
@@ -109,7 +119,7 @@
             </div>
 			<div class="btn__group">
 				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
-				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick=" validaNombre()">
+				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick=" preguntar()">
 			</div>
 			<div>
 			</div>
@@ -120,9 +130,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script type = "text/javascript" >
-		function preguntar(e){	
+		function preguntar(){	
     		if(confirm('Desea guardar los datos?')){
-				alert("Datos guardados");
 				return true;
    	 		}
     		else {

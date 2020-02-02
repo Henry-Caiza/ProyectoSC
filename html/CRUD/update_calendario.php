@@ -42,24 +42,28 @@
 		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = 'Sub20'");
         while($filas=mysqli_fetch_assoc($consultaFin)){
 		   $fechaFin=$filas['fechaFin'];
-	   }
-	   while($filas=mysqli_fetch_assoc($consultaInicio)){
+	   	}
+	   	while($filas=mysqli_fetch_assoc($consultaInicio)){
 		$fechaInicio=$filas['fechaInicio'];
 	}
 	//	$datos = mysql_query($fechaFin);
 		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) ){
 			if($fechaJuego < $fechaActual){
-				echo "<script> alert('la fecha ingresada es incorrecta');</script>";
+				echo "<script> alert('La fecha ingresada es pasada, debe ingresar una fecha actual');</script>";
 			}
 			else
-				if($fechaJuego>$fechaFin){
+				if($fechaJuego > $fechaFin){
 					echo "<script> alert('La fecha ingresada es mayor a la de finalización del campeonato');</script>";
 				}
 				else
-				if($fechaJuego<$fechaInicio){
-					echo "<script> alert('La fecha ingresada es menor a la de inicio del campeonato');</script>";
-				}
-				else{
+					if($fechaJuego < $fechaInicio){
+						echo "<script> alert('La fecha ingresada es menor a la de inicio del campeonato');</script>";
+					}
+					else
+						if($equipo1==$equipo2){
+							echo "<script> alert('No se puede ingresar Equipos iguales. Intentelo de nuevo.');</script>";
+						}
+						else{
 				$consulta_update=$con->prepare(' UPDATE tablaresultadoscopia SET  
 					fechaJuego=:fechaJuego,
 					horario=:horario,
@@ -187,7 +191,6 @@
 <script type = "text/javascript" >
 	function preguntar(e){	
     	if(confirm('Desea guardar los datos?')){
-			alert("Datos modificados");
 			return true;
    	 	}
     	else {
