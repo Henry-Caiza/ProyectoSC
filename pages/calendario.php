@@ -51,7 +51,7 @@ Licence URI: http://www.os-templates.com/template-terms
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
-      <h2>SISTEMA DE CAMPEONATOS DE FÚTBOL</h2>
+      <h1>SISTEMA DE CAMPEONATOS DE FÚTBOL</h1>
       <div class="one_half"><img src="../images/demo/logo2.jpg" alt=""></div> 
     
     </div>
