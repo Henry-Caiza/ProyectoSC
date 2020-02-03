@@ -159,35 +159,32 @@
                         <div class="white-box">
                             <h3 class="box-title">Tabla de Posiciones</h3>
                             
-                                <?php
-                                    include 'conexion.php';
-                                    $mysqli = new mysqli('localhost', 'root', '', 'scf');
-                                    $resultado = mysqli_query($mysqli,"SELECT equipo,puntos FROM tablapos Order by 2 Desc");
-                                ?>  
-                                <div align="center"><img src="../img/7.png"  width="200" height="200"></div>
-                                <div> 
-                                </div>
-                                <br/>
-                                <br/>
-                                    <div align="center" id="div1"> 
-                                    <table>
-                                        
-                                        <tr class="head">
-			                                <td><font size = "2">  Equipos</font> </td>
-                                            <td><font size = "2">   Puntos</font> </td>
-                                        </tr>
-                                    
-                                        
-                                            <?php while ($filas=mysqli_fetch_assoc($resultado)){
-                                                ?>
-                                                    <tr>
-                                                        <td><?php echo $filas['equipo']?></td>
-                                                        <td><?php echo $filas['puntos']?></td>           
-                                                    </tr>
-                                            <?php } ?>
-                                
-                                    </table>
-                                    </div>
+                            <?php
+                            
+                            include 'conexion.php';
+                            $resultado=mysqli_query($conn,"SELECT * FROM  equipo WHERE 1 ORDER BY puntos DESC ");
+                            ?>
+		<table> 
+			<tr class="head">
+			
+            <td><font size = "2">  Escudo</font> </td>
+            <td><font size = "2">  Nombre Equipo</font> </td>
+            <td><font size = "2">  Puntos</font> </td>	
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+                 <td><img src="data:image/jpg;base64,<?php echo base64_encode($filas['escudo']);?> " width="70"
+     height="70"/></td>
+                  <td><?php echo $filas['nombreClub'] ?></td>
+                  
+				  <td><?php echo $filas['puntos'] ?></td>
+				</tr>
+				<?php } ?>
+
+		</table>
 		
                              
 

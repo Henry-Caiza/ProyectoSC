@@ -27,6 +27,8 @@
         $tarj_ama_eq2=$_POST['tarj_ama_eq2'];
         $tarj_roj_eq2=$_POST['tarj_roj_eq2'];
 		$id=(int) $_GET['id'];
+		$puntos1=$_POST['PuntosA'];
+		$puntos2=$_POST['PuntosB'];
 
         if( !empty($fechaJuego) &&!empty($horario)  && !empty($equipo1)   && !empty($equipo2)   ){
 			if(!filter_var($goles_equipo1,FILTER_VALIDATE_INT)){
@@ -69,6 +71,18 @@
 				));
 				header('Location: ../registrar_resultados.php');
 			}
+
+			$consulta_insert=$con->prepare('INSERT INTO posiciones(nombreClub,puntos) VALUES(:nombreClub,:puntos)');
+				$consulta_insert->execute(array(
+                    ':nombreClub' =>$equipo1,
+                    ':puntos' =>$puntos1
+				));
+
+				$consulta_insert=$con->prepare('INSERT INTO posiciones(nombreClub,puntos) VALUES(:nombreClub,:puntos)');
+				$consulta_insert->execute(array(
+                    ':nombreClub' =>$equipo2,
+                    ':puntos' =>$puntos2
+				));
 		
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
@@ -97,6 +111,11 @@
 			<h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Equipo 1</h6>
             <div class="form-group">
 				<input type="text" name="equipo1" value="<?php if($resultado) echo $resultado['equipo1']; ?>" class="input__text" readonly="readonly">
+				<select name="PuntosA" class="form-control" >
+  				<option value="3">3 Gana</option>
+  				<option value="1">1 Empata</option>
+  				<option value="0">0 Pierde</option>
+				</select>
 			</div>
 			<h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Goles Anotados &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Amarillas &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Rojas</h6>
 			<div class="form-group">
@@ -107,6 +126,11 @@
 			<h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Equipo 2</h6>
 			<div class="form-group">
 				<input type="text" name="equipo2" value="<?php if($resultado) echo $resultado['equipo2']; ?>" class="input__text" readonly="readonly">
+				<select name="PuntosB" class="form-control" >
+  				<option value="3">3 Gana</option>
+  				<option value="1">1 Empata</option>
+  				<option value="0">0 Pierde</option>
+				</select>
 			</div>
 			<h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Goles Anotados &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Amarillas &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Rojas</h6>
 			<div class="form-group">
