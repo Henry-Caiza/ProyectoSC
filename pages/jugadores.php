@@ -69,17 +69,17 @@ Licence URI: http://www.os-templates.com/template-terms
   <nav id="mainav" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <ul class="clear">
-        <li class="active"><a href="../index.html">Inicio</a></li>
+        <li><a href="../index.html">Inicio</a></li>
         <li><a class="drop" href="#">Campeonato</a>
           <ul>
             <li ><a href="../pages/calendario.php">Calendario</a></li>
             <li><a href="./resultados.php">Resultados</a></li>
           </ul>
         </li>
-        <li class="active"><a href="equipos.php">Equipos</a></li>
+        <li><a href="equipos.php">Equipos</a></li>
      
 
-        <li><a href="#">Jugadores</a></li>
+        <li class="active"><a href="#">Jugadores</a></li>
         <li><a class="drop" href="#">Tablas</a>
           <ul>
             <li><a href="#">Posiciones</a></li>
