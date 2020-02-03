@@ -13,8 +13,8 @@
 		$fechaActual = date("Y-m-d");
 		
 		$mysqli = new mysqli('localhost', 'root', '', 'scf');
-		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'camp1'");
-		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = 'camp1'");
+		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'Sub20'");
+		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = 'Sub20'");
         while($filas=mysqli_fetch_assoc($consultaFin)){
 		   	$fechaFin=$filas['fechaFin'];
 	   	}

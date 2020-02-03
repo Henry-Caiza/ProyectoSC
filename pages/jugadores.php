@@ -130,7 +130,19 @@ Licence URI: http://www.os-templates.com/template-terms
                             include 'conexion.php';
                             $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
                         ?>
-                        <div class="contenedor">
+                        <link href="example.css" media="all" rel="stylesheet" type="text/css" />
+                        <style>
+                        .horizontal-scroll-contenedor{
+                          width: auto;
+                          height: auto;
+                          overflow-y: hidden;
+                          overflow-x: auto;
+                          padding: 10px;
+                          background: #F0F0F0;
+                          white-space: nowrap;
+                        }
+                      </style>
+                        <div class="horizontal-scroll-contenedor">
                             <table>   
                                 <tr class="head">
                                     <td><font size = "2">  Id</font> </td>
@@ -149,6 +161,7 @@ Licence URI: http://www.os-templates.com/template-terms
                                     <td><font size = "2">  Fecha Nacimiento</font> </td>	
                                     <td><font size = "2">  Instrucción</font> </td>
                                     <td><font size = "2">  Estado Transferencia </font> </td>
+                                    
 			                    </tr>
 
 			                        <?php while($filas=mysqli_fetch_assoc($resultado)) {
@@ -173,7 +186,7 @@ Licence URI: http://www.os-templates.com/template-terms
                                     <td><?php echo $filas['estadotransf'] ?></td>
                                 </tr>
 				                <?php } ?>
-
+                                
 		                    </table>
         
                         </div>
