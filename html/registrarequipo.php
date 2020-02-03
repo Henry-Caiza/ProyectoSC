@@ -168,7 +168,7 @@
 			<tr class="head">
 			<td><font size = "2">  Id</font> </td>
             <td><font size = "2">  Escudo</font> </td>
-            <td><font size = "2">  Nombre Club</font> </td>
+            <td><font size = "2">  Nombre Equipo</font> </td>
             <td><font size = "2">  Nombre del Presidente</font> </td>	
             <td><font size = "2">  Localidad</font> </td>		
             <td><font size = "2">  Teléfono</font> </td>	

@@ -35,13 +35,43 @@
         $tarj_ama_eq2=$_POST['tarj_ama_eq2'];
         $tarj_roj_eq2=$_POST['tarj_roj_eq2'];
 		$id=(int) $_GET['id'];
+		
+		$hora_inicial = '10:00';
+		$hora_final = '17:00';
 
-		$fechat=date("Y-m-d");
-		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) && !empty($equipo1) && !empty($equipo2)){
-			if($fechaJuego < $fechat){
-				echo "<script> alert('Fecha incorrecta');</script>";
-			}else{
-			$consulta_update=$con->prepare(' UPDATE tablaresultadoscopia SET  
+		$fechaActual = date("Y-m-d");
+		$mysqli = new mysqli('localhost', 'root', '', 'scf');
+		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'camp1'");
+		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = 'camp1'");
+        while($filas=mysqli_fetch_assoc($consultaFin)){
+		   $fechaFin=$filas['fechaFin'];
+	   	}
+	   	while($filas=mysqli_fetch_assoc($consultaInicio)){
+		$fechaInicio=$filas['fechaInicio'];
+	}
+	//	$datos = mysql_query($fechaFin);
+		if(!empty($fechaJuego) && !empty($horario) && !empty($cancha) ){
+			if($fechaJuego < $fechaActual){
+				echo "<script> alert('La fecha ingresada es pasada, debe ingresar una fecha actual');</script>";
+			}
+			else
+				if($fechaJuego > $fechaFin){
+					echo "<script> alert('La fecha ingresada es mayor a la de finalización del campeonato');</script>";
+				}
+				else
+					if($fechaJuego < $fechaInicio){
+						echo "<script> alert('La fecha ingresada es menor a la de inicio del campeonato');</script>";
+					}
+					else
+						if($equipo1==$equipo2){
+							echo "<script> alert('No se puede ingresar Equipos iguales. Intentelo de nuevo.');</script>";
+						}
+						else///////////////////////////////////////////VALIDAR LA HORA///////////////////////////////////
+						if($horario < $hora_inicial && $horario > $hora_final){
+							echo "<script> alert('El horario ingresado es incorrecto');</script>";
+						}///////////////////////////////////////////VALIDAR LA HORA///////////////////////////////////
+						else{
+				$consulta_update=$con->prepare(' UPDATE tablaresultadoscopia SET  
 					fechaJuego=:fechaJuego,
 					horario=:horario,
                     cancha=:cancha,
@@ -75,7 +105,6 @@
 				));
 				header('Location: ../Registrar_calendario.php');
 			}
-			
 		}else{
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
@@ -93,23 +122,24 @@
 <body>
 	<div class="contenedor">
 		<h2>MODIFICAR CALENDARIO</h2>
-		<form action="" method="post">
-			<p>Horario de juego</p>
+		<form action="" method="post" onsubmit="return validar(this)">
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Horario&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Cancha </h6>
 			<div class="form-group">
-				<input type="time" name="horario" value="<?php if($resultado) echo $resultado['horario']; ?>" class="input__text" required>
-				<input type="text" name="cancha" value="<?php if($resultado) echo $resultado['cancha']; ?>" class="input__text" required>
+				<input type="time" name="horario" value="<?php if($resultado) echo $resultado['horario']; ?>"  min="10:00" max="17:00" class="input__text" required>
+				<input type="text" name="cancha" value="<?php if($resultado) echo $resultado['cancha']; ?>" minlegth="3" maxlength="20" class="input__text" required pattern="[A-Za-z0-9\sáéíóú]{3,20}" title="Letras Mínimo: 3. Caracteres Especiales:No">
 				
 			</div>
-			<p>Fecha de juego</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fecha de Juego &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Vocalía </h6>
 			<div class="form-group">
-				<input type="date" name="fechaJuego" value="<?php if($resultado) echo $resultado['fechaJuego']; ?>" class="input__text" required>
-				<input type="text" name="eqVocalia" value="<?php if($resultado) echo $resultado['eqVocalia']; ?>" class="input__text" required>
+				<input type="date" name="fechaJuego" value="<?php if($resultado) echo $resultado['fechaJuego']; ?>" min= "<?php $mysqli = new mysqli('localhost', 'root', '', 'scf'); $consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = 'camp1'"); while($filas=mysqli_fetch_assoc($consultaInicio)){ $fechaInicio=$filas['fechaInicio'];} echo $fechaInicio;?>" 
+				max="<?php $mysqli = new mysqli('localhost', 'root', '', 'scf'); $consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'camp1'"); while($filas=mysqli_fetch_assoc($consultaFin)){ $fechaFin=$filas['fechaFin'];} echo $fechaFin;?>" class="input__text" required>
+				<input type="text" name="eqVocalia" value="<?php if($resultado) echo $resultado['eqVocalia']; ?>" minlegth="3" maxlength="20" class="input__text" required pattern="[A-Za-z0-9\sáéíóúÁÉÍÓÚ]{3,20}" title="Letras Mínimo: 3. Caracteres Especiales:No">
 			</div>
-			<p>Nombre &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; de Arbitro</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Nombre de Árbitro</h6>
 			<div class="form-group">
 				<label for="select1"></label>
-				<select name="nombreArbitro" id="nombreArbitro" class="form-control">
-					<option selected="" disabled="" hidden=""><?php if($resultado) echo $resultado['nombreArbitro']; ?></option>
+				<select autofocus name="nombreArbitro" id="nombreArbitro" class="form-control">
+					<option selected=""  hidden=""value="<?php if($resultado) echo $resultado['nombreArbitro']; ?>" ><?php if($resultado) echo $resultado['nombreArbitro']; ?></option>
 					<?php  
                         $mysqli = new mysqli('localhost', 'root', '', 'scf');
                         $query = $mysqli -> query ("SELECT * FROM personal");
@@ -119,11 +149,11 @@
                  	?>
                 </select>
 			</div>
-			<p>Equipo 1</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Equipo 1</h6>
 			<div class="form-group">
 				<label for="select2"></label>
-				<select name="equipo1" id="equipo1" class="form-control">
-					<option selected="" disabled="" hidden=""><?php if($resultado) echo $resultado['equipo1']; ?></option>
+				<select autofocus name="equipo1" id="equipo1" class="form-control">
+					<option selected=""  hidden="" value="<?php if($resultado) echo $resultado['equipo1']; ?>" ><?php if($resultado) echo $resultado['equipo1']; ?></option>
 					<?php  
                         $mysqli = new mysqli('localhost', 'root', '', 'scf');
                         $query = $mysqli -> query ("SELECT * FROM equipo");
@@ -133,11 +163,11 @@
                  	?>
                 </select>
 			</div>
-			<p>Equipo 2</p>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Equipo 2</h6>
 			<div class="form-group">
 				<label for="select3"></label>
-				<select name="equipo2" id="equipo2" class="form-control">
-					<option selected="" disabled="" hidden=""><?php if($resultado) echo $resultado['equipo2']; ?></option>
+				<select autofocus name="equipo2" id="equipo2" class="form-control">
+					<option selected="" hidden="" value="<?php if($resultado) echo $resultado['equipo2']; ?>" ><?php if($resultado) echo $resultado['equipo2']; ?></option>
 					<?php  
                         $mysqli = new mysqli('localhost', 'root', '', 'scf');
                         $query = $mysqli -> query ("SELECT * FROM equipo");
@@ -151,7 +181,7 @@
 			
 			<div class="btn__group">
 				<a href="../Registrar_calendario.php" class="btn btn__danger">Cancelar</a>
-				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" onclick="preguntar()">
+				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary" >
 			</div>
 			
 				<input style="visibility: hidden" type="text" name="goles_equipo1" value="<?php if($resultado) echo $resultado['goles_equipo1']; ?>" class="input__text" readonly="readonly">
@@ -167,15 +197,60 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script type = "text/javascript" >
-	function preguntar(e){	
-    	if(confirm('Desea guardar los datos?')){
-			alert("Datos modificados");
-			return true;
-   	 	}
-    	else {
-    		return false;
-    	}
+	
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno//////////////////////////////		
+	function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+	alert("Campo horario incorrecto"); 
+    ok = false;
+  }else
+  if(f.elements[1].value == "")
+  {
+	alert("Campo cancha incorrecto"); 
+    ok = false;
+  }else
+  if(f.elements[2].value == "")
+  {
+	alert("Campo fecha de juego incorrecto"); 
+    ok = false;
+  }else
+  if(f.elements[3].value == "")
+  {
+	alert("Campo vocalia incorrecto"); 
+    ok = false;
+  }else
+  if(f.elements[4].value == "")
+  {
+	alert("Campo árbitro no ingresado");
+    ok = false;
+  }else
+  if(f.elements[5].value == "")
+  {
+	alert("Campo equipo 1 no ingresado");
+    ok = false;
+  }else
+  if(f.elements[6].value == "")
+  {
+	alert("Campo equipo 2 no ingresado"); 
+    ok = false;
+  }else
+  if(f.elements[5].value == f.elements[6].value)
+    {
+		alert("No se permiten equipos repetidos"); 
+    ok = false;
+  	}
+  
+  if(ok == true && confirm('¿Desea modificar los datos?') == true)
+  alert('Datos modificados');
+	else {alert("Datos no modificados");
+		ok = false;
 	}
+  return ok;
+}
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno////////////////
 	</script>
 </body>
 </html>

@@ -57,7 +57,6 @@
 				$consulta_update->execute(array(
                     ':fechaJuego' =>$fechaJuego,
                     ':horario' =>$horario,
-                   // ':idcalendario' =>$idcalendario,
                     ':equipo1' =>$equipo1,
                     ':goles_equipo1' =>$goles_equipo1,
                     ':tarj_ama_eq1' =>$tarj_ama_eq1,
@@ -88,32 +87,32 @@
 <body>
 	<div class="contenedor">
 		<h2>MODIFICAR RESULTADOS</h2>
-		<form action="" method="post">
-		<br><h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;Fecha de Juego&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Horario &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Código de Partido</h6>
+		<form action="" method="post" onsubmit="return validar(this)">
+		<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fecha de Juego&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Horario &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Código de Partido</h6>
             <div class="form-group">
 				<input type="text" name="fechaJuego" value="<?php if($resultado) echo $resultado['fechaJuego']; ?>" class="input__text" readonly="readonly">
                 <input type="text" name="horario" value="<?php if($resultado) echo $resultado['horario']; ?>" class="input__text" readonly="readonly">
                 <input type="text" name="idcalendario" value="<?php if($resultado) echo $resultado['id']; ?>" class="input__text" readonly="readonly">
 			</div>
-			<h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;Equipo 1</h6>
+			<h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Equipo 1</h6>
             <div class="form-group">
 				<input type="text" name="equipo1" value="<?php if($resultado) echo $resultado['equipo1']; ?>" class="input__text" readonly="readonly">
 			</div>
-			<h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;Goles Anotados&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; Tarjetas Amarillas &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Rojas</h6>
+			<h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Goles Anotados &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Amarillas &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Rojas</h6>
 			<div class="form-group">
-				<input type="text" name="goles_equipo1" value="<?php if($resultado) echo $resultado['goles_equipo1']; ?>" class="input__text" required>
-				<input type="text" name="tarj_ama_eq1" value="<?php if($resultado) echo $resultado['tarj_ama_eq1']; ?>" class="input__text" required>
-                <input type="text" name="tarj_roj_eq1" value="<?php if($resultado) echo $resultado['tarj_roj_eq1']; ?>" class="input__text" required>
+				<input type="number" name="goles_equipo1" value="<?php if($resultado) echo $resultado['goles_equipo1']; ?>" min="0" max="50"  class="input__text" >
+				<input type="number" name="tarj_ama_eq1" value="<?php if($resultado) echo $resultado['tarj_ama_eq1']; ?>" min="0" max="11"  class="input__text" >
+                <input type="number" name="tarj_roj_eq1" value="<?php if($resultado) echo $resultado['tarj_roj_eq1']; ?>" min="0" max="4"  class="input__text" >
 			</div>
-			<h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;Equipo 2</h6>
+			<h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Equipo 2</h6>
 			<div class="form-group">
 				<input type="text" name="equipo2" value="<?php if($resultado) echo $resultado['equipo2']; ?>" class="input__text" readonly="readonly">
 			</div>
-			<h6>&nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp;  &nbsp;Goles Anotados&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; Tarjetas Amarillas &nbsp;     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Rojas</h6>
+			<h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Goles Anotados &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Amarillas &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tarjetas Rojas</h6>
 			<div class="form-group">
-				<input type="text" name="goles_equipo2" value="<?php if($resultado) echo $resultado['goles_equipo2']; ?>" class="input__text" required>
-                <input type="text" name="tarj_ama_eq2" value="<?php if($resultado) echo $resultado['tarj_ama_eq2']; ?>" class="input__text" required>
-                <input type="text" name="tarj_roj_eq2" value="<?php if($resultado) echo $resultado['tarj_roj_eq2']; ?>" class="input__text" required>
+				<input type="number" name="goles_equipo2" value="<?php if($resultado) echo $resultado['goles_equipo2']; ?>"  min="0" max="50"  class="input__text" >
+                <input type="number" name="tarj_ama_eq2" value="<?php if($resultado) echo $resultado['tarj_ama_eq2']; ?>"  min="0" max="11"  class="input__text" >
+                <input type="number" name="tarj_roj_eq2" value="<?php if($resultado) echo $resultado['tarj_roj_eq2']; ?>"  min="0" max="4"  class="input__text" >
 			</div>
 			<?php 
 			function verificar($a){
@@ -135,15 +134,75 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script type = "text/javascript" >
-function preguntar(){
-    if(confirm('Desea guardar?')){
-     //   windows.location.href="registrarequipo.php";
-      return true;
-    }
-    else {
-    return false;
-    }
+	
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno//////////////////////////////		
+	function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+	alert("Campos no ingresado");
+    ok = false;
+  }else
+  if(f.elements[1].value == "")
+  {
+	alert("Campos no ingresado");
+    ok = false;
+  }else
+  if(f.elements[2].value == "")
+  {
+	alert("Campos no ingresado");
+    ok = false;
+  }else
+  if(f.elements[3].value == "")
+  {
+	alert("Campos no ingresado");
+    ok = false;
+  }else
+  if(f.elements[4].value <0 && f.elements[4].value >50)
+  {
+	alert("Campo goles fuera del rango");
+    ok = false;
+  }else
+  if(f.elements[5].value <0 && f.elements[5].value >11)
+  {
+	alert("Campo tarjetas amarillas fuera del rango");
+    ok = false;
+  }else
+  if(f.elements[6].value <0 && f.elements[6].value >4)
+  {
+	alert("Campo tarjetas rojas fuera del rango");
+    ok = false;
+  }else
+  if(f.elements[7].value == "")
+  {
+	alert("Campo equipo 2 no ingresado"); 
+    ok = false;
+  }else
+  if(f.elements[8].value <0 && f.elements[8].value >50)
+  {
+	alert("Campo goles fuera del rango");
+    ok = false;
+  }else
+  if(f.elements[9].value <0 && f.elements[9].value >11)
+  {
+	alert("Campo tarjetas amarillas fuera del rango");
+    ok = false;
+  }else
+  if(f.elements[10].value <0 && f.elements[10].value >4)
+  {
+	alert("Campo tarjetas rojas fuera del rango");
+    ok = false;
+  }
+  
+  if(ok == true && confirm('¿Desea modificar los datos?') == true)
+  alert('Datos modificados');
+	else {alert("Datos no modificados");
+		ok = false;
+	}
+  return ok;
 }
-</script>
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno////////////////
+	</script>
 </body>
 </html>

@@ -8,6 +8,7 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html lang="">
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
 <title>Equipos</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -115,8 +116,7 @@ Licence URI: http://www.os-templates.com/template-terms
       <!-- ################################################################################################ -->
       <div id="gallery">
         <figure>
-          <header class="heading">Equipos </header>
-          <figcaption>Equipos del Campeonato de Futbol<p></p></figcaption>
+          <header class="heading">Equipos del Campeonato de Fútbol </header>
           <ul class="nospace clear">
             
           </ul>
@@ -126,42 +126,42 @@ Licence URI: http://www.os-templates.com/template-terms
       <!-- ################################################################################################ -->
 
       <?php
-                            include 'conexion.php';
-                            $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
-                            ?>
-                             <div class="contenedor">
+        include 'conexion.php';
+        $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
+      ?> 
+      <div class="contenedor">
           <table> 
             <tr class="head">
-            <td><font size = "3">  Id</font> </td>
-            <td><font size = "3">  Escudo</font> </td>
-            <td><font size = "3">  Nombre Club</font> </td>
-            <td><font size = "3">  Presidente</font> </td>	
-            <td><font size = "3">  Localidad</font> </td>		
-            <td><font size = "3">  Teléfono</font> </td>	
-            <td><font size = "3">  Email</font> </td>	
-            <td><font size = "3">  Nº jugadores</font> </td>	
-			</tr>
+              <td><font size = "3">  Id</font> </td>
+              <td><font size = "3">  Escudo</font> </td>
+              <td><font size = "3">  Nombre Club</font> </td>
+              <td><font size = "3">  Presidente</font> </td>	
+              <td><font size = "3">  Localidad</font> </td>		
+              <td><font size = "3">  Teléfono</font> </td>	
+              <td><font size = "3">  Email</font> </td>	
+              <td><font size = "3">  Nº jugadores</font> </td>	
+			      </tr>
 
 			
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
-                                        ?>
+      ?>
 				<tr >
 				 <td><?php echo $filas['id'] ?></td>
-                 <td><img src="data:image/jpg;base64,<?php echo base64_encode($filas['escudo']);?> " width="5" height="5"/></td>
+                 <td><img src="data:image/jpg;base64,<?php echo base64_encode($filas['escudo']);?> " width="10"
+                  height="10"/></td>
                   <td><?php echo $filas['nombreClub'] ?></td>
                   <td><?php echo $filas['nombrePresi'] ?></td>
                   <td><?php echo $filas['localidad'] ?></td>
                   <td><?php echo $filas['telefono'] ?></td>
-				  <td><?php echo $filas['email'] ?></td>
-				  <td><?php echo $filas['numMaxjug'] ?></td>
+                  <td><?php echo $filas['email'] ?></td>
+                  <td><?php echo $filas['numMaxjug'] ?></td>
+          </tr>
+          <?php } ?>
 
-				</tr>
-				<?php } ?>
-
-		</table>
-                        </div>
+		    </table>
+      </div>
                         
-                    </div>
+  </div>
 
                     
                 </div>

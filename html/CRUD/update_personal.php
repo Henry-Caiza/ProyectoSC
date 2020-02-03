@@ -25,8 +25,8 @@
 		$id=(int) $_GET['id'];
 		$total_caracteres=strlen($cedula);// se suma el total de caracteres
 		if(!empty($nombre) && !empty($apellido) && !empty($cedula) && !empty($email) && !empty($telefono) && !empty($direccion)  ){
-			if(!!!filter_var($nombre,FILTER_VALIDATE_INT)){
-				echo "<script> alert('Nombre no valido');</script>";
+			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+				echo "<script> alert('Email no valido');</script>";
 				}
 			//else{
 				/*if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
@@ -117,22 +117,25 @@
 <body>
 	<div class="contenedor">
 		<h2>MODIFICAR PERSONAL ARBITRARIO</h2>
-		<form action="" method="post">
+		<form action="" method="post" onsubmit="return validar(this)">
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombres &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Apellidos</h6>
 			<div class="form-group">
-				<input type="text" name="nombre" value="<?php if($resultado) echo $resultado['nombre']; ?>" class="input__text" required>
-				<input type="text" name="apellido" value="<?php if($resultado) echo $resultado['apellido']; ?>" class="input__text" required>
+				<input type="text" name="nombre" value="<?php if($resultado) echo $resultado['nombre']; ?>" minlegth="3" maxlength="20" class="input__text" required pattern="[A-Za-z\sáéíóúÁÉÍÓÚ]{3,20}" title="Letras Mínimo: 3. Números: No permitidos">
+				<input type="text" name="apellido" value="<?php if($resultado) echo $resultado['apellido']; ?>" minlegth="3" maxlength="20" class="input__text" required pattern="[A-Za-z\sáéíóúÁÉÍÓÚ]{3,20}" title="Letras Mínimo: 3. Números: No permitidos">
 			</div>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Cédula &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Correo Elctrónico</h6>
 			<div class="form-group">
-				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text" onchange = "validar()" required>
-				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>" class="input__text" required>
+				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" minlegth="10" maxlength="10" class="input__text" required pattern="[0-9]{10}" title="Letras: No. Cantidad Números: 10">
+				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>"  minlegth="10" maxlength="30" class="input__text" required pattern="[a-zA-Z0-9_-]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="No es un correo válidos">
 			</div>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Teléfono &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dirección</h6>
 			<div class="form-group">
-				<input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text" required>
-                <input type="text" name="direccion" value="<?php if($resultado) echo $resultado['direccion']; ?>" class="input__text" required>
+				<input type="tel" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" minlegth="9" maxlength="10" class=	"input__text" required pattern="[0-9]{9,10}" title="Letras : No. Cantidad Números Máximo: 10">
+                <input type="text" name="direccion" value="<?php if($resultado) echo $resultado['direccion']; ?>" minlegth="3" maxlength="30" class="input__text" required pattern="[A-Za-z0-9\sáéíóúÁÉÍÓÚ]{3,30}" title="Letras Mínimo: 3. Caracteres Especiales: No">
 			</div>
-            
+            <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Tipo de Árbitro</h6>
             <div class="form-group">
-			    <input type="text" name="cargo" value="<?php if($resultado) echo $resultado['cargo']; ?>" class="input__text" required>
+			    <input type="text" name="cargo" value="<?php if($resultado) echo $resultado['cargo']; ?>"  minlegth="5" maxlength="20" class="input__text" required pattern="[A-Za-z\sáéíóúÁÉÍÓÚ]{5,20}" title="Letras Mínimo: 5. Números: No permitidos">
                 
 			</div>
 			<div class="btn__group">
@@ -145,40 +148,85 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script type="text/javascript">
-    function validar(){
-		var cedula = form.cedula.value;
-  array = cedula.split( "" );
-  num = array.length;
-  if ( num == 10 )
+     
+	  ////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno//////////////////////////////		
+	function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  var cedula=f.elements[2].value;
+	 var ult_digito=Number(cedula.substr(-1,1));//extraigo el ultimo digito de la cedula
+					var valor2=Number(cedula.substr(1, 1));
+					var valor4=Number(cedula.substr(3, 1));
+					var valor6=Number(cedula.substr(5, 1));
+					var valor8=Number(cedula.substr(7, 1));
+					var suma_pares=(valor2 + valor4 + valor6 + valor8);
+					var valor1=Number(cedula.substr(0, 1));
+					 valor1=(valor1 * 2);
+					if(valor1>9){ valor1=(valor1 - 9); }
+					var valor3=Number(cedula.substr(2, 1));
+					 valor3=(valor3 * 2);
+					if(valor3>9){ valor3=(valor3 - 9); }
+					var valor5=Number(cedula.substr(4, 1));
+					 valor5=(valor5 * 2);
+					if(valor5>9){ valor5=(valor5 - 9); }
+					var valor7=Number(cedula.substr(6, 1));
+					 valor7=(valor7 * 2);
+					if(valor7>9){ valor7=(valor7 - 9); }
+					var valor9=Number(cedula.substr(8, 1));
+					 valor9=(valor9 * 2);
+					if(valor9>9){ valor9=(valor9 - 9); }
+					var suma_impares=(valor1 + valor3 + valor5 + valor7 + valor9);
+					 suma=(suma_pares + suma_impares);
+					 var p=String(suma);
+					var dis=Number(p.substr(0,1));//extraigo el primer numero de la suma
+					dis=((dis + 1)* 10);//luego ese numero lo multiplico x 10, consiguiendo asi la decena inmediata superior
+					var digito=(dis - suma);
+					if(digito==10){ digito=0; }//si la suma nos resulta 10, el decimo digito es cero
+					if (digito!=ult_digito){//comparo los digitos final y ultimo
+						alert("Cédula Incorrecta"); 
+						ok = false;
+					}
+  if(f.elements[0].value == "")
   {
-    total = 0;
-    digito = (array[9]*1);
-    for( i=0; i < (num-1); i++ ) { mult = 0; if ( ( i%2 ) != 0 ) { total = total + ( array[i] * 1 ); } else { mult = array[i] * 2; if ( mult > 9 )
-          total = total + ( mult - 9 );
-        else
-          total = total + mult;
-      }
-    }
-    decena = total / 10;
-    decena = Math.floor( decena );
-    decena = ( decena + 1 ) * 10;
-    final = ( decena - total );
-    if ( ( final == 10 && digito == 0 ) || ( final == digito ) ) {
-      alert( "La c\xe9dula ES v\xe1lida!!!" );
-      return true;
-    }
-    else
-    {
-      alert( "La c\xe9dula NO es v\xe1lida!!!" );
-      return false;
-    }
+	alert("Campo no ingresado"); 
+    ok = false;
   }
-  else
+
+  if(f.elements[2].value == "")
   {
-    alert("La c\xe9dula no puede tener menos de 10 d\xedgitos");
-    return false;
+	alert("Campo no ingresado"); 
+    ok = false;
   }
+
+  if(f.elements[3].value == "")
+  {
+	alert("Campo no ingresado"); 
+    ok = false;
+  }
+  if((f.elements[4].value.length >=7 && f.elements[4].value.length <=8)|| (f.elements[4].value.length >=0 && f.elements[4].value.length <=7))
+  {
+	alert("Número de telefono incorrecto"); 
+    ok = false;
+  }
+  if(f.elements[5].value == "")
+  {
+	alert("Campo no ingresado"); 
+    ok = false;
+  }
+  if(f.elements[6].value == "")
+  {
+	alert("Campo no ingresado"); 
+    ok = false;
+  }
+
+  if(ok == true && confirm('¿Desea modificar los datos?') == true)
+  alert('Datos modificados');
+	else {alert("Datos no modificados");
+		ok = false;
 	}
-</script>
+  return ok;
+}
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno/////////////
+    </script>
 </body>
 </html>

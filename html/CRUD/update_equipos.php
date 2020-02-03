@@ -64,23 +64,27 @@
 <body>
 	<div class="contenedor">
 		<h2>MODIFICAR EQUIPO</h2>
-		<form action="" method="post">
+		<form action="" method="post"  onsubmit="return validar(this)">
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombre de Equipo &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombre de Presidente</h6>
 			<div class="form-group">
-				<input type="text" name="nombreClub" value="<?php if($resultado) echo $resultado['nombreClub']; ?>" class="input__text" required>
-				<input type="text" name="nombrePresi" value="<?php if($resultado) echo $resultado['nombrePresi']; ?>" class="input__text" required>
+				<input type="text" name="nombreClub" value="<?php if($resultado) echo $resultado['nombreClub']; ?>" minlegth="5" maxlength="20" class="input__text" required pattern="[A-Za-z0-9\sáéíóúÁÉÍÓÚ]{3,20}" title="Letras Mínimo: 5. Caracteres Especiales: No Permitidos">
+				<input type="text" name="nombrePresi" value="<?php if($resultado) echo $resultado['nombrePresi']; ?>" minlegth="7" maxlength="20" class="input__text" required pattern="[A-Za-z\sáéíóúÁÉÍÓÚ]{7,20}" title="Letras Mínimo: 7. Números: No permitidos">
 			</div>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Localidad &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Teléfono</h6>
 			<div class="form-group">
-				<input type="text" name="localidad" value="<?php if($resultado) echo $resultado['localidad']; ?>" class="input__text" required>
-				<input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text" required>
+				<input type="text" name="localidad" value="<?php if($resultado) echo $resultado['localidad']; ?>"  minlegth="5" maxlength="20" class="input__text" required pattern="[A-Za-z\sáéíóúÁÉÍÓÚ]{5,20}" title="Letras Mínimo: 5. Números: No permitidos">
+				<input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>"minlegth="9" maxlength="10" class="input__text" required pattern="[0-9]{9,10}" title="Letras : No. Cantidad Números Máximo: 10 Mínimo: 9">
 			</div>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Correo Electrónico</h6>
 			<div class="form-group">
-				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>" class="input__text" required>
+				<input type="text" name="email" value="<?php if($resultado) echo $resultado['email']; ?>" minlegth="10" maxlength="30" class="input__text" required pattern="[a-zA-Z0-9_-]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="No es un correo válidos">
                 
 			</div>
+			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Número de Equipos</h6>
 			<div class="form-group">
 			<label for="select2"></label>
-				<select name="numMaxjug" value="<?php if($resultado) echo $resultado['numMaxjug']; ?>" class="form-control">
-					<option value="0">Escoga número jugadores</option>
+				<select autofocus name="numMaxjug" id="numMaxjug" class="form-control">
+				<option selected="" hidden="" value="<?php if($resultado) echo $resultado['numMaxjug']; ?>" ><?php if($resultado) echo $resultado['numMaxjug']; ?></option>
 					<option value="11">11</option>
 					<option value="12">12</option>
 					<option value="13">13</option>
@@ -102,5 +106,50 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type = "text/javascript" >
+		
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno//////////////////////////////		
+	function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+    ok = false;
+  }else
+  if(f.elements[1].value == "")
+  {
+    ok = false;
+  }else
+  if(f.elements[2].value == "")
+  {
+    ok = false;
+  }else
+  if((f.elements[3].value.length >=7 && f.elements[3].value.length <=8)|| (f.elements[3].value.length >=0 && f.elements[3].value.length <=7))
+  {
+	alert("Número de telefono incorrecto"); 
+    ok = false;
+  }else
+  if(f.elements[4].value == "")
+  {
+    ok = false;
+  }else
+  if(f.elements[5].value == "")
+  {
+    ok = false;
+  }else
+  if(f.elements[6].value == "")
+  {
+    ok = false;
+  }
+  
+if(ok == true && confirm('¿Desea modificar los datos?') == true)
+  alert('Datos modificados');
+	else {alert("Datos no modificados");
+		ok = false;
+	}
+  return ok;
+}
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno////////////////
+	</script>
 </body>
 </html>
