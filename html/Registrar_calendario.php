@@ -63,7 +63,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
-                    <li><a href="../index.html">Cerrar Sesion</a></li>  
+                    <li><a href="../index.html">Cerrar Sesión</a></li>  
                     
                 </ul>
             </div>

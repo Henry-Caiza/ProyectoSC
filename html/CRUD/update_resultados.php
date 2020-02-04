@@ -95,13 +95,13 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
-	<title>Editar Resultados</title>
+	<title>Resultados</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 	<div class="contenedor">
-		<h2>MODIFICAR RESULTADOS</h2>
+		<h2>RESULTADOS</h2>
 		<form action="" method="post" onsubmit="return validar(this)">
 		<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fecha de Juego&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Horario &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Código de Partido</h6>
             <div class="form-group">
@@ -259,9 +259,9 @@
 	alert("Elija bien los puntos");
     ok = false;
   }
-  if(ok == true && confirm('¿Desea modificar los datos?') == true)
-  alert('Datos modificados');
-	else {alert("Datos no modificados");
+  if(ok == true && confirm('¿Desea guarda los datos?') == true)
+  alert('Datos guardados');
+	else {alert("Datos no guardados");
 		ok = false;
 	}
   return ok;

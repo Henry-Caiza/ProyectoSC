@@ -59,7 +59,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
-                    <li><a href="../index.html">Cerrar Sesion</a></li>   
+                    <li><a href="../index.html">Cerrar Sesión</a></li>   
                 </ul>
             </div>
         </nav>
@@ -142,7 +142,7 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">  Transferencias</h3>
+                            <h3 class="box-title">Transferencias</h3>
                             <?php
                             include 'conexion.php';
                             $mysqli = new mysqli('localhost', 'root', '', 'scf');
