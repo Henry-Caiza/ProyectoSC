@@ -9,7 +9,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <html lang="">
 <head>
 <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-<title>Jugadores</title>
+<title>Equipos</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -21,7 +21,6 @@ Licence URI: http://www.os-templates.com/template-terms
     <link href="../html/css/colors/default.css" id="theme" rel="stylesheet">
 
     <link href="../html/CRUD/css/tabla.css" id="theme" rel="stylesheet">
-
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -79,7 +78,7 @@ Licence URI: http://www.os-templates.com/template-terms
         <li><a href="equipos.php">Equipos</a></li>
      
 
-        <li class="active"><a href="#">Jugadores</a></li>
+        <li><a href="./jugadores.php">Jugadores</a></li>
         <li><a class="drop" href="#">Tablas</a>
           <ul>
             <li><a href="./posiciones.php">Posiciones</a></li>
@@ -99,7 +98,8 @@ Licence URI: http://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <ul>
       <li><a href="#">Inicio</a></li>
-      <li><a href="#">Jugadores</a></li>
+      <li><a href="#">Tablas</a></li>
+      <li><a href="#">Tabla de Posiciones</a></li>
     </ul>
     <!-- ################################################################################################ -->
 
@@ -117,7 +117,7 @@ Licence URI: http://www.os-templates.com/template-terms
       <!-- ################################################################################################ -->
       <div id="gallery">
         <figure>
-          <header class="heading"> Jugadores del Campeonato de Fútbol </header>
+          <header class="heading">Tabla de Posiciones del Campeonato de Fútbol </header>
           <ul class="nospace clear">
             
           </ul>
@@ -125,73 +125,35 @@ Licence URI: http://www.os-templates.com/template-terms
       </div>
       <!-- lugar para programar los equipos -->
       <!-- ################################################################################################ -->
-     
-                        <?php
-                            include 'conexion.php';
-                            $resultado=mysqli_query($conn,"SELECT * FROM  jugadores ");
-                        ?>
-                        <link href="example.css" media="all" rel="stylesheet" type="text/css" />
-                        <style>
-                        .horizontal-scroll-contenedor{
-                          width: auto;
-                          height: auto;
-                          overflow-y: hidden;
-                          overflow-x: auto;
-                          padding: 10px;
-                          background: #F0F0F0;
-                          white-space: nowrap;
-                        }
-                      </style>
-                        <div class="horizontal-scroll-contenedor">
-                            <table>   
-                                <tr class="head">
-                                    <td><font size = "2">  Id</font> </td>
-                                    <td><font size = "2">  Fotografía</font> </td>
-                                    <td><font size = "2">  Cédula</font> </td>
-                                    <td><font size = "2">  Nombres</font> </td>
-                                    <td><font size = "2">  Apellidos</font> </td>	
-                                    <td><font size = "2">  Equipo</font> </td>	
-                                    <td><font size = "2">  Numero Asignado</font> </td>	
-                                    <td><font size = "2">  Pais</font> </td>	
-                                    <td><font size = "2">  Provincia</font> </td>
-                                    <td><font size = "2">  Ciudad</font> </td>	
-                                    <td><font size = "2">  Dirección</font> </td>
-                                    <td><font size = "2">  Teléfono</font> </td>	
-                                    <td><font size = "2">  Posición</font> </td>	
-                                    <td><font size = "2">  Fecha Nacimiento</font> </td>	
-                                    <td><font size = "2">  Instrucción</font> </td>
-                                    <td><font size = "2">  Estado Transferencia </font> </td>
-                                    
-			                    </tr>
 
-			                        <?php while($filas=mysqli_fetch_assoc($resultado)) {
-                                    ?>
-				                <tr >
-                                    <td><?php echo $filas['id'] ?></td>
-                                    <td><img src="data:image/jpg;base64,<?php echo base64_encode($filas['foto']);?> " width="10"
-                                    height="10"/></td>
-                                    <td><?php echo $filas['cedula'] ?></td>
-                                    <td><?php echo $filas['nombres'] ?></td>
-                                    <td><?php echo $filas['apellidos'] ?></td>
-                                    <td><?php echo $filas['equipo'] ?></td>
-                                    <td><?php echo $filas['numeroasig'] ?></td>
-                                    <td><?php echo $filas['pais'] ?></td>
-                                    <td><?php echo $filas['provincia'] ?></td>
-                                    <td><?php echo $filas['ciudad'] ?></td>
-                                    <td><?php echo $filas['direccion'] ?></td>
-                                    <td><?php echo $filas['telefono'] ?></td>
-                                    <td><?php echo $filas['posicion'] ?></td>
-                                    <td><?php echo $filas['fechanac'] ?></td>
-                                    <td><?php echo $filas['instruccion'] ?></td>
-                                    <td><?php echo $filas['estadotransf'] ?></td>
-                                </tr>
-				                <?php } ?>
-                                
-		                    </table>
-        
-                        </div>
-		
-	</div>
+      <?php
+        include 'conexion.php';
+        $resultado=mysqli_query($conn,"SELECT * FROM  equipo WHERE 1 ORDER BY puntos DESC ");
+      ?> 
+      <div class="contenedor">
+      <table> 
+			<tr class="head">
+            <td><font size = "3">  Escudo</font> </td>
+            <td><font size = "3">  Nombre Equipo</font> </td>
+            <td><font size = "3">  Puntos</font> </td>	
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+                 <td><img src="data:image/jpg;base64,<?php echo base64_encode($filas['escudo']);?> " width="10"
+                    height="10"/></td>
+                  <td><?php echo $filas['nombreClub'] ?></td>
+                  
+				  <td><?php echo $filas['puntos'] ?></td>
+				</tr>
+				<?php } ?>
+
+		</table>
+      </div>
+                        
+  </div>
 
                     
                 </div>
@@ -203,8 +165,6 @@ Licence URI: http://www.os-templates.com/template-terms
     <div class="clear"></div>
   </main>
 </div>
-<!--slimscroll JavaScript -->
-<script src="js/jquery.slimscroll.js"></script>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
