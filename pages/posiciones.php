@@ -9,7 +9,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <html lang="">
 <head>
 <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-<title>Equipos</title>
+<title>Tabla de posiciones</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -82,7 +82,7 @@ Licence URI: http://www.os-templates.com/template-terms
         <li><a class="drop" href="#">Tablas</a>
           <ul>
             <li><a href="./posiciones.php">Posiciones</a></li>
-            <li><a href="#">Goleadores</a></li>
+            <li><a href="./goleadores.php">Goleadores</a></li>
           </ul>
         </li>
     

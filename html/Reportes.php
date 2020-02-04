@@ -19,6 +19,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="./CRUD/css/tabla.css" id="theme" rel="stylesheet">
  
 </head>
 
@@ -145,7 +146,36 @@
                             <h3 class="box-title">Tabla de goleadores</h3>
                             <div align="center"><img src="../img/10.png"  width="200" height="200"></div>
                             <form>
-                                
+                            <?php
+                            include 'conexion.php';
+                            
+                            $resultado=mysqli_query($conn,"SELECT * FROM  goleadores WHERE 1 ORDER BY goles DESC ");
+                            ?>
+       
+		<div class="barra__buscador">
+			<form action="" class="formulario" method="post">
+				<a href="./CRUD/goleadores.php" class="btn btn__nuevo">Nuevo</a><br></br>
+			</form>
+		</div><br></br>
+		<table> 
+			<tr class="head">
+            <td><font size = "2">  Nombre Club </font> </td>
+			<td><font size = "2">  Nombre Jugador</font> </td>
+            <td><font size = "2">  Goles</font> </td>		
+			</tr>
+
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+				  <td><?php echo $filas['nombreclub'] ?></td>
+				  <td><?php echo $filas['nombrejug'] ?></td>
+                  <td><?php echo $filas['goles'] ?></td>
+                				</tr>
+				<?php } ?>
+
+		</table>
+                            
                             </form>
                                 
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->

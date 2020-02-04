@@ -9,7 +9,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <html lang="">
 <head>
 <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-<title>Resultados</title>
+<title>Goleadores</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -51,13 +51,13 @@ Licence URI: http://www.os-templates.com/template-terms
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
-      <h1>SISTEMA DE CAMPEONATOS DE FÚTBOL</h1>
+      <h1>SISTEMA DE CAMPEONATOS DE FUTBOL</h1>
       <div class="one_half"><img src="../images/demo/logo2.jpg" alt=""></div> 
     
     </div>
   <div id="quickinfo" class="fl_right">
     <ul class="nospace inline">
-      <li><strong>Teléfono:</strong><br>
+      <li><strong>Telefono:</strong><br>
         09393525732</li>
       <li><strong>Correo:</strong><br>
         siscf@gmail.com</li>
@@ -98,10 +98,11 @@ Licence URI: http://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <ul>
       <li><a href="#">Inicio</a></li>
-      <li><a href="#">Campeonato</a></li>
-      <li><a href="#">Resultados</a></li>
+      <li><a href="#">Tablas</a></li>
+      <li><a href="#">Tabla de Goleadores</a></li>
     </ul>
     <!-- ################################################################################################ -->
+
     <!-- ################################################################################################ -->
   </section>
 </div>
@@ -116,72 +117,39 @@ Licence URI: http://www.os-templates.com/template-terms
       <!-- ################################################################################################ -->
       <div id="gallery">
         <figure>
-          <header class="heading">Resultado de los Partidos de Fútbol </header>
+          <header class="heading">Tabla de Goleadores del Campeonato de Fútbol </header>
           <ul class="nospace clear">
             
           </ul>
         </figure>
       </div>
-      <!-- lugar para programar los equipos -->
+      <!-- lugar para programar la tabla de goleadores -->
       <!-- ################################################################################################ -->
-
       <?php
                             include 'conexion.php';
-                            $resultado=mysqli_query($conn,"SELECT * FROM  tablaresultadoscopia ");
-                          //  $resultado2=mysqli_query($conn,"SELECT * FROM  calendario ");
-                            ?>
                             
-                             <div class="contenedor">
-                             
-        <table> 
+                            $resultado=mysqli_query($conn,"SELECT * FROM  goleadores WHERE 1 ORDER BY goles DESC ");
+                            ?>
+       
+	
+		<table> 
 			<tr class="head">
-            <td><font size = "2">  Id Partido</font> </td>
-			      <td><font size = "2">  FechaJuego</font> </td> 
-            <td><font size = "2">  Horario</font> </td>
-            <td><font size = "2">  Código partido</font> </td>	
-            <td><font size = "2">  Equipo</font> </td>	
-            <td><font size = "2">  Goles</font> </td>
-			      <td><font size = "2">  Tarjetas Amarillas</font> </td>	
-            <td><font size = "2">  Tarjetas Rojas</font> </td>
-            <td><font size = "2">  Equipo</font> </td>	
-            <td><font size = "2">  Goles</font> </td>
-            <td><font size = "2">  Tarjetas Amarillas</font> </td>	
-            <td><font size = "2">  Tarjetas Rojas</font> </td>	
+            <td><font size = "2">  Nombre Club </font> </td>
+			<td><font size = "2">  Nombre Jugador</font> </td>
+            <td><font size = "2">  Goles</font> </td>		
 			</tr>
-			<?php while($filas=mysqli_fetch_assoc($resultado)) {
-                /*  $mysqli = new mysqli('localhost', 'root', '', 'scf');
-                  $query= $mysqli -> query("INSERT INTO tablaresultados(equipo1, equipo2, idcalendario, fechaJuego, horario)
-                  SELECT calendario.equipo1, calendario.equipo2, calendario.id, calendario.fechaJuego, calendario.horario FROM calendario 
-                  ");
-                                    */    ?>
-				<tr >
-                  <td><?php echo $filas['id'] ?></td>
-                  <td><?php echo $filas['fechaJuego'] ?></td>
-                  <td><?php echo $filas['horario'] ?></td>
-				          <td><?php echo $filas['id'] ?></td>
-                  <td><?php echo $filas['equipo1'] ?></td>
-                  <td><?php echo $filas['goles_equipo1'] ?></td>
-				          <td><?php echo $filas['tarj_ama_eq1'] ?></td>
-                  <td><?php echo $filas['tarj_roj_eq1'] ?></td>
-                  <td><?php echo $filas['equipo2'] ?></td>
-				          <td><?php echo $filas['goles_equipo2'] ?></td>
-                  <td><?php echo $filas['tarj_ama_eq2'] ?></td>
-                  <td><?php echo $filas['tarj_roj_eq2'] ?></td>
-                </tr>
-				        <?php } ?>
-                
-                </table>
-        
-      
-		
-	</div>
-                            <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                        </div>
-                    </div>
 
-                    
-                </div>
-            </div>
+			
+			<?php while($filas=mysqli_fetch_assoc($resultado)) {
+                                        ?>
+				<tr >
+				  <td><?php echo $filas['nombreclub'] ?></td>
+				  <td><?php echo $filas['nombrejug'] ?></td>
+                  <td><?php echo $filas['goles'] ?></td>
+                				</tr>
+				<?php } ?>
+
+		</table>
       <!-- ################################################################################################ -->
     </div>
     <!-- ################################################################################################ -->

@@ -82,7 +82,7 @@ Licence URI: http://www.os-templates.com/template-terms
         <li><a class="drop" href="#">Tablas</a>
           <ul>
             <li><a href="./posiciones.php">Posiciones</a></li>
-            <li><a href="#">Goleadores</a></li>
+            <li><a href="./goleadores.php">Goleadores</a></li>
           </ul>
         </li>
     
