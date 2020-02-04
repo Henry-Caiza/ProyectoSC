@@ -189,7 +189,7 @@
          <td>".$consulta['cargo']."</td> 
          <td><a href=CRUD/update_personal.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
          <td><a href=CRUD/delete_personal.php?id=".$consulta['id']. " class=\"btn__delete\" onclick=\"return preguntar()\">Eliminar</a></td>
-         </tr>
+         </tr><br></br>
          </table>
     
          ";

@@ -194,7 +194,7 @@
          <td>".$consulta['numeroEq']."</td>
          <td><a href=CRUD/update_campeonato.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
          <td><a href=CRUD/delete_campeonato.php?id=".$consulta['id']. " class=\"btn__delete\" onclick=\"return preguntar()\">Eliminar</a></td>
-         </tr>
+         </tr><br></br>
          </table>
     
          ";

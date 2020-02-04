@@ -186,7 +186,7 @@
                     <td>".$consulta['equipo2']."</td>
                     <td><a href=CRUD/update_calendario.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
                     <td><a href=CRUD/delete_calendario.php?id=".$consulta['id']. " class=\"btn__delete\" onclick=\"return preguntar()\">Eliminar</a></td>
-                </tr>
+                </tr><br></br>
             </table>";
         }
         if(empty($fechaC)){

@@ -190,7 +190,7 @@
             <td>".$consulta['numMaxjug']."</td>
             <td><a href=CRUD/update_equipos.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
             <td><a href=CRUD/delete_equipos.php?id=".$consulta['id']. " class=\"btn__delete\" onclick=\"return preguntar()\">Eliminar</a></td>
-            </tr>
+            </tr><br></br>
          </table>
     
          ";

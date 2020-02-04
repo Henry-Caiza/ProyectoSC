@@ -206,7 +206,7 @@
          <td>".$consulta['estadotransf']."</td>
          <td><a href=CRUD/update_jugadores.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
          <td><a href=CRUD/delete_jugadores.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
-         </tr>
+         </tr><br></br>
          </table>
          </div>
          ";
