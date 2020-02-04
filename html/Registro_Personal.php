@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/demo/logo.png">
-    <title>Registrar Personal</title>
+    <title>Personal Arbitrario</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -63,7 +63,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
-                    <li><a href="../index.html">Cerrar Sesion</a></li>  
+                    <li><a href="../index.html">Cerrar Sesión</a></li>  
                 </ul>
             </div>
             <!-- /.navbar-header -->

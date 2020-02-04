@@ -63,7 +63,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                             href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
-                    <li><a href="../index.html">Cerrar Sesion</a></li>  
+                    <li><a href="../index.html">Cerrar Sesión</a></li>  
                 </ul>
             </div>
             <!-- /.navbar-header -->
@@ -158,7 +158,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">SISTEMA DE CAMPEONATO DE FUTBOL</h3>
+                            <h3 class="box-title">SISTEMA DE CAMPEONATO DE FÚTBOL</h3>
                             <p class="text-muted"></p>
                             <div class="table-responsive">
                                 <font size = "20">BIENVENIDO</font> 
