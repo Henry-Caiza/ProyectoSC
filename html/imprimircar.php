@@ -1,3 +1,4 @@
+
 <?php
 
 include 'conexion.php';
@@ -6,6 +7,7 @@ $mysqli = new mysqli('localhost', 'root', '', 'scf');
         $cedula=$_POST['cedula'];
         $resultado = mysqli_query($mysqli,"SELECT * FROM jugadores WHERE cedula = $cedula");
         While($consulta = mysqli_fetch_assoc($resultado)){
+          $ced=$consulta['cedula'];
             echo'  <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:9px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
@@ -63,6 +65,10 @@ $mysqli = new mysqli('localhost', 'root', '', 'scf');
 </table>
 
 ';
+}
+if(empty($ced)){
+  echo "<script> alert('No existe');</script>";
+  header('Location: Carnets.php');
 }
         
 ?>

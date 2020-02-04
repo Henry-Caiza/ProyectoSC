@@ -153,7 +153,7 @@
                              <div class="contenedor">
                              <div class="barra__buscador"> 
 			    <form action="" class="formulario" method="post">
-                    <a href="buscar_equipo.php" class="btn btn__buscar">Buscar</a>
+                    
                     
 			   </form>
 	    	</div>
@@ -193,7 +193,7 @@
                   <td><?php echo $filas['tarj_ama_eq2'] ?></td>
                   <td><?php echo $filas['tarj_roj_eq2'] ?></td>
 				  <td><a href='CRUD/update_resultados.php?id= <?php echo $filas['id']; ?>'  class="btn__update" >Ingresar/Editar</a></td>
-				  <td><a href='CRUD/delete_jugadores.php?id= <?php echo $filas['id']; ?>' class="btn__delete" onclick=" return preguntar()">Eliminar</a></td>
+				  
                 </tr>
 				<?php } ?>
                 

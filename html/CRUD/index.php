@@ -7,6 +7,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
 	<title>Inicio</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 </head>

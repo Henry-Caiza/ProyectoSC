@@ -136,8 +136,8 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Equipos</li>
-                            <li class="active">Buscar Equipos</li>
+                            <li class="active">Equipos</li>
+                            <li class="active">Consulta Equipos</li>
                         </ol>
                     </div>
                 </div>
@@ -153,8 +153,8 @@
                             ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
-			<form action="" class="formulario" method="post">
-				<input type="text" name="nombreClub" placeholder="Buscar por nombre" class="input__text">
+			<form action="" class="formulario" method="post" onsubmit="return validar(this)">
+				<input type="text" name="nombreClub" placeholder="Buscar por nombre" minlegth="5" maxlength="20" class="input__text" required pattern="[A-Za-z0-9\sáéíóúÁÉÍÓÚ]{3,20}" title="Letras Mínimo: 5. Caracteres Especiales: No Permitidos">
                 <input type="submit" class="btn" name="btn_buscar" value="Buscar">
                 <a href="../html/registrarequipo.php" class="btn btn__danger">Cancelar</a>
                 </form>
@@ -166,6 +166,7 @@
        $nombreClub=$_POST['nombreClub'];
        $resultado = mysqli_query($mysqli,"SELECT * FROM equipo WHERE nombreClub = '$nombreClub'");
        While($consulta = mysqli_fetch_assoc($resultado)){
+        $nombreEq= $consulta['nombreClub'];
            echo "
            
         <table> 
@@ -188,13 +189,15 @@
             <td>".$consulta['email']."</td>
             <td>".$consulta['numMaxjug']."</td>
             <td><a href=CRUD/update_equipos.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
-            <td><a href=CRUD/delete_equipos.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+            <td><a href=CRUD/delete_equipos.php?id=".$consulta['id']. " class=\"btn__delete\" onclick=\"return preguntar()\">Eliminar</a></td>
             </tr>
          </table>
     
          ";
-        
        }
+       if(empty($nombreEq)){
+        echo "<script> alert('No existe');</script>";
+    }
    }
    ?>
 	</div>
@@ -226,6 +229,27 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+    function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="Registro_Personal.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+    alert('Ingrese un nombre');
+    ok = false;
+  }
+ 
+  return ok;
+}
+</script>
 </body>
-
 </html>

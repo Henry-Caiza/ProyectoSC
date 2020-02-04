@@ -42,6 +42,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
 	<title>Transferir Jugadores</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -49,7 +50,7 @@
 <body>
 	<div class="contenedor">
 		<h2>TRANSFERENCIA DE JUGADORES</h2>
-		<form action="" method="post">
+		<form action="" method="post" onsubmit="return validar(this)">
 		<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Cédula &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombres</h6>
 			<div class="form-group">
 				<input type="text" name="cedula" value="<?php if($resultado) echo $resultado['cedula']; ?>" class="input__text" required disabled=»disabled»>
@@ -63,9 +64,8 @@
 			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Equipo </h6>
 			<div class="form-group"> 
                 <label for="select1"></label>
-                 <select name="equipo" id="equipo" class="form-control">
-				 <option selected="" disabled="" hidden=""><?php if($resultado) echo $resultado['equipo']; ?></option>
-				 
+                 <select autofocus name="equipo" id="equipo" class="form-control">
+				 <option selected=""  hidden="" value="<?php if($resultado) echo $resultado['equipo']; ?>" ><?php if($resultado) echo $resultado['equipo']; ?></option>
                  <?php  
                          $mysqli = new mysqli('localhost', 'root', '', 'scf');
                          $query = $mysqli -> query ("SELECT * FROM equipo");
@@ -99,8 +99,8 @@
 			<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Estado de Transferencia</h6>
             <div class="form-group">
 			<label for="select3"></label>
-				<select name="estadotransf" value="<?php if($resultado) echo $resultado['estadotransf']; ?>"  class="form-control">
-					<option value="0"> Escoja Estado Transferencia</option>
+				<select autofocus name="estadotransf" value="<?php if($resultado) echo $resultado['estadotransf']; ?>"  class="form-control">
+				<option selected=""  hidden="" value="<?php if($resultado) echo $resultado['estadotransf']; ?>" ><?php if($resultado) echo $resultado['estadotransf']; ?></option>
 					<option value="Dis">Disponible</option>
 					<option value="NoDis">No Disponible</option>
 				</select>
@@ -111,7 +111,7 @@
 			</div>
 
 			<div class="btn__group">
-				<a href="../registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
+				<a href="../transferencias.php" class="btn btn__danger">Cancelar</a>
 				<input type="submit" name="guardar" value="Guardar" class="btn btn__primary">
 			</div>
 		</form>
@@ -119,5 +119,31 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type = "text/javascript" >
+		
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno//////////////////////////////		
+	function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[3].value == "")
+  {
+	alert('Ingrese un equipo');
+    ok = false;
+  }else
+  if(f.elements[10].value == "")
+  {
+	alert('Escoja un estado de transferencia');
+    ok = false;
+  }
+
+if(ok == true && confirm('¿Desea transferir al jugador?') == true)
+  alert('Transferido');
+	else {alert("No transferido");
+		ok = false;
+	}
+  return ok;
+}
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno////////////////
+	</script>
 </body>
 </html>

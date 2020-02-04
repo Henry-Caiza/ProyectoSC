@@ -133,7 +133,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Jugadores</li>
+                            <li class="active">Jugadores</li>
                         </ol>
 
                         

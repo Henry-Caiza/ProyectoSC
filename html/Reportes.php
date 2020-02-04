@@ -78,8 +78,6 @@
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
 
-                    
-
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Personal Arbitrario</a>
@@ -106,9 +104,10 @@
                                 aria-hidden="true"></i>Resultados</a>
                     </li>
                     <li>
-                        <a href="transferencias.php" class="waves-effect"><i class="fa  fa-retweet fa-fw"
+                        <a href="transferencias.php" class="waves-effect"><i class="fa fa-retweet fa-fw"
                                 aria-hidden="true"></i>Transferencias</a>
                     </li>
+                    
                     <li>
                         <a href="Reportes.php" class="waves-effect"><i class="fa fa-list-alt fa-fw"
                                 aria-hidden="true"></i>Tabla de goleadores</a>
@@ -133,7 +132,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Tranferencia de Jugadores</li>
+                            <li class="active">Tabla de goleadores</li>
                         </ol>
 
                         

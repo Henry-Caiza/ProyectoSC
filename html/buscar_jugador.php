@@ -136,8 +136,8 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Jugadores</li>
-                            <li class="active">Buscar Jugadores</li>
+                            <li class="active">Jugadores</li>
+                            <li class="active">Consulta Jugadores</li>
                         </ol>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                              <div class="contenedor">
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="cedula" placeholder="Buscar por cédula" class="input__text">
+				<input type="text" name="cedula" placeholder="Buscar por cédula" minlegth="10" maxlength="10" class="input__text" required pattern="[0-9]{10}" title="Letras: No. Cantidad Números: 10">
                 <input type="submit" class="btn" name="btn_buscar" value="Buscar">
                 <a href="../html/registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
                 </form>
@@ -166,6 +166,7 @@
        $cedula=$_POST['cedula'];
        $resultado = mysqli_query($mysqli,"SELECT * FROM jugadores WHERE cedula = $cedula");
        While($consulta = mysqli_fetch_assoc($resultado)){
+        $cedulaJug= $consulta['cedula'];
            echo "
            <div id=\"div1\"> 
         <table> 
@@ -209,8 +210,10 @@
          </table>
          </div>
          ";
-        
        }
+       if(empty($cedulaJug)){
+        echo "<script> alert('No existe');</script>";
+    }
    }
    ?>
 	</div>
@@ -242,6 +245,27 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+    function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="Registro_Personal.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+    alert('Ingrese una cédula');
+    ok = false;
+  }
+ 
+  return ok;
+}
+</script>
 </body>
-
 </html>

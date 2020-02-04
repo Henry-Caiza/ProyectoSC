@@ -59,7 +59,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
 	<title>Nuevo Jugador</title>
     <link rel="stylesheet" href="../CRUD/css/tabla.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -128,7 +129,7 @@
             </div>
             <br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Foto de Jugador</h6>
             <div class="form-group">
-                <input type="file" name="Imagen">
+                <input type="file" name="Imagen" required>
             </div>
           
 			<div class="btn__group">

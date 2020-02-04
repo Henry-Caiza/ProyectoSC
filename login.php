@@ -25,8 +25,7 @@ if($nr == 1)
 }
 else if ($nr == 0) 
 {
-	//header("Location: error");
-	echo "No ingreso"; 
+	echo "<script> alert('Usuario no existe'); window.location='loginsis.html'</script>";
 }
 	
 

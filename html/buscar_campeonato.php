@@ -136,8 +136,8 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Campeonatos</li>
-                            <li class="active">Buscar Campeonatos</li>
+                            <li class="active">Campeonato</li>
+                            <li class="active">Consulta Campeonato</li>
                         </ol>
                     </div>
                 </div>
@@ -153,8 +153,8 @@
                             ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
-			<form action="" class="formulario" method="post">
-				<input type="text" name="nombre" placeholder="Buscar por nombre del campeonato" class="input__text">
+			<form action="" class="formulario" method="post" onsubmit="return validar(this)">
+				<input type="text" name="nombre" placeholder="Buscar por nombre del campeonato" minlegth="5" maxlength="20" class="input__text" required pattern="[A-Za-z0-9\sáéíóúÁÉÍÓÚ]{3,20}" title="Letras Mínimo: 5. Caracteres Especiales: No Permitidos">
                 <input type="submit" class="btn" name="btn_buscar" value="Buscar">
                 <a href="../html/registrar_campeonato.php" class="btn btn__danger">Cancelar</a>
                 </form>
@@ -166,6 +166,7 @@
        $nombre=$_POST['nombre'];
        $resultado = mysqli_query($mysqli,"SELECT * FROM campeonato WHERE nombre = '$nombre'");
        While($consulta = mysqli_fetch_assoc($resultado)){
+        $nombreCamp= $consulta['nombre'];
            echo "
            
         <table> 
@@ -191,14 +192,16 @@
          <td>".$consulta['telefono']."</td>
          <td>".$consulta['direccion']."</td>
          <td>".$consulta['numeroEq']."</td>
-         <td><a href=CRUD/update_equipos.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
-         <td><a href=CRUD/delete_equipos.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+         <td><a href=CRUD/update_campeonato.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
+         <td><a href=CRUD/delete_campeonato.php?id=".$consulta['id']. " class=\"btn__delete\" onclick=\"return preguntar()\">Eliminar</a></td>
          </tr>
          </table>
     
          ";
-        
-       }
+        }
+        if(empty($nombreCamp)){
+            echo "<script> alert('No existe');</script>";
+        }
    }
    ?>
 	</div>
@@ -230,6 +233,30 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+    function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="registrarequipo.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno//////////////////////////////		
+	function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+    alert('Ingrese un nombre de campeonato');
+    ok = false;
+  }
+ 
+  return ok;
+}
+////////////////////funcion mensaje de datos guardados y validar si el fomulario esta lleno////////////////
+	</script>
 </body>
 
 </html>

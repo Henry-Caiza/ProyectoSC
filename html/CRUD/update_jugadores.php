@@ -81,6 +81,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
 	<title>Editar Jugadores</title>
 	<link rel="stylesheet" href="../CRUD/css/tabla.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -138,7 +139,9 @@
             <div class="form-group">
 			<label for="select3"></label>
 				<select name="estadotransf" id="estadotransf"  class="form-control">
-				<option selected=""  hidden=""value="<?php if($resultado) echo $resultado['estadotransf']; ?>" ><?php if($resultado) echo $resultado['estadotransf']; ?></option>
+				<option selected=""  hidden=""value="<?php if($resultado) echo $resultado['estadotransf']; ?>" ><?php if($resultado) { $resultado['estadotransf']; } 
+				if($resultado['estadotransf']=="D"){ echo "Disponible";} else echo "No Disponible";
+				?></option>
 					<option value="Dis">Disponible</option>
 					<option value="NoDis">No Disponible</option>
 				</select>

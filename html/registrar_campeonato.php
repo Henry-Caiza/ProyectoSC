@@ -138,7 +138,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Campeonato</li>
+                            <li class="active">Campeonato</li>
                         </ol>
 
                         
@@ -179,8 +179,6 @@
 			<td colspan="2" >Acción  </td>
 			
 			</tr>
-
-			
 			<?php while($filas=mysqli_fetch_assoc($resultado)) {
                                         ?>
 				<tr >

@@ -149,7 +149,7 @@
                     
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Personal</li>
+                            <li class="active">Personal Arbitrario</li>
                         </ol>
 
                         

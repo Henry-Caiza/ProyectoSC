@@ -45,6 +45,7 @@
 </head>
 <body>
 	<div class="contenedor">
+	<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
 		<h2>INGRESAR CARNET</h2>
 		<form action="" method="post">
 			<div class="form-group">

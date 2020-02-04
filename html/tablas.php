@@ -147,7 +147,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Tablas</li>
+                            <li class="active">Tabla de Posiciones</li>
                         </ol>
 
                         

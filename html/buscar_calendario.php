@@ -132,7 +132,7 @@
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
                             <li class="active">Calendario</li>
-                            <li class="active">Buscar Calendario</li>
+                            <li class="active">Consulta Calendario</li>
                         </ol>
                     </div>
                 </div>
@@ -147,9 +147,9 @@
                             ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
-			<form action="" class="formulario" method="post">
+			<form action="" class="formulario" method="post" onsubmit="return validar(this)">
                 <p>Buscar por fecha de juego: </p> 
-				<input type="date" name="fechaJuego" placeholder="Fecha de Juego" class="input__text">
+				<input type="date" name="fechaJuego" placeholder="Fecha de Juego" class="input__text" required>
                 <input type="submit" class="btn" name="btn_buscar" value="Buscar">
                 <a href="../html/registrar_calendario.php" class="btn btn__danger">Cancelar</a>
             </form>
@@ -158,8 +158,9 @@
     <?php 
     if (isset($_POST['btn_buscar'])){
         $fechaJuego=$_POST['fechaJuego'];
-        $resultado = mysqli_query($mysqli,"SELECT * FROM calendario WHERE fechaJuego = '$fechaJuego'");
+        $resultado = mysqli_query($mysqli,"SELECT * FROM tablaresultadoscopia WHERE fechaJuego = '$fechaJuego'");
         While($consulta = mysqli_fetch_assoc($resultado)){
+            $fechaC= $consulta['fechaJuego'];
             echo "
             <table> 
                 <tr class=\"head\">
@@ -184,9 +185,12 @@
                     <td>".$consulta['equipo1']."</td>
                     <td>".$consulta['equipo2']."</td>
                     <td><a href=CRUD/update_calendario.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
-                    <td><a href=CRUD/delete_calendario.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+                    <td><a href=CRUD/delete_calendario.php?id=".$consulta['id']. " class=\"btn__delete\" onclick=\"return preguntar()\">Eliminar</a></td>
                 </tr>
             </table>";
+        }
+        if(empty($fechaC)){
+            echo "<script> alert('No existe');</script>";
         }
     }
    ?>
@@ -219,6 +223,27 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+    function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="Registro_Personal.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+    alert('Ingrese una cédula');
+    ok = false;
+  }
+ 
+  return ok;
+}
+</script>
 </body>
-
 </html>

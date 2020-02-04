@@ -81,8 +81,6 @@
                                 aria-hidden="true"></i>Campeonato</a>
                     </li>
 
-                   
-
                     <li>
                         <a href="Registro_Personal.php" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i>Personal Arbitrario</a>
@@ -137,7 +135,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Carnet de Jugador</li>
+                            <li class="active">Carnets</li>
                         </ol>
 
                         
@@ -156,13 +154,25 @@
                             <div align="center"><img src="../img/6.png"  width="200" height="200"></div>
                              <div class="contenedor">
 		<div class="barra__buscador">
-			<form action="imprimircar.php" class="formulario" method="post">
-				<input type="text" name="cedula" placeholder="Ingrese la cedula del Jugador" class="input__text">
-                <input type="submit" class="btn" name="btn_buscar" value="Imprimir">
+			<form action="imprimircar.php" class="formulario" method="post" onsubmit="return validar(this)">
+				<input type="text" name="cedula" placeholder="Ingrese la cedula del Jugador" minlegth="10" maxlength="10" class="input__text" required pattern="[0-9]{10}" title="Letras: No. Cantidad Números: 10">
+                <input  type="submit" class="btn" name="btn_buscar" value="Imprimir" >
                 <a href="../html/registrar_jugadores.php" class="btn btn__danger">Cancelar</a>
                 </form>
-                </div>
-                
+                </div>       
+                <?php 
+   if (isset($_POST['btn_buscar']))
+   {
+       $cedula=$_POST['cedula'];
+       $resultado = mysqli_query($mysqli,"SELECT * FROM jugadores WHERE cedula = $cedula");
+       While($consulta = mysqli_fetch_assoc($resultado)){
+        $cedulaC= $consulta['cedula'];
+       }
+       if(empty($cedulaC)){
+        echo "<script> alert('No existe');</script>";
+    }
+}
+        ?>
   	</div>
 </body>     
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
@@ -192,6 +202,28 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script type = "text/javascript" >
+    function preguntar(){
+    if(confirm('Estas seguro de que deeas eliminar?')){
+     //   windows.location.href="Registro_Personal.php";
+      return true;
+    }
+    else {
+    return false;
+    }
+}
+function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+    alert('Ingrese una cédula');
+    ok = false;
+  }
+ 
+  return ok;
+}
+</script>
 </body>
 
 </html>

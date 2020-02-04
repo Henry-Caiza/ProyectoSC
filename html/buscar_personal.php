@@ -134,8 +134,8 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="#">Inicio</a></li>
-                            <li class="active">Registrar Personal</li>
-                            <li class="active">Buscar Personal</li>
+                            <li class="active">Personal Arbitrario</li>
+                            <li class="active">Consulta Personal Arbitrario</li>
                         </ol>
                     </div>
                 </div>
@@ -147,25 +147,25 @@
                             <?php
                             include 'conexion.php';
                             $mysqli = new mysqli('localhost', 'root', '', 'scf');
-                           // $resultado=mysqli_query($conn,"SELECT * FROM  equipo ");
+                          // $resultado=mysqli_query($conn,"SELECT * FROM  personal ");
                             ?>
                              <div class="contenedor">
 		<div class="barra__buscador">
-			<form action="" class="formulario" method="post">
-				<input type="text" name="nombre" placeholder="Buscar por nombre del personal" class="input__text">
+			<form action="" class="formulario" method="post" onsubmit="return validar(this)">
+				<input type="text" name="cedula" placeholder="Buscar por cédula del personal" minlegth="10" maxlength="10" class="input__text" required pattern="[0-9]{10}" title="Letras: No. Cantidad Números: 10">
                 <input type="submit" class="btn" name="btn_buscar" value="Buscar">
                 <a href="../html/Registro_Personal.php" class="btn btn__danger">Cancelar</a>
                 </form>
                 </div>
                 
-   <?php 
+                <?php 
    if (isset($_POST['btn_buscar']))
    {
-       $nombre=$_POST['nombre'];
-       $resultado = mysqli_query($mysqli,"SELECT * FROM personal WHERE nombre = '$nombre'");
+       $cedula=$_POST['cedula'];
+       $resultado = mysqli_query($mysqli,"SELECT * FROM personal WHERE cedula = $cedula");
        While($consulta = mysqli_fetch_assoc($resultado)){
-           echo "
-           
+        $cedulaPer= $consulta['cedula'];
+        echo "
         <table> 
 			<tr class=\"head\">
             <td><font size = \"2\">  id</font> </td>
@@ -186,15 +186,17 @@
          <td>".$consulta['email']."</td>
          <td>".$consulta['telefono']."</td>
          <td>".$consulta['direccion']."</td>
-         <td>".$consulta['cargo']."</td>
+         <td>".$consulta['cargo']."</td> 
          <td><a href=CRUD/update_personal.php?id=".$consulta['id']. "  class=\"btn__update\" >Editar</a></td>
-         <td><a href=CRUD/delete_personal.php?id=".$consulta['id']. " class=\"btn__delete\">Eliminar</a></td>
+         <td><a href=CRUD/delete_personal.php?id=".$consulta['id']. " class=\"btn__delete\" onclick=\"return preguntar()\">Eliminar</a></td>
          </tr>
          </table>
     
          ";
-        
-       }
+        }
+        if(empty($cedulaPer)){
+            echo "<script> alert('No existe');</script>";
+        }
    }
    ?>
 	</div>
@@ -235,7 +237,19 @@
     else {
     return false;
     }
-}</script>
+}
+function validar(f){
+  var ok = true;
+  var msg = "Debes escribir contenido en los campos:\n";
+  if(f.elements[0].value == "")
+  {
+    alert('Ingrese una cédula');
+    ok = false;
+  }
+ 
+  return ok;
+}
+</script>
 </body>
 
 </html>
