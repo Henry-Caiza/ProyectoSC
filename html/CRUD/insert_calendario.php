@@ -9,12 +9,13 @@
         $eqVocalia=$_POST['eqVocalia'];
         $valores1=$_POST['equipo1'];
 		$valores2=$_POST['equipo2'];
+		$nombrecamp=$_POST['nombrecamp'];
 
 		$fechaActual = date("Y-m-d");
 		
 		$mysqli = new mysqli('localhost', 'root', '', 'scf');
-		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = 'Camp1'");
-		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = 'Camp1'");
+		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = '.$nombrecamp'");
+		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = '.$nombrecamp'");
         while($filas=mysqli_fetch_assoc($consultaFin)){
 		   	$fechaFin=$filas['fechaFin'];
 	   	}
@@ -72,6 +73,18 @@
 	<div class="contenedor">
 		<h2>INGRESAR CALENDARIOS</h2>
 		<form action="" method="post" onsubmit="return validar(this)">
+		<div class="form-group">
+		<select name="nombrecamp" id="nombrecamp" class="form-control" required>
+                 <option selected="" disabled="" hidden="" value="">Escoja un Campeonato</option>
+                 <?php  
+                         $mysqli = new mysqli('localhost', 'root', '', 'scf');
+                         $query = $mysqli -> query ("SELECT * FROM campeonato");
+                         while ($valores = mysqli_fetch_array($query)) {
+                        echo '<option value="'.$valores[nombre].'">'.$valores[nombre].'</option>';}
+                 ?>
+                 </select>
+
+		</div>
 		<br><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Horario&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; Cancha </h6>
 			<div class="form-group">
 				<input type="time" name="horario" placeholder="Horario" min="10:00" max="17:00"  class="input__text" required>
