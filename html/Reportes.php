@@ -142,7 +142,8 @@
                     <div class="col-md-12">
                         <div class="white-box">
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
-                            <h3 class="box-title">Transferencia de Jugadores</h3>
+                            <h3 class="box-title">Tabla de goleadores</h3>
+                            <div align="center"><img src="../img/10.png"  width="200" height="200"></div>
                             <form>
                                 <p>Ingrese la cédula del jugador: <p> <input type="text" name="nombrejugador" size="30">
                                 <button type="button">

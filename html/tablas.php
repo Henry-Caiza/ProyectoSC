@@ -164,7 +164,12 @@
                             include 'conexion.php';
                             $resultado=mysqli_query($conn,"SELECT * FROM  equipo WHERE 1 ORDER BY puntos DESC ");
                             ?>
-		<table> 
+                            <div align="center"><img src="../img/7.png"  width="200" height="200"></div>
+                            <br>
+                            <br>
+                            <br>
+                            
+		<table align="center"> 
 			<tr class="head">
 			
             <td><font size = "2">  Escudo</font> </td>
