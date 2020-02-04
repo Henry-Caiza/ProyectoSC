@@ -14,8 +14,8 @@
 		$fechaActual = date("Y-m-d");
 		
 		$mysqli = new mysqli('localhost', 'root', '', 'scf');
-		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = '.$nombrecamp'");
-		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = '.$nombrecamp'");
+		$consultaFin = $mysqli -> query ("SELECT fechaFin FROM campeonato where nombre = '$nombrecamp'");
+		$consultaInicio = $mysqli -> query ("SELECT fechaInicio FROM campeonato where nombre = '$nombrecamp'");
         while($filas=mysqli_fetch_assoc($consultaFin)){
 		   	$fechaFin=$filas['fechaFin'];
 	   	}

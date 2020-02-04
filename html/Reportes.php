@@ -145,25 +145,7 @@
                             <h3 class="box-title">Tabla de goleadores</h3>
                             <div align="center"><img src="../img/10.png"  width="200" height="200"></div>
                             <form>
-                                <p>Ingrese la cédula del jugador: <p> <input type="text" name="nombrejugador" size="30">
-                                <button type="button">
-                                    <img src="../images/demo/iconobuscar.png" width="28" height="24" style="vertical-align: middle">
-                                    Buscar
-                                  </button>
-                                </p>
                                 
-                                <p>Equipo de Destino</p>
-                                <select name="men2u">
-                                    <option value="0">Elegir equipo</option>
-                                    <option value="1">Equipo 2</option>
-                                    <option value="2">Equipo 3</option>
-                                    <option value="3">Equipo 4</option>
-                                    <option value="4">Equipo 5</option>
-                                    <option value="5">Equipo 6</option>
-                                  </select>
-                                </p>
-                                <input type="button" value="Transferir">
-                                <input type="button" value="Cancelar">
                             </form>
                                 
                             <!-- ############################################## DATOS DEL REGISTRO ################################### -->
